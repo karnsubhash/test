@@ -37,7 +37,7 @@ const EditPdf = () => {
         uploadPdf(file);
       } else {
         message.error({
-          content: "Only svg will be accepted",
+          content: "Only pdf will be accepted",
           key: "TELECOM_NMS_UI",
         });
         setFileList([]);
