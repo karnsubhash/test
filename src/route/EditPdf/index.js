@@ -10,7 +10,7 @@ const EditPdf = () => {
     var formData = new FormData();
     formData.append("file", file);
     instance
-      .post("/uploadImageToBackend/" + 5, formData, {
+      .post("/uploadGeographyImagesToBackend", formData, {
         headers: {
           "Content-Type": "multipart/form-data;",
         },
