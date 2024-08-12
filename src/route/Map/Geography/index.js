@@ -1,5 +1,5 @@
 import { UploadOutlined } from "@ant-design/icons";
-import { Button, Image, message, Upload } from "antd";
+import { Button, Image, Input, message, Upload } from "antd";
 import React from "react";
 import { instance } from "../../../util/axios";
 
@@ -29,10 +29,14 @@ const imageList = [
 const Geography = () => {
   const [fileList, setFileList] = React.useState([]);
   const [imageURL, setImageURL] = React.useState("");
+  const [titleName, setTitleName] = React.useState("");
 
   const uploadPdf = (file) => {
+    const value = { titleName: titleName };
     var formData = new FormData();
     formData.append("file", file);
+    formData.append("metaData", JSON.stringify(value));
+
     instance
       .post("/uploadGeographyImagesToBackend", formData, {
         headers: {
@@ -54,14 +58,18 @@ const Geography = () => {
     beforeUpload(file) {
       // console.log('FILE', file);
       let fileExtension = file?.name.split(".").pop();
-      if (fileExtension === "pdf") {
+      if (
+        fileExtension === "jpg" ||
+        fileExtension === "jpeg" ||
+        fileExtension === "png"
+      ) {
         // uploadImage(file);
         setImageURL(URL.createObjectURL(file));
         setFileList([file]);
         uploadPdf(file);
       } else {
         message.error({
-          content: "Only svg will be accepted",
+          content: "Only image will be accepted",
           key: "TELECOM_NMS_UI",
         });
         setFileList([]);
@@ -73,12 +81,13 @@ const Geography = () => {
     },
     fileList: fileList,
     maxCount: 1,
-    accept: ".pdf",
+    accept: ".jpg,.jpeg,.png",
   };
 
   return (
     <div>
       <div style={{ width: "100%", display: "flex" }}>
+        <Input onChange={(e) => setTitleName(e.target.value)} />
         <Upload {...props}>
           <Button size="small" icon={<UploadOutlined />}>
             Upload
