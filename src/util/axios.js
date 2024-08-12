@@ -7,10 +7,14 @@ export const instance = axios.create({
     window.location.protocol + "//" + window.location.hostname + ":" + 8017,
 });
 
-// export const LOCAL_URL =
-//   window.location.protocol +
-//   "//" +
-//   window.location.hostname +
-//   ":" +
-//   window.location.port;
-// export const localUIServerInstance = axios.create({ baseURL: LOCAL_URL });
+export const getImageFromBackend = (imageName) => {
+  return (
+    window.location.protocol +
+    "//" +
+    window.location.hostname +
+    ":" +
+    8017 +
+    "/geographyImages/" +
+    imageName
+  );
+};

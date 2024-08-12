@@ -1,41 +1,65 @@
 import { UploadOutlined } from "@ant-design/icons";
 import { Button, Image, Input, message, Upload } from "antd";
 import React from "react";
-import { instance } from "../../../util/axios";
+import { getImageFromBackend, instance } from "../../../util/axios";
 
-const imageList = [
-  {
-    image: require("../../../assets/images/map/passes_in_india.png"),
-    name: "passes.png",
-    title: "Passes",
-  },
-  {
-    image: require("../../../assets/images/map/soils_in_india.jpg"),
-    name: "passes.png",
-    title: "Soil",
-  },
-  {
-    image: require("../../../assets/images/map/rock_system_in_india.png"),
-    name: "passes.png",
-    title: "Rock System",
-  },
-  {
-    image: require("../../../assets/images/map/forest_in_india.png"),
-    name: "passes.png",
-    title: "Forest",
-  },
-];
+// const imageList = [
+//   {
+//     image: require("../../../assets/images/map/passes_in_india.png"),
+//     name: "passes.png",
+//     title: "Passes",
+//   },
+//   {
+//     image: require("../../../assets/images/map/soils_in_india.jpg"),
+//     name: "passes.png",
+//     title: "Soil",
+//   },
+//   {
+//     image: require("../../../assets/images/map/rock_system_in_india.png"),
+//     name: "passes.png",
+//     title: "Rock System",
+//   },
+//   {
+//     image: require("../../../assets/images/map/forest_in_india.png"),
+//     name: "passes.png",
+//     title: "Forest",
+//   },
+// ];
 
 const Geography = () => {
   const [fileList, setFileList] = React.useState([]);
   const [imageURL, setImageURL] = React.useState("");
   const [titleName, setTitleName] = React.useState("");
 
+  const [imageList, setImageList] = React.useState([]);
+
+  const getGeographyJson = async () => {
+    try {
+      const result = await instance.get("/getgeoGraphyJsonFromBackend");
+
+      console.log("resultresult", result.data);
+      setImageList(
+        result.data.map((i) => ({
+          imageApi: i.fileName,
+          // name: "passes.png",
+          title: i.titleName,
+        }))
+      );
+    } catch (error) {
+      console.error("An error occurred:", error);
+      throw error;
+    }
+  };
+
+  React.useEffect(() => {
+    getGeographyJson();
+  }, []);
+
   const uploadPdf = (file) => {
     const value = { titleName: titleName };
     var formData = new FormData();
-    formData.append("file", file);
     formData.append("metaData", JSON.stringify(value));
+    formData.append("file", file);
 
     instance
       .post("/uploadGeographyImagesToBackend", formData, {
@@ -120,7 +144,7 @@ const Geography = () => {
               {i.title}
             </div>
             <Image
-              src={i.image}
+              src={getImageFromBackend(i.imageApi)}
               alt="sample"
               height={300}
               width={300}
