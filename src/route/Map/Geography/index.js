@@ -26,6 +26,36 @@ import { getImageFromBackend, instance } from "../../../util/axios";
 //   },
 // ];
 
+export const getUUID = () => {
+  const hashTable = [
+    "a",
+    "b",
+    "c",
+    "d",
+    "e",
+    "f",
+    "0",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+  ];
+  let uuid = [];
+  for (let i = 0; i < 36; i++) {
+    if (i === 8 || i === 13 || i === 18 || i === 23) {
+      uuid[i] = "-";
+    } else {
+      uuid[i] = hashTable[Math.ceil(Math.random() * hashTable.length - 1)];
+    }
+  }
+  return uuid.join("");
+};
+
 const Geography = () => {
   const [fileList, setFileList] = React.useState([]);
   const [imageURL, setImageURL] = React.useState("");
@@ -56,10 +86,23 @@ const Geography = () => {
   }, []);
 
   const uploadPdf = (file) => {
-    const value = { titleName: titleName };
+    console.log("filefilefile", file);
+    const fileName =
+      titleName.replace(" ", "_") +
+      getUUID() +
+      "." +
+      file.name.split(".").pop();
+
+    const image1 = new File([file], fileName, {
+      type: file.type,
+    });
+
+    const value = { fileName: fileName, titleName: titleName };
     var formData = new FormData();
     formData.append("metaData", JSON.stringify(value));
-    formData.append("file", file);
+    formData.append("file", image1);
+
+    console.log("formDataformData", formData);
 
     instance
       .post("/uploadGeographyImagesToBackend", formData, {
@@ -74,6 +117,7 @@ const Geography = () => {
           content: "Image uploaded succesfully!!",
           key: "TELECOM_NMS_UI",
         });
+        getGeographyJson();
       })
       .catch((e) => e);
   };
@@ -111,9 +155,16 @@ const Geography = () => {
   return (
     <div>
       <div style={{ width: "100%", display: "flex" }}>
-        <Input onChange={(e) => setTitleName(e.target.value)} />
+        <Input
+          onChange={(e) => setTitleName(e.target.value)}
+          style={{ width: "150px" }}
+        />
         <Upload {...props}>
-          <Button size="small" icon={<UploadOutlined />}>
+          <Button
+            size="small"
+            icon={<UploadOutlined />}
+            disabled={!titleName?.length}
+          >
             Upload
           </Button>
         </Upload>
