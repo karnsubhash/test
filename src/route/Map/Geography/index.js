@@ -154,7 +154,7 @@ const Geography = () => {
 
   return (
     <div>
-      <div style={{ width: "100%", display: "flex" }}>
+      <div style={{ width: "100%", display: "flex", flexWrap: "wrap" }}>
         <Input
           onChange={(e) => setTitleName(e.target.value)}
           style={{ width: "150px" }}
@@ -168,6 +168,7 @@ const Geography = () => {
             Upload
           </Button>
         </Upload>
+        <Image src={imageURL} width={50} height={50}></Image>
       </div>
       <div
         style={{
