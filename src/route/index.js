@@ -2,6 +2,7 @@ import React from "react";
 import PDF from "../assets/test.pdf";
 import EditPdf from "./EditPdf";
 import Home from "./Home";
+import ImportantPoints from "./ImportantPoints";
 import Map from "./Map";
 
 const navStyle = { padding: "10px", fontSize: 20, cursor: "pointer" };
@@ -14,6 +15,8 @@ const Index = () => {
         return <Home />;
       case "MAP":
         return <Map />;
+      case "IMPORTANT_POINTS":
+        return <ImportantPoints />;
       case "EDIT_PDF":
         return <EditPdf />;
       default:
@@ -37,6 +40,12 @@ const Index = () => {
         </div>
         <div style={{ ...navStyle }} onClick={() => setSelectedMenu("MAP")}>
           Map
+        </div>
+        <div
+          style={{ ...navStyle }}
+          onClick={() => setSelectedMenu("IMPORTANT_POINTS")}
+        >
+          Important Points
         </div>
         <div
           style={{ ...navStyle }}
