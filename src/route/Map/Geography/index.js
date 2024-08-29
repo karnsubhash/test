@@ -85,7 +85,7 @@ const Geography = () => {
     getGeographyJson();
   }, []);
 
-  const uploadPdf = (file) => {
+  const uploadFile = (file) => {
     console.log("filefilefile", file);
     const fileName =
       titleName.replace(" ", "_") +
@@ -134,7 +134,7 @@ const Geography = () => {
         // uploadImage(file);
         setImageURL(URL.createObjectURL(file));
         setFileList([file]);
-        uploadPdf(file);
+        // uploadFile(file);
       } else {
         message.error({
           content: "Only image will be accepted",
@@ -165,10 +165,23 @@ const Geography = () => {
             icon={<UploadOutlined />}
             disabled={!titleName?.length}
           >
-            Upload
+            Select
           </Button>
         </Upload>
-        <Image src={imageURL} width={50} height={50}></Image>
+        {fileList?.length ? (
+          <>
+            <Image src={imageURL} width={50} height={50}></Image>
+            <Button
+              onClick={() => {
+                uploadFile(fileList[0]);
+              }}
+            >
+              Upload
+            </Button>
+          </>
+        ) : (
+          <></>
+        )}
       </div>
       <div
         style={{

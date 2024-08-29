@@ -5,7 +5,14 @@ import Home from "./Home";
 import ImportantPoints from "./ImportantPoints";
 import Map from "./Map";
 
-const navStyle = { padding: "10px", fontSize: 20, cursor: "pointer" };
+const navStyle = {
+  padding: 5,
+  fontSize: 20,
+  cursor: "pointer",
+  margin: 2,
+  backgroundColor: "darkOrange",
+  borderRadius: 5,
+};
 const Index = () => {
   const [selectedMenu, setSelectedMenu] = React.useState("HOME");
 
@@ -25,14 +32,15 @@ const Index = () => {
 
   return (
     <div>
-      <div style={{ height: "100px", textAlign: "center", fontSize: 60 }}>
+      {/* <div style={{ height: "100px", textAlign: "center", fontSize: 60 }}>
         CRL PROJECTS
-      </div>
+      </div> */}
       <div
         style={{
           width: "100%",
           display: "flex",
-          backgroundColor: "darkOrange",
+          backgroundColor: "transparent",
+          justifyContent: "center",
         }}
       >
         <div style={{ ...navStyle }} onClick={() => setSelectedMenu("HOME")}>
