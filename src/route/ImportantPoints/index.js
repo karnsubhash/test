@@ -24,53 +24,72 @@ const ImportantPoints = () => {
     getGeographyJson();
   }, []);
 
+  const onSearch = (searchInputValue) => {
+    console.log("searchInputValue", searchInputValue);
+    if (searchInputValue) {
+    }
+  };
+
   return (
-    <div style={{ width: "100%", display: "flex", flexWrap: "wrap" }}>
-      {dataList.map((i) => (
-        <div
-          style={{
-            minWidth: 400,
-            flex: "1 1",
-            textAlign: "center",
-            padding: "5px 0",
-            backgroundColor: "lightgreen",
-            margin: "1px",
-            cursor: "pointer",
-            color: "black",
-            fontWeight: "bold",
-          }}
-          onMouseEnter={(e) => {
-            setTooltipPosition({
-              x: e.clientX + 20,
-              y: e.clientY + 20,
-            });
-            setTooltipVisible(true);
-            setHoveredData(i);
-            e.target.style.backgroundColor = "seaGreen";
-            e.target.style.color = "beige";
-          }}
-          onMouseMove={(e) => {
-            setTooltipPosition({
-              x: e.clientX + 20,
-              y: e.clientY + 20,
-            });
-            setTooltipVisible(true);
-          }}
-          onMouseLeave={(e) => {
-            setTooltipVisible(false);
-            setTooltipPosition({ x: 0, y: 0 });
-            e.target.style.backgroundColor = "lightGreen";
-            e.target.style.color = "black";
-          }}
-        >
-          {i.title}
-        </div>
-      ))}
-      <Tooltip
-        tooltipVisible={tooltipVisible}
-        tooltipPosition={tooltipPosition}
-        hoveredData={hoveredData}
+    <div style={{ width: "100%" }}>
+      <input
+        id="searchInput"
+        style={{ width: "100%" }}
+        placeholder="Type and enter to search"
+        onKeyDown={(e) => {
+          if (e.key === "Enter") {
+            onSearch(document.getElementById("searchInput").value);
+          }
+        }}
       />
+
+      <div style={{ width: "100%", display: "flex", flexWrap: "wrap" }}>
+        {dataList.map((i) => (
+          <div
+            style={{
+              minWidth: 400,
+              flex: "1 1",
+              textAlign: "center",
+              padding: "5px 0",
+              backgroundColor: "lightgreen",
+              margin: "1px",
+              cursor: "pointer",
+              color: "black",
+              fontWeight: "bold",
+            }}
+            onMouseEnter={(e) => {
+              setTooltipPosition({
+                x: e.clientX + 20,
+                y: e.clientY + 20,
+              });
+              setTooltipVisible(true);
+              setHoveredData(i);
+              e.target.style.backgroundColor = "seaGreen";
+              e.target.style.color = "beige";
+            }}
+            onMouseMove={(e) => {
+              setTooltipPosition({
+                x: e.clientX + 20,
+                y: e.clientY + 20,
+              });
+              setTooltipVisible(true);
+            }}
+            onMouseLeave={(e) => {
+              setTooltipVisible(false);
+              setTooltipPosition({ x: 0, y: 0 });
+              e.target.style.backgroundColor = "lightGreen";
+              e.target.style.color = "black";
+            }}
+          >
+            {i.title}
+          </div>
+        ))}
+        <Tooltip
+          tooltipVisible={tooltipVisible}
+          tooltipPosition={tooltipPosition}
+          hoveredData={hoveredData}
+        />
+      </div>
     </div>
   );
 };
