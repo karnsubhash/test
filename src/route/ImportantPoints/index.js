@@ -4,6 +4,7 @@ import Tooltip from "./Tooltip";
 
 const ImportantPoints = () => {
   const [dataList, setDataList] = React.useState([]);
+  const [displayDataList, setDisplayDataList] = React.useState([]);
   const [tooltipPosition, setTooltipPosition] = React.useState({ x: 0, y: 0 });
   const [tooltipVisible, setTooltipVisible] = React.useState(false);
   const [hoveredData, setHoveredData] = React.useState(null);
@@ -12,10 +13,11 @@ const ImportantPoints = () => {
     try {
       const result = await instance.get("/getImportantPointsjson");
 
-      console.log("resultresult", result.data);
+      // console.log("resultresult", result.data);
       setDataList(result.data);
+      setDisplayDataList(result.data);
     } catch (error) {
-      console.error("An error occurred:", error);
+      // console.error("An error occurred:", error);
       throw error;
     }
   };
@@ -24,9 +26,43 @@ const ImportantPoints = () => {
     getGeographyJson();
   }, []);
 
+  const findData = (input, data) => {
+    let finalDataList = [];
+    for (let i in data) {
+      if (data[i].title.toLowerCase().includes(input.toLowerCase())) {
+        // console.log("Found match", data[i]);
+        finalDataList.push(data[i]);
+      } else {
+        if (data[i].linkedTopics?.length) {
+          data[i].linkedTopics.forEach((element) => {
+            if (element.toLowerCase().includes(input.toLowerCase())) {
+              finalDataList.push(data[i]);
+            }
+          });
+        } else if (data[i].dataList?.length) {
+          data[i].dataList.forEach((element) => {
+            if (element.title.toLowerCase().includes(input.toLowerCase())) {
+              finalDataList.push(data[i]);
+            } else if (
+              element.description.toLowerCase().includes(input.toLowerCase())
+            ) {
+              finalDataList.push(data[i]);
+            }
+          });
+        }
+      }
+    }
+    return finalDataList;
+  };
+
   const onSearch = (searchInputValue) => {
-    console.log("searchInputValue", searchInputValue);
+    // console.log("searchInputValue", searchInputValue);
     if (searchInputValue) {
+      const finalDataList = findData(searchInputValue, dataList);
+      // console.log("finalDataList", finalDataList);
+      setDisplayDataList(finalDataList);
+    } else {
+      setDisplayDataList(dataList);
     }
   };
 
@@ -44,7 +80,7 @@ const ImportantPoints = () => {
       />
 
       <div style={{ width: "100%", display: "flex", flexWrap: "wrap" }}>
-        {dataList.map((i) => (
+        {displayDataList.map((i) => (
           <div
             style={{
               minWidth: 400,
