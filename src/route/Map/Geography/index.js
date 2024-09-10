@@ -187,6 +187,7 @@ const Geography = () => {
         style={{
           display: "flex",
           flexWrap: "wrap",
+          justifyContent: "space-around",
         }}
       >
         {imageList.map((i) => (
