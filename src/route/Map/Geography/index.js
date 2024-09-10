@@ -88,7 +88,7 @@ const Geography = () => {
   const uploadFile = (file) => {
     console.log("filefilefile", file);
     const fileName =
-      titleName.replace(" ", "_") +
+      titleName.replace(/[^a-zA-Z0-9]/g, "_") +
       getUUID() +
       "." +
       file.name.split(".").pop();
@@ -186,6 +186,7 @@ const Geography = () => {
       <div
         style={{
           display: "flex",
+          flexWrap: "wrap",
         }}
       >
         {imageList.map((i) => (
@@ -196,6 +197,7 @@ const Geography = () => {
               textAlign: "center",
               borderRadius: 4,
               margin: 5,
+              // flex: "1 1",
             }}
           >
             <div
