@@ -18,7 +18,7 @@ const ImportantPoints = () => {
       setDisplayDataList(result.data);
     } catch (error) {
       // console.error("An error occurred:", error);
-      throw error;
+      // throw error;
     }
   };
 

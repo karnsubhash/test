@@ -52,16 +52,16 @@ const EditPdf = () => {
     accept: ".pdf",
   };
 
-  React.useEffect(() => {
-    try {
-      const result = instance.get("/getThemeSettingFromBackend");
+  // React.useEffect(() => {
+  //   try {
+  //     const result = instance.get("/getThemeSettingFromBackend");
 
-      console.log("resultresult", result);
-    } catch (error) {
-      console.error("An error occurred:", error);
-      throw error;
-    }
-  }, []);
+  //     console.log("resultresult", result);
+  //   } catch (error) {
+  //     console.error("An error occurred:", error);
+  //     throw error;
+  //   }
+  // }, []);
 
   return (
     <div>
