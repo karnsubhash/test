@@ -75,7 +75,7 @@ const EditPdf = () => {
         <embed
           src={imageURL + "#toolbar=0"}
           type="application/pdf"
-          height={800}
+          height={window.screen.availHeight - 220}
           width={"100%"}
         />
       )}
