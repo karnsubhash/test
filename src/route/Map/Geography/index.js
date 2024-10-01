@@ -219,6 +219,16 @@ const Geography = () => {
               style={{
                 borderRadius: 5,
               }}
+              //event.preventDefault()
+              onLoad={() => {
+                console.log("IMAGE LOADED");
+              }}
+              onError={() => {
+                console.log("IMAGE LOADED ERROR");
+              }}
+              onAbort={() => {
+                console.log("IMAGE LOADED ERROR");
+              }}
             />
           </div>
         ))}
