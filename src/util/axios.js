@@ -12,6 +12,6 @@ export const instance = axios.create({
 
 export const getImageFromBackend = (imageName) => {
   return process.env.NODE_ENV !== "production"
-    ? "http://localhost:8017/geographyImages/" + imageName
+    ? "http://localhost:8017/geographyImages/" + imageName + "?" + Date.now()
     : "https://test-ui-server.vercel.app/geographyImages/" + imageName;
 };
