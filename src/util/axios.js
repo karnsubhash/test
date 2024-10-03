@@ -17,7 +17,7 @@ export const getImageFromBackend = (imageName) => {
         window.location.hostname +
         ":" +
         8017 +
-        "/geographyImages/" +
+        "/api/geographyImages/" +
         imageName +
         "?" +
         Date.now()
