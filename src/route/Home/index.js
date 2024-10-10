@@ -191,8 +191,8 @@ const Home = () => {
             <Image
               src={getImageFromBackend("currentAffairsImages", i.imageApi)}
               alt="sample"
-              height={300}
-              width={300}
+              height={150}
+              width={150}
               style={{
                 borderRadius: 5,
               }}
