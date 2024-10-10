@@ -212,7 +212,7 @@ const Geography = () => {
               {i.title}
             </div>
             <Image
-              src={getImageFromBackend(i.imageApi)}
+              src={getImageFromBackend("geographyImages", i.imageApi)}
               alt="sample"
               height={300}
               width={300}

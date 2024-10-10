@@ -10,14 +10,16 @@ export const instance = axios.create({
   // window.location.protocol + "//" + window.location.hostname + ":" + 8017,
 });
 
-export const getImageFromBackend = (imageName) => {
+export const getImageFromBackend = (path, imageName) => {
   return process.env.NODE_ENV !== "production"
     ? window.location.protocol +
         "//" +
         window.location.hostname +
         ":" +
         8017 +
-        "/api/geographyImages/" +
+        "/api/" +
+        path +
+        "/" +
         imageName +
         "?" +
         Date.now()
