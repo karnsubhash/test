@@ -182,7 +182,7 @@ const Home = () => {
               style={{
                 width: "100%",
                 fontWeight: "bold",
-                fontSize: 20,
+                fontSize: 16,
                 backgroundColor: "darkOrange",
               }}
             >
@@ -191,8 +191,8 @@ const Home = () => {
             <Image
               src={getImageFromBackend("currentAffairsImages", i.imageApi)}
               alt="sample"
-              height={150}
-              width={150}
+              height={180}
+              width={200}
               style={{
                 borderRadius: 5,
               }}
