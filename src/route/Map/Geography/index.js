@@ -154,35 +154,39 @@ const Geography = () => {
 
   return (
     <div>
-      <div style={{ width: "100%", display: "flex", flexWrap: "wrap" }}>
-        <Input
-          onChange={(e) => setTitleName(e.target.value)}
-          style={{ width: "150px" }}
-        />
-        <Upload {...props}>
-          <Button
-            size="small"
-            icon={<UploadOutlined />}
-            disabled={!titleName?.length}
-          >
-            Select
-          </Button>
-        </Upload>
-        {fileList?.length ? (
-          <>
-            <Image src={imageURL} width={50} height={50}></Image>
+      {process.env.NODE_ENV !== "production" ? (
+        <div style={{ width: "100%", display: "flex", flexWrap: "wrap" }}>
+          <Input
+            onChange={(e) => setTitleName(e.target.value)}
+            style={{ width: "150px" }}
+          />
+          <Upload {...props}>
             <Button
-              onClick={() => {
-                uploadFile(fileList[0]);
-              }}
+              size="small"
+              icon={<UploadOutlined />}
+              disabled={!titleName?.length}
             >
-              Upload
+              Select
             </Button>
-          </>
-        ) : (
-          <></>
-        )}
-      </div>
+          </Upload>
+          {fileList?.length ? (
+            <>
+              <Image src={imageURL} width={50} height={50}></Image>
+              <Button
+                onClick={() => {
+                  uploadFile(fileList[0]);
+                }}
+              >
+                Upload
+              </Button>
+            </>
+          ) : (
+            <></>
+          )}
+        </div>
+      ) : (
+        <></>
+      )}
       <div
         style={{
           display: "flex",
