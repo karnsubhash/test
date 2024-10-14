@@ -23,5 +23,5 @@ export const getImageFromBackend = (path, imageName) => {
         imageName +
         "?" +
         Date.now()
-    : "https://test-ui-server.vercel.app/geographyImages/" + imageName;
+    : "https://test-ui-server.vercel.app/" + path + "/" + imageName;
 };
