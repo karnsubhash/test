@@ -7,23 +7,23 @@ const EditPdf = () => {
   const [fileList, setFileList] = React.useState([]);
   const [imageURL, setImageURL] = React.useState("");
   const uploadPdf = (file) => {
-    var formData = new FormData();
-    formData.append("file", file);
-    instance
-      .post("/uploadGeographyImagesToBackend", formData, {
-        headers: {
-          "Content-Type": "multipart/form-data;",
-        },
-        maxContentLength: Infinity,
-        maxBodyLength: Infinity,
-      })
-      .then(() => {
-        message.success({
-          content: "Image uploaded succesfully!!",
-          key: "TELECOM_NMS_UI",
-        });
-      })
-      .catch((e) => e);
+    // var formData = new FormData();
+    // formData.append("file", file);
+    // instance
+    //   .post("/uploadGeographyImagesToBackend", formData, {
+    //     headers: {
+    //       "Content-Type": "multipart/form-data;",
+    //     },
+    //     maxContentLength: Infinity,
+    //     maxBodyLength: Infinity,
+    //   })
+    //   .then(() => {
+    //     message.success({
+    //       content: "Image uploaded succesfully!!",
+    //       key: "TELECOM_NMS_UI",
+    //     });
+    //   })
+    //   .catch((e) => e);
   };
 
   const props = {
