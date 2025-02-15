@@ -10,11 +10,11 @@ const navStyle = {
   fontSize: 20,
   cursor: "pointer",
   margin: 2,
-  backgroundColor: "darkOrange",
+  // backgroundColor: "darkOrange",
   borderRadius: 5,
 };
 const Index = () => {
-  const [selectedMenu, setSelectedMenu] = React.useState("HOME");
+  const [selectedMenu, setSelectedMenu] = React.useState("MAP");
 
   const getItem = () => {
     switch (selectedMenu) {
@@ -43,20 +43,42 @@ const Index = () => {
           justifyContent: "center",
         }}
       >
-        <div style={{ ...navStyle }} onClick={() => setSelectedMenu("HOME")}>
+        <div
+          style={{
+            ...navStyle,
+            backgroundColor:
+              selectedMenu === "HOME" ? "lightSkyBlue" : "darkOrange",
+          }}
+          onClick={() => setSelectedMenu("HOME")}
+        >
           Home
         </div>
-        <div style={{ ...navStyle }} onClick={() => setSelectedMenu("MAP")}>
+        <div
+          style={{
+            ...navStyle,
+            backgroundColor:
+              selectedMenu === "MAP" ? "lightSkyBlue" : "darkOrange",
+          }}
+          onClick={() => setSelectedMenu("MAP")}
+        >
           Map
         </div>
         <div
-          style={{ ...navStyle }}
+          style={{
+            ...navStyle,
+            backgroundColor:
+              selectedMenu === "IMPORTANT_POINTS" ? "lightSkyBlue" : "darkOrange",
+          }}
           onClick={() => setSelectedMenu("IMPORTANT_POINTS")}
         >
           Important Points
         </div>
         <div
-          style={{ ...navStyle }}
+          style={{
+            ...navStyle,
+            backgroundColor:
+              selectedMenu === "EDIT_PDF" ? "lightSkyBlue" : "darkOrange",
+          }}
           onClick={() => setSelectedMenu("EDIT_PDF")}
         >
           Edit Pdf
