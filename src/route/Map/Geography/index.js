@@ -62,6 +62,7 @@ const Geography = () => {
   const [titleName, setTitleName] = React.useState("");
 
   const [imageList, setImageList] = React.useState([]);
+  const [displayDataList, setDisplayDataList] = React.useState([]);
 
   const getGeographyJson = async () => {
     try {
@@ -69,6 +70,14 @@ const Geography = () => {
 
       console.log("resultresult", result.data);
       setImageList(
+        result.data.map((i) => ({
+          ...i,
+          imageApi: i.fileName,
+          // name: "passes.png",
+          title: i.titleName,
+        }))
+      );
+      setDisplayDataList(
         result.data.map((i) => ({
           imageApi: i.fileName,
           // name: "passes.png",
@@ -152,6 +161,40 @@ const Geography = () => {
     accept: ".jpg,.jpeg,.png",
   };
 
+  const findData = (input, data) => {
+    let finalDataList = [];
+    for (let i in data) {
+      if (data[i].fileName.toLowerCase().includes(input.toLowerCase())) {
+        // console.log("Found match", data[i]);
+        finalDataList.push(data[i]);
+      } else {
+        if (data[i].linkedTopics?.length) {
+          data[i].linkedTopics.forEach((element) => {
+            if (element.toLowerCase().includes(input.toLowerCase())) {
+              finalDataList.push(data[i]);
+            }
+          });
+        } else if (data[i].titleName?.length) {
+          if (data[i].fileName.toLowerCase().includes(input.toLowerCase())) {
+            finalDataList.push(data[i]);
+          }
+        }
+      }
+    }
+    return finalDataList;
+  };
+
+  const onSearch = (searchInputValue) => {
+    // console.log("searchInputValue", searchInputValue);
+    if (searchInputValue) {
+      const finalDataList = findData(searchInputValue, imageList);
+      // console.log("finalDataList", finalDataList);
+      setDisplayDataList(finalDataList);
+    } else {
+      setDisplayDataList(imageList);
+    }
+  };
+
   return (
     <div>
       {process.env.NODE_ENV !== "production" ? (
@@ -187,6 +230,16 @@ const Geography = () => {
       ) : (
         <></>
       )}
+      <input
+        id="searchInput"
+        style={{ width: "100%" }}
+        placeholder="Type and enter to search"
+        onKeyDown={(e) => {
+          if (e.key === "Enter") {
+            onSearch(document.getElementById("searchInput").value);
+          }
+        }}
+      />
       <div
         style={{
           display: "flex",
@@ -194,7 +247,7 @@ const Geography = () => {
           justifyContent: "space-around",
         }}
       >
-        {imageList.map((i) => (
+        {displayDataList.map((i) => (
           <div
             classname="loginimgdiv"
             style={{
