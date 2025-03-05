@@ -231,12 +231,12 @@ const EconomicsIR = () => {
         <></>
       )}
       <input
-        id="searchInput"
+        id="searchInputEconomics"
         style={{ width: "100%" }}
         placeholder="Type and enter to search"
-        onKeyDown={(e) => {
+        onKeyDown={(e) => { 
           if (e.key === "Enter") {
-            onSearch(document.getElementById("searchInput").value);
+            onSearch(document.getElementById("searchInputEconomics").value);
           }
         }}
       />
