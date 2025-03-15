@@ -3,6 +3,7 @@ import TabPane from "antd/es/tabs/TabPane";
 import React from "react";
 import AncientHistory from "./AncientHistory";
 import EconomicsIR from "./Economics_IR";
+import Environment from "./Environment";
 import Geography from "./Geography";
 import MedievalHistory from "./MedievalHistory";
 
@@ -11,6 +12,7 @@ const tabList = [
   "Ancient History",
   "Medieval History",
   "Economics - IR",
+  "Environment",
 ];
 
 const Map = () => {
@@ -24,8 +26,10 @@ const Map = () => {
         return <AncientHistory />;
       case "Medieval History":
         return <MedievalHistory />;
-        case "Economics - IR":
+      case "Economics - IR":
         return <EconomicsIR />;
+      case "Environment":
+        return <Environment />;
       default:
         <div>Under Development</div>;
     }
