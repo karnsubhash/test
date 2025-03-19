@@ -11,6 +11,7 @@ const Environment = () => {
 
   const [imageList, setImageList] = React.useState([]);
   const [displayDataList, setDisplayDataList] = React.useState([]);
+  const searchInputEnvironmentRef = React.useRef(null);
 
   const getEnvironmentJson = async () => {
     try {
@@ -129,14 +130,17 @@ const Environment = () => {
         }
       }
     }
+
+    console.log("input, data", input, data, finalDataList);
     return finalDataList;
   };
 
-  const onSearch = (searchInputValue) => {
-    // console.log("searchInputValue", searchInputValue);
-    if (searchInputValue) {
-      const finalDataList = findData(searchInputValue, imageList);
-      // console.log("finalDataList", finalDataList);
+  const onSearch = () => {
+    if (searchInputEnvironmentRef.current?.value) {
+      const finalDataList = findData(
+        searchInputEnvironmentRef.current.value,
+        imageList
+      );
       setDisplayDataList(finalDataList);
     } else {
       setDisplayDataList(imageList);
@@ -179,12 +183,13 @@ const Environment = () => {
         <></>
       )}
       <input
-        id="searchInput"
+        ref={searchInputEnvironmentRef}
+        type="text"
         style={{ width: "100%" }}
         placeholder="Type and enter to search"
         onKeyDown={(e) => {
           if (e.key === "Enter") {
-            onSearch(document.getElementById("searchInput").value);
+            onSearch();
           }
         }}
       />
