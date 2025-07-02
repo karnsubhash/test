@@ -4,6 +4,8 @@ import EditPdf from "./EditPdf";
 import Home from "./Home";
 import ImportantPoints from "./ImportantPoints";
 import Map from "./Map";
+import { Button } from "antd";
+import { instance } from "../util/axios";
 
 const navStyle = {
   padding: 5,
@@ -27,6 +29,15 @@ const Index = () => {
       case "EDIT_PDF":
         return <EditPdf />;
       default:
+    }
+  };
+
+  const shutDownNow = async () => {
+    try {
+      await instance.get("/shutDown");
+    } catch (error) {
+      console.error("An error occurred:", error);
+      // throw error;
     }
   };
 
@@ -67,7 +78,9 @@ const Index = () => {
           style={{
             ...navStyle,
             backgroundColor:
-              selectedMenu === "IMPORTANT_POINTS" ? "lightSkyBlue" : "darkOrange",
+              selectedMenu === "IMPORTANT_POINTS"
+                ? "lightSkyBlue"
+                : "darkOrange",
           }}
           onClick={() => setSelectedMenu("IMPORTANT_POINTS")}
         >
@@ -92,6 +105,7 @@ const Index = () => {
         height={800}
         width={"100%"}
       /> */}
+      <Button onClick={shutDownNow}>Shut Down</Button>
     </div>
   );
 };
