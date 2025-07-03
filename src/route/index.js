@@ -32,14 +32,14 @@ const Index = () => {
     }
   };
 
-  const shutDownNow = async () => {
-    try {
-      await instance.get("/shutDown");
-    } catch (error) {
-      console.error("An error occurred:", error);
-      // throw error;
-    }
-  };
+  // const shutDownNow = async () => {
+  //   try {
+  //     await instance.get("/shutDown");
+  //   } catch (error) {
+  //     console.error("An error occurred:", error);
+  //     // throw error;
+  //   }
+  // };
 
   return (
     <div>
@@ -105,7 +105,7 @@ const Index = () => {
         height={800}
         width={"100%"}
       /> */}
-      <Button onClick={shutDownNow}>Shut Down</Button>
+      {/* <Button onClick={shutDownNow}>Shut Down</Button> */}
     </div>
   );
 };
