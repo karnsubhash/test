@@ -16,7 +16,7 @@ const navStyle = {
   borderRadius: 5,
 };
 const Index = () => {
-  const [selectedMenu, setSelectedMenu] = React.useState("MAP");
+  const [selectedMenu, setSelectedMenu] = React.useState("HOME");
 
   const getItem = () => {
     switch (selectedMenu) {
