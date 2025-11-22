@@ -5,7 +5,7 @@ axios.defaults.headers.post["Content-Type"] = "application/json";
 export const instance = axios.create({
   baseURL:
     process.env.NODE_ENV !== "production"
-      ? window.location.protocol + "//" + window.location.hostname + ":" + 8017
+      ? window.location.protocol + "//" + window.location.hostname + ":" + 8017 //"https:master-minnow-sharply.ngrok-free.app"
       : "https://test-ui-server.vercel.app",
   // window.location.protocol + "//" + window.location.hostname + ":" + 8017,
 });
