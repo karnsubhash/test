@@ -6,6 +6,7 @@ import ImportantPoints from "./ImportantPoints";
 import Map from "./Map";
 import { Button } from "antd";
 import { instance } from "../util/axios";
+import APFC from "./APFC";
 
 const navStyle = {
   padding: 5,
@@ -20,6 +21,8 @@ const Index = () => {
 
   const getItem = () => {
     switch (selectedMenu) {
+      case "APFC":
+        return <APFC />;
       case "HOME":
         return <Home />;
       case "MAP":
@@ -54,6 +57,16 @@ const Index = () => {
           justifyContent: "center",
         }}
       >
+        <div
+          style={{
+            ...navStyle,
+            backgroundColor:
+              selectedMenu === "HOME" ? "lightSkyBlue" : "darkOrange",
+          }}
+          onClick={() => setSelectedMenu("APFC")}
+        >
+          APFC
+        </div>
         <div
           style={{
             ...navStyle,
