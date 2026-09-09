@@ -61,7 +61,7 @@ const Index = () => {
           style={{
             ...navStyle,
             backgroundColor:
-              selectedMenu === "HOME" ? "lightSkyBlue" : "darkOrange",
+              selectedMenu === "APFC" ? "lightSkyBlue" : "darkOrange",
           }}
           onClick={() => setSelectedMenu("APFC")}
         >
