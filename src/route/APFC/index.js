@@ -1,144 +1,19 @@
 import React, { useMemo, useState } from "react";
+import PYQ_DATA from "./pyqData";
 
 /**
  * PYQPractice — year-wise previous-year-question practice widget.
  *
- * Behaviour: selecting any option locks that question and reveals the
- * correct answer. The chosen option is marked correct (green) or wrong
- * (red), and an explanation is shown.
+ * Selecting any option locks that question and reveals the correct answer:
+ * the correct option turns green, a wrong pick turns red, and the
+ * explanation appears. Questions flagged `verify: true` show a small badge
+ * indicating the answer should be cross-checked against the official key.
  *
- * ─────────────────────────────────────────────────────────────────────
- * REPLACE THE SAMPLE DATA BELOW WITH YOUR OWN QUESTION BANK.
- *
- * Shape:
- *   PYQ_DATA = [
- *     {
- *       year: "2025",
- *       label: "2025 (Combined)",          // optional; falls back to `year`
- *       questions: [
- *         {
- *           id: "q1",                        // unique within the year
- *           subject: "Social Security",      // optional tag
- *           question: "…",
- *           options: [
- *             { id: "a", text: "…" },
- *             { id: "b", text: "…" },
- *             …
- *           ],
- *           correctId: "b",                  // must match an option id
- *           explanation: "…"                 // optional
- *         },
- *       ],
- *     },
- *   ];
- *
- * The questions below are illustrative placeholders on EPFO-relevant
- * topics — swap in the real PYQs from your source.
- * ─────────────────────────────────────────────────────────────────────
+ * Data comes from ./pyqData.js — see that file for the question shape.
  */
-const PYQ_DATA = [
-  {
-    year: "2025",
-    label: "2025 · Combined",
-    questions: [
-      {
-        id: "q1",
-        subject: "Social Security",
-        question:
-          "Under the Employees’ Provident Funds and Miscellaneous Provisions Act, 1952, the EPF Scheme applies to establishments employing at least how many persons?",
-        options: [
-          { id: "a", text: "10 persons" },
-          { id: "b", text: "15 persons" },
-          { id: "c", text: "20 persons" },
-          { id: "d", text: "25 persons" },
-        ],
-        correctId: "c",
-        explanation:
-          "The Act generally applies to every establishment which is a factory engaged in a scheduled industry and employing 20 or more persons.",
-      },
-      {
-        id: "q2",
-        subject: "Governance",
-        question:
-          "Which body is a non-constitutional (statutory/executive) body in India?",
-        options: [
-          { id: "a", text: "Finance Commission" },
-          { id: "b", text: "Union Public Service Commission" },
-          { id: "c", text: "NITI Aayog" },
-          { id: "d", text: "Election Commission of India" },
-        ],
-        correctId: "c",
-        explanation:
-          "NITI Aayog was created by an executive resolution and is a non-constitutional body. The others are established by the Constitution.",
-      },
-    ],
-  },
-  {
-    year: "2023",
-    label: "2023 · EO/AO",
-    questions: [
-      {
-        id: "q1",
-        subject: "Labour Laws",
-        question:
-          "The Payment of Wages Act, 1936 primarily regulates which of the following?",
-        options: [
-          { id: "a", text: "Minimum rates of wages" },
-          {
-            id: "b",
-            text: "Timely payment and authorised deductions of wages",
-          },
-          { id: "c", text: "Bonus payable to employees" },
-          { id: "d", text: "Gratuity on termination" },
-        ],
-        correctId: "b",
-        explanation:
-          "The Act ensures wages are paid on time and that deductions are limited to those authorised under the Act.",
-      },
-      {
-        id: "q2",
-        subject: "General Science",
-        question:
-          "Which vitamin is synthesised in the human skin on exposure to sunlight?",
-        options: [
-          { id: "a", text: "Vitamin A" },
-          { id: "b", text: "Vitamin C" },
-          { id: "c", text: "Vitamin D" },
-          { id: "d", text: "Vitamin K" },
-        ],
-        correctId: "c",
-        explanation:
-          "Ultraviolet-B radiation converts 7-dehydrocholesterol in the skin into vitamin D3.",
-      },
-    ],
-  },
-  {
-    year: "2021",
-    label: "2021 · EO/AO",
-    questions: [
-      {
-        id: "q1",
-        subject: "Labour Laws",
-        question:
-          "Under the Industrial Disputes Act, 1947, a ‘lockout’ is an action taken by which party?",
-        options: [
-          { id: "a", text: "Workmen" },
-          { id: "b", text: "Employer" },
-          { id: "c", text: "Government" },
-          { id: "d", text: "Trade union" },
-        ],
-        correctId: "b",
-        explanation:
-          "A lockout is the temporary closing of a place of employment by the employer; the workmen’s equivalent is a strike.",
-      },
-    ],
-  },
-];
-
-export default function APFC({ data = PYQ_DATA }) {
+export default function PYQPractice({ data = PYQ_DATA }) {
   const [activeYear, setActiveYear] = useState(data[0]?.year ?? "");
-  // answers keyed by `${year}-${questionId}` -> chosen option id
-  const [answers, setAnswers] = useState({});
+  const [answers, setAnswers] = useState({}); // `${year}-${qid}` -> optId
 
   const currentYear = useMemo(
     () => data.find((y) => y.year === activeYear) ?? data[0],
@@ -149,7 +24,7 @@ export default function APFC({ data = PYQ_DATA }) {
 
   const handleSelect = (year, question, optId) => {
     const key = keyFor(year, question.id);
-    if (answers[key] !== undefined) return; // already answered — locked
+    if (answers[key] !== undefined) return; // locked once answered
     setAnswers((prev) => ({ ...prev, [key]: optId }));
   };
 
@@ -178,6 +53,16 @@ export default function APFC({ data = PYQ_DATA }) {
   }, [currentYear, answers]);
 
   if (!currentYear) return null;
+
+  const renderMultiline = (text) =>
+    String(text)
+      .split("\n")
+      .map((line, i) => (
+        <React.Fragment key={i}>
+          {i > 0 && <br />}
+          {line}
+        </React.Fragment>
+      ));
 
   return (
     <div className="pyq-root">
@@ -237,9 +122,17 @@ export default function APFC({ data = PYQ_DATA }) {
               <div className="pyq-qhead">
                 <span className="pyq-qnum">Q{idx + 1}</span>
                 {q.subject && <span className="pyq-tag">{q.subject}</span>}
+                {q.verify && (
+                  <span
+                    className="pyq-tag pyq-tag-verify"
+                    title="Answer not from official key — verify against the official UPSC answer key."
+                  >
+                    verify
+                  </span>
+                )}
               </div>
 
-              <p className="pyq-qtext">{q.question}</p>
+              <p className="pyq-qtext">{renderMultiline(q.question)}</p>
 
               <div
                 className="pyq-options"
@@ -274,6 +167,7 @@ export default function APFC({ data = PYQ_DATA }) {
                         className="pyq-radio"
                       />
                       <span className="pyq-radio-dot" aria-hidden="true" />
+                      <span className="pyq-option-key">{opt.id})</span>
                       <span className="pyq-option-text">{opt.text}</span>
                       {answered && isCorrect && (
                         <span
@@ -303,12 +197,17 @@ export default function APFC({ data = PYQ_DATA }) {
                   </span>
                   {!wasRight && (
                     <span className="pyq-answer-line">
-                      Answer:{" "}
+                      Answer: {q.correctId}){" "}
                       {q.options.find((o) => o.id === q.correctId)?.text}
                     </span>
                   )}
                   {q.explanation && (
                     <p className="pyq-explanation">{q.explanation}</p>
+                  )}
+                  {q.verify && (
+                    <p className="pyq-verify-note">
+                      This answer is not from the official key — please verify.
+                    </p>
                   )}
                 </div>
               )}
@@ -333,15 +232,17 @@ const styles = `
   --ok-bg: #e8f5ee;
   --bad: #c0392b;
   --bad-bg: #fbecea;
+  --warn: #9a6a00;
+  --warn-bg: #fdf3d8;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   color: var(--ink);
   background: var(--bg);
-  max-width: 720px;
+  max-width: 760px;
   margin: 0 auto;
   padding: 24px;
   border-radius: 14px;
   box-sizing: border-box;
-  line-height: 1.5;
+  line-height: 1.55;
 }
 .pyq-root *, .pyq-root *::before, .pyq-root *::after { box-sizing: border-box; }
 
@@ -351,123 +252,74 @@ const styles = `
 
 .pyq-years { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
 .pyq-year-btn {
-  border: 1px solid var(--line);
-  background: var(--surface);
-  color: var(--muted);
-  font: inherit;
-  font-size: 14px;
-  font-weight: 600;
-  padding: 8px 14px;
-  border-radius: 9px;
-  cursor: pointer;
+  border: 1px solid var(--line); background: var(--surface); color: var(--muted);
+  font: inherit; font-size: 14px; font-weight: 600; padding: 8px 14px;
+  border-radius: 9px; cursor: pointer;
   transition: background .15s, color .15s, border-color .15s;
 }
 .pyq-year-btn:hover { border-color: var(--primary); color: var(--primary); }
-.pyq-year-btn.is-active {
-  background: var(--primary);
-  border-color: var(--primary);
-  color: #fff;
-}
+.pyq-year-btn.is-active { background: var(--primary); border-color: var(--primary); color: #fff; }
 
 .pyq-scorebar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  padding: 10px 14px;
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: 10px;
-  margin-bottom: 16px;
-  font-size: 14px;
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  padding: 10px 14px; background: var(--surface); border: 1px solid var(--line);
+  border-radius: 10px; margin-bottom: 16px; font-size: 14px;
+  position: sticky; top: 8px; z-index: 1;
 }
 .pyq-score-text { color: var(--muted); }
 .pyq-score-text strong { color: var(--ink); }
 .pyq-score-correct { color: var(--ok) !important; }
 .pyq-dot { margin: 0 8px; color: var(--line); }
 .pyq-reset {
-  border: 1px solid var(--line);
-  background: transparent;
-  color: var(--muted);
-  font: inherit;
-  font-size: 13px;
-  font-weight: 600;
-  padding: 6px 12px;
-  border-radius: 8px;
-  cursor: pointer;
+  border: 1px solid var(--line); background: transparent; color: var(--muted);
+  font: inherit; font-size: 13px; font-weight: 600; padding: 6px 12px;
+  border-radius: 8px; cursor: pointer;
 }
 .pyq-reset:hover:not(:disabled) { border-color: var(--primary); color: var(--primary); }
 .pyq-reset:disabled { opacity: .45; cursor: default; }
 
 .pyq-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
 .pyq-card {
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-left: 4px solid var(--line);
-  border-radius: 10px;
-  padding: 16px 18px;
+  background: var(--surface); border: 1px solid var(--line);
+  border-left: 4px solid var(--line); border-radius: 10px; padding: 16px 18px;
   transition: border-color .2s;
 }
 .pyq-card[data-state="correct"] { border-left-color: var(--ok); }
 .pyq-card[data-state="incorrect"] { border-left-color: var(--bad); }
 
-.pyq-qhead { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+.pyq-qhead { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 8px; }
 .pyq-qnum { font-size: 13px; font-weight: 700; color: var(--primary); }
-.pyq-tag {
-  font-size: 12px;
-  color: var(--muted);
-  background: var(--primary-soft);
-  padding: 2px 8px;
-  border-radius: 999px;
-}
+.pyq-tag { font-size: 12px; color: var(--muted); background: var(--primary-soft); padding: 2px 8px; border-radius: 999px; }
+.pyq-tag-verify { color: var(--warn); background: var(--warn-bg); }
 .pyq-qtext { margin: 0 0 14px; font-size: 15.5px; font-weight: 500; }
 
 .pyq-options { display: grid; gap: 8px; }
 .pyq-option {
-  display: flex;
-  align-items: center;
-  gap: 11px;
-  padding: 11px 13px;
-  border: 1px solid var(--line);
-  border-radius: 9px;
-  cursor: pointer;
-  font-size: 14.5px;
-  transition: border-color .15s, background .15s;
+  display: flex; align-items: flex-start; gap: 10px; padding: 11px 13px;
+  border: 1px solid var(--line); border-radius: 9px; cursor: pointer;
+  font-size: 14.5px; transition: border-color .15s, background .15s;
 }
 .pyq-option:not(.is-locked):hover { border-color: var(--primary); background: var(--primary-soft); }
 .pyq-option.is-locked { cursor: default; }
 .pyq-radio { position: absolute; opacity: 0; width: 0; height: 0; }
 .pyq-radio-dot {
-  flex: 0 0 auto;
-  width: 18px; height: 18px;
-  border: 2px solid #c2c9d6;
-  border-radius: 50%;
-  position: relative;
-  transition: border-color .15s;
+  flex: 0 0 auto; width: 18px; height: 18px; margin-top: 1px;
+  border: 2px solid #c2c9d6; border-radius: 50%; position: relative; transition: border-color .15s;
 }
+.pyq-option-key { flex: 0 0 auto; font-weight: 600; color: var(--muted); }
 .pyq-option-text { flex: 1; }
-.pyq-mark { font-weight: 800; font-size: 15px; }
+.pyq-mark { flex: 0 0 auto; font-weight: 800; font-size: 15px; }
 .pyq-mark-correct { color: var(--ok); }
 .pyq-mark-wrong { color: var(--bad); }
 
 .pyq-option.is-correct { background: var(--ok-bg); border-color: var(--ok); }
 .pyq-option.is-correct .pyq-radio-dot { border-color: var(--ok); }
-.pyq-option.is-correct .pyq-radio-dot::after {
-  content: ""; position: absolute; inset: 3px;
-  background: var(--ok); border-radius: 50%;
-}
+.pyq-option.is-correct .pyq-radio-dot::after { content: ""; position: absolute; inset: 3px; background: var(--ok); border-radius: 50%; }
 .pyq-option.is-incorrect { background: var(--bad-bg); border-color: var(--bad); }
 .pyq-option.is-incorrect .pyq-radio-dot { border-color: var(--bad); }
-.pyq-option.is-incorrect .pyq-radio-dot::after {
-  content: ""; position: absolute; inset: 3px;
-  background: var(--bad); border-radius: 50%;
-}
+.pyq-option.is-incorrect .pyq-radio-dot::after { content: ""; position: absolute; inset: 3px; background: var(--bad); border-radius: 50%; }
 .pyq-option.is-muted { opacity: .7; }
-
-.pyq-radio:focus-visible + .pyq-radio-dot {
-  outline: 2px solid var(--primary);
-  outline-offset: 2px;
-}
+.pyq-radio:focus-visible + .pyq-radio-dot { outline: 2px solid var(--primary); outline-offset: 2px; }
 
 .pyq-reveal { margin-top: 12px; padding-top: 12px; border-top: 1px dashed var(--line); }
 .pyq-verdict { font-size: 13px; font-weight: 700; }
@@ -475,12 +327,11 @@ const styles = `
 .pyq-verdict[data-ok="false"] { color: var(--bad); }
 .pyq-answer-line { display: block; margin-top: 4px; font-size: 14px; font-weight: 600; }
 .pyq-explanation { margin: 6px 0 0; font-size: 14px; color: var(--muted); }
+.pyq-verify-note { margin: 6px 0 0; font-size: 12.5px; color: var(--warn); font-style: italic; }
 
 @media (max-width: 480px) {
   .pyq-root { padding: 16px; }
-  .pyq-scorebar { flex-direction: column; align-items: flex-start; }
+  .pyq-scorebar { flex-direction: column; align-items: flex-start; position: static; }
 }
-@media (prefers-reduced-motion: reduce) {
-  .pyq-root * { transition: none !important; }
-}
+@media (prefers-reduced-motion: reduce) { .pyq-root * { transition: none !important; } }
 `;
