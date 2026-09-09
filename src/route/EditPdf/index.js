@@ -1,7 +1,6 @@
 import { Button, message, Upload } from "antd";
 import React from "react";
 import { UploadOutlined } from "@ant-design/icons";
-import { instance } from "../../util/axios";
 
 const EditPdf = () => {
   const [fileList, setFileList] = React.useState([]);

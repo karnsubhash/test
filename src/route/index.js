@@ -1,11 +1,8 @@
 import React from "react";
-import PDF from "../assets/test.pdf";
 import EditPdf from "./EditPdf";
 import Home from "./Home";
 import ImportantPoints from "./ImportantPoints";
 import Map from "./Map";
-import { Button } from "antd";
-import { instance } from "../util/axios";
 import APFC from "./APFC";
 
 const navStyle = {
