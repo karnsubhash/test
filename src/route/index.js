@@ -5,6 +5,7 @@ import ImportantPoints from "./ImportantPoints";
 import Map from "./Map";
 import APFC_PYQ from "./APFC_PYQ";
 import APFC_NOTES from "./APFC_NOTES";
+import APFC_ENGLISH from "./APFC_ENGLISH/intex";
 
 const navStyle = {
   padding: 5,
@@ -29,6 +30,8 @@ const Index = () => {
         return <Map />;
       case "IMPORTANT_POINTS":
         return <ImportantPoints />;
+      case "APFC_ENGLISH":
+        return <APFC_ENGLISH />;
       case "EDIT_PDF":
         return <EditPdf />;
       default:
@@ -108,6 +111,16 @@ const Index = () => {
           onClick={() => setSelectedMenu("IMPORTANT_POINTS")}
         >
           Important Points
+        </div>
+        <div
+          style={{
+            ...navStyle,
+            backgroundColor:
+              selectedMenu === "APFC_ENGLISH" ? "lightSkyBlue" : "darkOrange",
+          }}
+          onClick={() => setSelectedMenu("APFC_ENGLISH")}
+        >
+          APFC English
         </div>
         <div
           style={{
