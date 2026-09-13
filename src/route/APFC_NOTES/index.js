@@ -1,28 +1,3 @@
-// import { useState, useEffect } from "react";
-
-// export default function MyComponent() {
-//   const [html, setHtml] = useState("");
-
-//   useEffect(() => {
-//     fetch("/Accountancy_Complete_Notes.html")
-//       .then((res) => res.text())
-//       .then((text) => setHtml(text));
-//   }, []);
-
-//   return (
-//     <div
-//       dangerouslySetInnerHTML={{ __html: html }}
-//       style={{ width: "100%", height: "100vh" }}
-//     />
-//   );
-// }
-
-// import htmlContent from "./Accountancy_Complete_Notes.html?raw";
-
-// export default function MyComponent() {
-//   return <div dangerouslySetInnerHTML={{ __html: htmlContent }} />;
-// }
-
 // RevisionViewer.jsx
 import { useState, useEffect, useRef } from "react";
 import DOMPurify from "dompurify"; // optional: `npm i dompurify`, or remove and use `html` directly
@@ -52,7 +27,7 @@ const styles = `
 .rv-shell {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: calc(100vh - 50px);
   font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
   color: #1a1a2e;
   background: #f4f5fb;
