@@ -3,7 +3,8 @@ import EditPdf from "./EditPdf";
 import Home from "./Home";
 import ImportantPoints from "./ImportantPoints";
 import Map from "./Map";
-import APFC from "./APFC";
+import APFC_PYQ from "./APFC_PYQ";
+import APFC_NOTES from "./APFC_NOTES";
 
 const navStyle = {
   padding: 5,
@@ -14,12 +15,14 @@ const navStyle = {
   borderRadius: 5,
 };
 const Index = () => {
-  const [selectedMenu, setSelectedMenu] = React.useState("HOME");
+  const [selectedMenu, setSelectedMenu] = React.useState("APFC_NOTES");
 
   const getItem = () => {
     switch (selectedMenu) {
-      case "APFC":
-        return <APFC />;
+      case "APFC_NOTES":
+        return <APFC_NOTES />;
+      case "APFC_PYQ":
+        return <APFC_PYQ />;
       case "HOME":
         return <Home />;
       case "MAP":
@@ -58,11 +61,21 @@ const Index = () => {
           style={{
             ...navStyle,
             backgroundColor:
-              selectedMenu === "APFC" ? "lightSkyBlue" : "darkOrange",
+              selectedMenu === "APFC_NOTES" ? "lightSkyBlue" : "darkOrange",
           }}
-          onClick={() => setSelectedMenu("APFC")}
+          onClick={() => setSelectedMenu("APFC_NOTES")}
         >
-          APFC
+          APFC NOTES
+        </div>
+        <div
+          style={{
+            ...navStyle,
+            backgroundColor:
+              selectedMenu === "APFC_PYQ" ? "lightSkyBlue" : "darkOrange",
+          }}
+          onClick={() => setSelectedMenu("APFC_PYQ")}
+        >
+          APFC PYQ
         </div>
         <div
           style={{

@@ -1,0 +1,793 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=utf-8">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<title>Computer Applications — Comprehensive Notes</title>
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0in;
+	font-size:10.0pt;
+	font-family:"Calibri",sans-serif;
+	color:#1A2233;}
+h1
+	{margin:0in;
+	font-size:16.0pt;
+	font-family:"Calibri",sans-serif;
+	color:#2E74B5;
+	font-weight:normal;}
+p.MsoListParagraph, li.MsoListParagraph, div.MsoListParagraph
+	{margin:0in;
+	font-size:10.0pt;
+	font-family:"Calibri",sans-serif;
+	color:#1A2233;}
+.MsoChpDefault
+	{font-size:10.0pt;
+	font-family:"Calibri",sans-serif;
+	color:#1A2233;}
+@page WordSection1
+	{size:8.5in 11.0in;
+	margin:.75in .75in .75in .75in;}
+div.WordSection1
+	{page:WordSection1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-US link="#0563C1" vlink="#954F72" style='word-wrap:break-word'>
+
+<div class=WordSection1>
+
+<p class=MsoNormal style='margin-bottom:1.5pt'><b><span style='font-size:15.0pt;
+color:#2D4A8A'>Computer Applications — Comprehensive Notes</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:2.0pt'><span style='color:#5B6472'>UPSC
+EPFO (APFC / EO-AO) · for the 2026 exam</span></p>
+
+<div style='border:none;border-bottom:solid #2D4A8A 1.0pt;padding:0in 0in 4.0pt 0in'>
+
+<p class=MsoNormal style='margin-bottom:3.5pt;border:none;padding:0in'>&nbsp;</p>
+
+</div>
+
+<p class=MsoNormal style='margin-bottom:2.5pt'><i><span style='font-size:9.0pt;
+color:#5B6472'>~37.5 marks across the last two papers. Mostly STATIC
+fundamentals (number systems, hardware, networking, OS, programming — Sections
+1–6) with a small emerging-tech / digital-policy slice (Section 7).
+Number-system conversions are guaranteed easy marks — practise until automatic.</span></i></p>
+
+<h1 style='margin-top:10.5pt;margin-right:0in;margin-bottom:3.0pt;margin-left:
+0in'><b><span style='font-size:13.0pt;color:#2D4A8A'>1 · Number Systems
+(guaranteed marks)</span></b></h1>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width=672
+ style='width:7.0in;border-collapse:collapse;border:none'>
+ <thead>
+  <tr>
+   <td width=200 valign=top style='width:150.0pt;border:solid #C9D2E3 1.0pt;
+   background:#2D4A8A;padding:1.6pt 4.3pt 1.6pt 4.3pt'>
+   <p class=MsoNormal><b><span style='font-size:9.0pt;color:white'>Conversion</span></b></p>
+   </td>
+   <td width=472 valign=top style='width:354.0pt;border:solid #C9D2E3 1.0pt;
+   border-left:none;background:#2D4A8A;padding:1.6pt 4.3pt 1.6pt 4.3pt'>
+   <p class=MsoNormal><b><span style='font-size:9.0pt;color:white'>Method /
+   worked example</span></b></p>
+   </td>
+  </tr>
+ </thead>
+ <tr>
+  <td width=200 valign=top style='width:150.0pt;border:solid #C9D2E3 1.0pt;
+  border-top:none;padding:1.6pt 4.3pt 1.6pt 4.3pt'>
+  <p class=MsoNormal><span style='font-size:9.0pt'>Hex → decimal</span></p>
+  </td>
+  <td width=472 valign=top style='width:354.0pt;border-top:none;border-left:
+  none;border-bottom:solid #C9D2E3 1.0pt;border-right:solid #C9D2E3 1.0pt;
+  padding:1.6pt 4.3pt 1.6pt 4.3pt'>
+  <p class=MsoNormal><span style='font-size:9.0pt'>multiply each digit by 16^n
+  (right→left). 5A6D = 5·4096 + 10·256 + 6·16 + 13 = 23149</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=200 valign=top style='width:150.0pt;border:solid #C9D2E3 1.0pt;
+  border-top:none;background:#EEF2FA;padding:1.6pt 4.3pt 1.6pt 4.3pt'>
+  <p class=MsoNormal><span style='font-size:9.0pt'>Octal → binary</span></p>
+  </td>
+  <td width=472 valign=top style='width:354.0pt;border-top:none;border-left:
+  none;border-bottom:solid #C9D2E3 1.0pt;border-right:solid #C9D2E3 1.0pt;
+  background:#EEF2FA;padding:1.6pt 4.3pt 1.6pt 4.3pt'>
+  <p class=MsoNormal><span style='font-size:9.0pt'>each octal digit → 3 bits.
+  473 = 100 111 011</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=200 valign=top style='width:150.0pt;border:solid #C9D2E3 1.0pt;
+  border-top:none;padding:1.6pt 4.3pt 1.6pt 4.3pt'>
+  <p class=MsoNormal><span style='font-size:9.0pt'>Binary → decimal</span></p>
+  </td>
+  <td width=472 valign=top style='width:354.0pt;border-top:none;border-left:
+  none;border-bottom:solid #C9D2E3 1.0pt;border-right:solid #C9D2E3 1.0pt;
+  padding:1.6pt 4.3pt 1.6pt 4.3pt'>
+  <p class=MsoNormal><span style='font-size:9.0pt'>multiply each bit by 2^n</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=200 valign=top style='width:150.0pt;border:solid #C9D2E3 1.0pt;
+  border-top:none;background:#EEF2FA;padding:1.6pt 4.3pt 1.6pt 4.3pt'>
+  <p class=MsoNormal><span style='font-size:9.0pt'>Decimal → binary</span></p>
+  </td>
+  <td width=472 valign=top style='width:354.0pt;border-top:none;border-left:
+  none;border-bottom:solid #C9D2E3 1.0pt;border-right:solid #C9D2E3 1.0pt;
+  background:#EEF2FA;padding:1.6pt 4.3pt 1.6pt 4.3pt'>
+  <p class=MsoNormal><span style='font-size:9.0pt'>repeated division by 2, read
+  remainders bottom-up</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=200 valign=top style='width:150.0pt;border:solid #C9D2E3 1.0pt;
+  border-top:none;padding:1.6pt 4.3pt 1.6pt 4.3pt'>
+  <p class=MsoNormal><span style='font-size:9.0pt'>Bases</span></p>
+  </td>
+  <td width=472 valign=top style='width:354.0pt;border-top:none;border-left:
+  none;border-bottom:solid #C9D2E3 1.0pt;border-right:solid #C9D2E3 1.0pt;
+  padding:1.6pt 4.3pt 1.6pt 4.3pt'>
+  <p class=MsoNormal><span style='font-size:9.0pt'>Binary (2, 0-1), Octal (8,
+  0-7), Decimal (10), Hexadecimal (16, 0-9 A-F)</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoListParagraph style='margin-top:0in;margin-right:0in;margin-bottom:
+1.1pt;margin-left:.5in;text-indent:-.25in'>●<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><b><span style='font-size:9.5pt'>Units: </span></b><span
+style='font-size:9.5pt'>bit → nibble (4 bits) → byte (8 bits) → KB → MB → GB →
+TB (×1024)</span></p>
+
+<h1 style='margin-top:10.5pt;margin-right:0in;margin-bottom:3.0pt;margin-left:
+0in'><b><span style='font-size:13.0pt;color:#2D4A8A'>2 · Hardware &amp; Memory</span></b></h1>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width=672
+ style='width:7.0in;border-collapse:collapse;border:none'>
+ <thead>
+  <tr>
+   <td width=200 valign=top style='width:150.0pt;border:solid #C9D2E3 1.0pt;
+   background:#2D4A8A;padding:1.6pt 4.3pt 1.6pt 4.3pt'>
+   <p class=MsoNormal><b><span style='font-size:9.0pt;color:white'>Item</span></b></p>
+   </td>
+   <td width=472 valign=top style='width:354.0pt;border:solid #C9D2E3 1.0pt;
+   border-left:none;background:#2D4A8A;padding:1.6pt 4.3pt 1.6pt 4.3pt'>
+   <p class=MsoNormal><b><span style='font-size:9.0pt;color:white'>Key point</span></b></p>
+   </td>
+  </tr>
+ </thead>
+ <tr>
+  <td width=200 valign=top style='width:150.0pt;border:solid #C9D2E3 1.0pt;
+  border-top:none;padding:1.6pt 4.3pt 1.6pt 4.3pt'>
+  <p class=MsoNormal><span style='font-size:9.0pt'>Permanent (non-volatile)
+  memory</span></p>
+  </td>
+  <td width=472 valign=top style='width:354.0pt;border-top:none;border-left:
+  none;border-bottom:solid #C9D2E3 1.0pt;border-right:solid #C9D2E3 1.0pt;
+  padding:1.6pt 4.3pt 1.6pt 4.3pt'>
+  <p class=MsoNormal><span style='font-size:9.0pt'>Hard Disk, SSD, ROM — retain
+  data without power. RAM is volatile (temporary)</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=200 valign=top style='width:150.0pt;border:solid #C9D2E3 1.0pt;
+  border-top:none;background:#EEF2FA;padding:1.6pt 4.3pt 1.6pt 4.3pt'>
+  <p class=MsoNormal><span style='font-size:9.0pt'>Primary vs Secondary memory</span></p>
+  </td>
+  <td width=472 valign=top style='width:354.0pt;border-top:none;border-left:
+  none;border-bottom:solid #C9D2E3 1.0pt;border-right:solid #C9D2E3 1.0pt;
+  background:#EEF2FA;padding:1.6pt 4.3pt 1.6pt 4.3pt'>
+  <p class=MsoNormal><span style='font-size:9.0pt'>primary = RAM &amp; ROM
+  (directly accessed by CPU); secondary = HDD/SSD/optical/USB</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=200 valign=top style='width:150.0pt;border:solid #C9D2E3 1.0pt;
+  border-top:none;padding:1.6pt 4.3pt 1.6pt 4.3pt'>
+  <p class=MsoNormal><span style='font-size:9.0pt'>Cache &amp; registers</span></p>
+  </td>
+  <td width=472 valign=top style='width:354.0pt;border-top:none;border-left:
+  none;border-bottom:solid #C9D2E3 1.0pt;border-right:solid #C9D2E3 1.0pt;
+  padding:1.6pt 4.3pt 1.6pt 4.3pt'>
+  <p class=MsoNormal><span style='font-size:9.0pt'>fastest memory; registers
+  are inside the CPU</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=200 valign=top style='width:150.0pt;border:solid #C9D2E3 1.0pt;
+  border-top:none;background:#EEF2FA;padding:1.6pt 4.3pt 1.6pt 4.3pt'>
+  <p class=MsoNormal><span style='font-size:9.0pt'>SSD</span></p>
+  </td>
+  <td width=472 valign=top style='width:354.0pt;border-top:none;border-left:
+  none;border-bottom:solid #C9D2E3 1.0pt;border-right:solid #C9D2E3 1.0pt;
+  background:#EEF2FA;padding:1.6pt 4.3pt 1.6pt 4.3pt'>
+  <p class=MsoNormal><span style='font-size:9.0pt'>no spinning parts; consumes
+  LESS energy than an HDD; can serve as virtual memory; CANNOT replace the
+  processor</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=200 valign=top style='width:150.0pt;border:solid #C9D2E3 1.0pt;
+  border-top:none;padding:1.6pt 4.3pt 1.6pt 4.3pt'>
+  <p class=MsoNormal><span style='font-size:9.0pt'>CPU parts</span></p>
+  </td>
+  <td width=472 valign=top style='width:354.0pt;border-top:none;border-left:
+  none;border-bottom:solid #C9D2E3 1.0pt;border-right:solid #C9D2E3 1.0pt;
+  padding:1.6pt 4.3pt 1.6pt 4.3pt'>
+  <p class=MsoNormal><span style='font-size:9.0pt'>ALU (arithmetic/logic),
+  Control Unit, registers; GPU preferred for training complex AI models
+  (parallel processing)</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=200 valign=top style='width:150.0pt;border:solid #C9D2E3 1.0pt;
+  border-top:none;background:#EEF2FA;padding:1.6pt 4.3pt 1.6pt 4.3pt'>
+  <p class=MsoNormal><span style='font-size:9.0pt'>Software types</span></p>
+  </td>
+  <td width=472 valign=top style='width:354.0pt;border-top:none;border-left:
+  none;border-bottom:solid #C9D2E3 1.0pt;border-right:solid #C9D2E3 1.0pt;
+  background:#EEF2FA;padding:1.6pt 4.3pt 1.6pt 4.3pt'>
+  <p class=MsoNormal><span style='font-size:9.0pt'>system software (OS,
+  utilities) vs application software; firmware</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal style='margin-top:5.0pt;margin-right:0in;margin-bottom:2.0pt;
+margin-left:0in'><b><span style='font-size:10.5pt'>Important CPU registers</span></b></p>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width=672
+ style='width:7.0in;border-collapse:collapse;border:none'>
+ <thead>
+  <tr>
+   <td width=173 valign=top style='width:130.0pt;border:solid #C9D2E3 1.0pt;
+   background:#2D4A8A;padding:1.6pt 4.3pt 1.6pt 4.3pt'>
+   <p class=MsoNormal><b><span style='font-size:9.0pt;color:white'>Register</span></b></p>
+   </td>
+   <td width=499 valign=top style='width:374.0pt;border:solid #C9D2E3 1.0pt;
+   border-left:none;background:#2D4A8A;padding:1.6pt 4.3pt 1.6pt 4.3pt'>
+   <p class=MsoNormal><b><span style='font-size:9.0pt;color:white'>Function</span></b></p>
+   </td>
+  </tr>
+ </thead>
+ <tr>
+  <td width=173 valign=top style='width:130.0pt;border:solid #C9D2E3 1.0pt;
+  border-top:none;padding:1.6pt 4.3pt 1.6pt 4.3pt'>
+  <p class=MsoNormal><span style='font-size:9.0pt'>MAR (Memory Address
+  Register)</span></p>
+  </td>
+  <td width=499 valign=top style='width:374.0pt;border-top:none;border-left:
+  none;border-bottom:solid #C9D2E3 1.0pt;border-right:solid #C9D2E3 1.0pt;
+  padding:1.6pt 4.3pt 1.6pt 4.3pt'>
+  <p class=MsoNormal><span style='font-size:9.0pt'>holds the ADDRESS of the
+  memory location to be accessed</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=173 valign=top style='width:130.0pt;border:solid #C9D2E3 1.0pt;
+  border-top:none;background:#EEF2FA;padding:1.6pt 4.3pt 1.6pt 4.3pt'>
+  <p class=MsoNormal><span style='font-size:9.0pt'>MBR / MDR (Memory
+  Buffer/Data Register)</span></p>
+  </td>
+  <td width=499 valign=top style='width:374.0pt;border-top:none;border-left:
+  none;border-bottom:solid #C9D2E3 1.0pt;border-right:solid #C9D2E3 1.0pt;
+  background:#EEF2FA;padding:1.6pt 4.3pt 1.6pt 4.3pt'>
+  <p class=MsoNormal><span style='font-size:9.0pt'>holds the DATA read from /
+  written to memory</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=173 valign=top style='width:130.0pt;border:solid #C9D2E3 1.0pt;
+  border-top:none;padding:1.6pt 4.3pt 1.6pt 4.3pt'>
+  <p class=MsoNormal><span style='font-size:9.0pt'>PC (Program Counter)</span></p>
+  </td>
+  <td width=499 valign=top style='width:374.0pt;border-top:none;border-left:
+  none;border-bottom:solid #C9D2E3 1.0pt;border-right:solid #C9D2E3 1.0pt;
+  padding:1.6pt 4.3pt 1.6pt 4.3pt'>
+  <p class=MsoNormal><span style='font-size:9.0pt'>holds the address of the
+  NEXT instruction</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=173 valign=top style='width:130.0pt;border:solid #C9D2E3 1.0pt;
+  border-top:none;background:#EEF2FA;padding:1.6pt 4.3pt 1.6pt 4.3pt'>
+  <p class=MsoNormal><span style='font-size:9.0pt'>IR (Instruction Register)</span></p>
+  </td>
+  <td width=499 valign=top style='width:374.0pt;border-top:none;border-left:
+  none;border-bottom:solid #C9D2E3 1.0pt;border-right:solid #C9D2E3 1.0pt;
+  background:#EEF2FA;padding:1.6pt 4.3pt 1.6pt 4.3pt'>
+  <p class=MsoNormal><span style='font-size:9.0pt'>holds the current
+  instruction being executed</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=173 valign=top style='width:130.0pt;border:solid #C9D2E3 1.0pt;
+  border-top:none;padding:1.6pt 4.3pt 1.6pt 4.3pt'>
+  <p class=MsoNormal><span style='font-size:9.0pt'>Accumulator</span></p>
+  </td>
+  <td width=499 valign=top style='width:374.0pt;border-top:none;border-left:
+  none;border-bottom:solid #C9D2E3 1.0pt;border-right:solid #C9D2E3 1.0pt;
+  padding:1.6pt 4.3pt 1.6pt 4.3pt'>
+  <p class=MsoNormal><span style='font-size:9.0pt'>holds intermediate
+  arithmetic/logic results</span></p>
+  </td>
+ </tr>
+</table>
+
+<h1 style='margin-top:10.5pt;margin-right:0in;margin-bottom:3.0pt;margin-left:
+0in'><b><span style='font-size:13.0pt;color:#2D4A8A'>3 · Operating Systems</span></b></h1>
+
+<p class=MsoListParagraph style='margin-top:0in;margin-right:0in;margin-bottom:
+1.1pt;margin-left:.5in;text-indent:-.25in'>●<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><b><span style='font-size:9.5pt'>Function: </span></b><span
+style='font-size:9.5pt'>manages hardware/software resources — process, memory,
+file and device management</span></p>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width=672
+ style='width:7.0in;border-collapse:collapse;border:none'>
+ <thead>
+  <tr>
+   <td width=187 valign=top style='width:140.0pt;border:solid #C9D2E3 1.0pt;
+   background:#2D4A8A;padding:1.6pt 4.3pt 1.6pt 4.3pt'>
+   <p class=MsoNormal><b><span style='font-size:9.0pt;color:white'>OS type</span></b></p>
+   </td>
+   <td width=485 valign=top style='width:364.0pt;border:solid #C9D2E3 1.0pt;
+   border-left:none;background:#2D4A8A;padding:1.6pt 4.3pt 1.6pt 4.3pt'>
+   <p class=MsoNormal><b><span style='font-size:9.0pt;color:white'>Key point</span></b></p>
+   </td>
+  </tr>
+ </thead>
+ <tr>
+  <td width=187 valign=top style='width:140.0pt;border:solid #C9D2E3 1.0pt;
+  border-top:none;padding:1.6pt 4.3pt 1.6pt 4.3pt'>
+  <p class=MsoNormal><span style='font-size:9.0pt'>Real-time OS</span></p>
+  </td>
+  <td width=485 valign=top style='width:364.0pt;border-top:none;border-left:
+  none;border-bottom:solid #C9D2E3 1.0pt;border-right:solid #C9D2E3 1.0pt;
+  padding:1.6pt 4.3pt 1.6pt 4.3pt'>
+  <p class=MsoNormal><span style='font-size:9.0pt'>responds to an event within
+  a fixed/predetermined time (e.g. control systems)</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=187 valign=top style='width:140.0pt;border:solid #C9D2E3 1.0pt;
+  border-top:none;background:#EEF2FA;padding:1.6pt 4.3pt 1.6pt 4.3pt'>
+  <p class=MsoNormal><span style='font-size:9.0pt'>Batch OS</span></p>
+  </td>
+  <td width=485 valign=top style='width:364.0pt;border-top:none;border-left:
+  none;border-bottom:solid #C9D2E3 1.0pt;border-right:solid #C9D2E3 1.0pt;
+  background:#EEF2FA;padding:1.6pt 4.3pt 1.6pt 4.3pt'>
+  <p class=MsoNormal><span style='font-size:9.0pt'>jobs processed in batches,
+  no user interaction</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=187 valign=top style='width:140.0pt;border:solid #C9D2E3 1.0pt;
+  border-top:none;padding:1.6pt 4.3pt 1.6pt 4.3pt'>
+  <p class=MsoNormal><span style='font-size:9.0pt'>Time-sharing / Multitasking</span></p>
+  </td>
+  <td width=485 valign=top style='width:364.0pt;border-top:none;border-left:
+  none;border-bottom:solid #C9D2E3 1.0pt;border-right:solid #C9D2E3 1.0pt;
+  padding:1.6pt 4.3pt 1.6pt 4.3pt'>
+  <p class=MsoNormal><span style='font-size:9.0pt'>CPU time shared among many
+  users/tasks</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=187 valign=top style='width:140.0pt;border:solid #C9D2E3 1.0pt;
+  border-top:none;background:#EEF2FA;padding:1.6pt 4.3pt 1.6pt 4.3pt'>
+  <p class=MsoNormal><span style='font-size:9.0pt'>Multiuser vs
+  Multiprogramming</span></p>
+  </td>
+  <td width=485 valign=top style='width:364.0pt;border-top:none;border-left:
+  none;border-bottom:solid #C9D2E3 1.0pt;border-right:solid #C9D2E3 1.0pt;
+  background:#EEF2FA;padding:1.6pt 4.3pt 1.6pt 4.3pt'>
+  <p class=MsoNormal><span style='font-size:9.0pt'>multiple users / multiple
+  programs in memory</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=187 valign=top style='width:140.0pt;border:solid #C9D2E3 1.0pt;
+  border-top:none;padding:1.6pt 4.3pt 1.6pt 4.3pt'>
+  <p class=MsoNormal><span style='font-size:9.0pt'>Embedded OS</span></p>
+  </td>
+  <td width=485 valign=top style='width:364.0pt;border-top:none;border-left:
+  none;border-bottom:solid #C9D2E3 1.0pt;border-right:solid #C9D2E3 1.0pt;
+  padding:1.6pt 4.3pt 1.6pt 4.3pt'>
+  <p class=MsoNormal><span style='font-size:9.0pt'>runs on a dedicated device
+  (appliance, IoT)</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=187 valign=top style='width:140.0pt;border:solid #C9D2E3 1.0pt;
+  border-top:none;background:#EEF2FA;padding:1.6pt 4.3pt 1.6pt 4.3pt'>
+  <p class=MsoNormal><span style='font-size:9.0pt'>Distributed OS</span></p>
+  </td>
+  <td width=485 valign=top style='width:364.0pt;border-top:none;border-left:
+  none;border-bottom:solid #C9D2E3 1.0pt;border-right:solid #C9D2E3 1.0pt;
+  background:#EEF2FA;padding:1.6pt 4.3pt 1.6pt 4.3pt'>
+  <p class=MsoNormal><span style='font-size:9.0pt'>manages a group of networked
+  computers as one</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoListParagraph style='margin-top:0in;margin-right:0in;margin-bottom:
+1.1pt;margin-left:.5in;text-indent:-.25in'>●<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><b><span style='font-size:9.5pt'>Key OS commands: </span></b><span
+style='font-size:9.5pt'>CHKDSK checks the error status of a hard disk; other
+DOS/CLI utilities</span></p>
+
+<h1 style='margin-top:10.5pt;margin-right:0in;margin-bottom:3.0pt;margin-left:
+0in'><b><span style='font-size:13.0pt;color:#2D4A8A'>4 · Networking &amp;
+Internet</span></b></h1>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width=672
+ style='width:7.0in;border-collapse:collapse;border:none'>
+ <thead>
+  <tr>
+   <td width=200 valign=top style='width:150.0pt;border:solid #C9D2E3 1.0pt;
+   background:#2D4A8A;padding:1.6pt 4.3pt 1.6pt 4.3pt'>
+   <p class=MsoNormal><b><span style='font-size:9.0pt;color:white'>Item</span></b></p>
+   </td>
+   <td width=472 valign=top style='width:354.0pt;border:solid #C9D2E3 1.0pt;
+   border-left:none;background:#2D4A8A;padding:1.6pt 4.3pt 1.6pt 4.3pt'>
+   <p class=MsoNormal><b><span style='font-size:9.0pt;color:white'>Key point</span></b></p>
+   </td>
+  </tr>
+ </thead>
+ <tr>
+  <td width=200 valign=top style='width:150.0pt;border:solid #C9D2E3 1.0pt;
+  border-top:none;padding:1.6pt 4.3pt 1.6pt 4.3pt'>
+  <p class=MsoNormal><span style='font-size:9.0pt'>Network types</span></p>
+  </td>
+  <td width=472 valign=top style='width:354.0pt;border-top:none;border-left:
+  none;border-bottom:solid #C9D2E3 1.0pt;border-right:solid #C9D2E3 1.0pt;
+  padding:1.6pt 4.3pt 1.6pt 4.3pt'>
+  <p class=MsoNormal><span style='font-size:9.0pt'>LAN (local), MAN (metro),
+  WAN (wide, e.g. the Internet), PAN</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=200 valign=top style='width:150.0pt;border:solid #C9D2E3 1.0pt;
+  border-top:none;background:#EEF2FA;padding:1.6pt 4.3pt 1.6pt 4.3pt'>
+  <p class=MsoNormal><span style='font-size:9.0pt'>Topologies</span></p>
+  </td>
+  <td width=472 valign=top style='width:354.0pt;border-top:none;border-left:
+  none;border-bottom:solid #C9D2E3 1.0pt;border-right:solid #C9D2E3 1.0pt;
+  background:#EEF2FA;padding:1.6pt 4.3pt 1.6pt 4.3pt'>
+  <p class=MsoNormal><span style='font-size:9.0pt'>Bus, Star, Ring, Mesh, Tree.
+  Full mesh links = n(n−1)/2 → 6 computers = 15 links</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=200 valign=top style='width:150.0pt;border:solid #C9D2E3 1.0pt;
+  border-top:none;padding:1.6pt 4.3pt 1.6pt 4.3pt'>
+  <p class=MsoNormal><span style='font-size:9.0pt'>IP address (IPv4)</span></p>
+  </td>
+  <td width=472 valign=top style='width:354.0pt;border-top:none;border-left:
+  none;border-bottom:solid #C9D2E3 1.0pt;border-right:solid #C9D2E3 1.0pt;
+  padding:1.6pt 4.3pt 1.6pt 4.3pt'>
+  <p class=MsoNormal><span style='font-size:9.0pt'>four octets, each 0–255 (so
+  '710' is INVALID); IPv6 uses 128 bits</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=200 valign=top style='width:150.0pt;border:solid #C9D2E3 1.0pt;
+  border-top:none;background:#EEF2FA;padding:1.6pt 4.3pt 1.6pt 4.3pt'>
+  <p class=MsoNormal><span style='font-size:9.0pt'>SSL</span></p>
+  </td>
+  <td width=472 valign=top style='width:354.0pt;border-top:none;border-left:
+  none;border-bottom:solid #C9D2E3 1.0pt;border-right:solid #C9D2E3 1.0pt;
+  background:#EEF2FA;padding:1.6pt 4.3pt 1.6pt 4.3pt'>
+  <p class=MsoNormal><span style='font-size:9.0pt'>Secure Socket Layer —
+  encrypts data on banking/secure websites (HTTPS)</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=200 valign=top style='width:150.0pt;border:solid #C9D2E3 1.0pt;
+  border-top:none;padding:1.6pt 4.3pt 1.6pt 4.3pt'>
+  <p class=MsoNormal><span style='font-size:9.0pt'>Protocols</span></p>
+  </td>
+  <td width=472 valign=top style='width:354.0pt;border-top:none;border-left:
+  none;border-bottom:solid #C9D2E3 1.0pt;border-right:solid #C9D2E3 1.0pt;
+  padding:1.6pt 4.3pt 1.6pt 4.3pt'>
+  <p class=MsoNormal><span style='font-size:9.0pt'>TCP/IP, HTTP/HTTPS, FTP,
+  SMTP (email), DNS (name→IP)</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=200 valign=top style='width:150.0pt;border:solid #C9D2E3 1.0pt;
+  border-top:none;background:#EEF2FA;padding:1.6pt 4.3pt 1.6pt 4.3pt'>
+  <p class=MsoNormal><span style='font-size:9.0pt'>Devices</span></p>
+  </td>
+  <td width=472 valign=top style='width:354.0pt;border-top:none;border-left:
+  none;border-bottom:solid #C9D2E3 1.0pt;border-right:solid #C9D2E3 1.0pt;
+  background:#EEF2FA;padding:1.6pt 4.3pt 1.6pt 4.3pt'>
+  <p class=MsoNormal><span style='font-size:9.0pt'>router, switch, hub, modem,
+  gateway</span></p>
+  </td>
+ </tr>
+</table>
+
+<h1 style='margin-top:10.5pt;margin-right:0in;margin-bottom:3.0pt;margin-left:
+0in'><b><span style='font-size:13.0pt;color:#2D4A8A'>5 · Programming &amp; Web
+Basics</span></b></h1>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width=672
+ style='width:7.0in;margin-left:-.25pt;border-collapse:collapse;border:none'>
+ <thead>
+  <tr>
+   <td width=200 valign=top style='width:150.0pt;border:solid #C9D2E3 1.0pt;
+   background:#2D4A8A;padding:1.6pt 4.3pt 1.6pt 4.3pt'>
+   <p class=MsoNormal><b><span style='font-size:9.0pt;color:white'>Item</span></b></p>
+   </td>
+   <td width=472 valign=top style='width:354.0pt;border:solid #C9D2E3 1.0pt;
+   border-left:none;background:#2D4A8A;padding:1.6pt 4.3pt 1.6pt 4.3pt'>
+   <p class=MsoNormal><b><span style='font-size:9.0pt;color:white'>Key point</span></b></p>
+   </td>
+  </tr>
+ </thead>
+ <tr>
+  <td width=200 valign=top style='width:150.0pt;border:solid #C9D2E3 1.0pt;
+  border-top:none;padding:1.6pt 4.3pt 1.6pt 4.3pt'>
+  <p class=MsoNormal><span style='font-size:9.0pt'>Top-down (procedural)
+  languages</span></p>
+  </td>
+  <td width=472 valign=top style='width:354.0pt;border-top:none;border-left:
+  none;border-bottom:solid #C9D2E3 1.0pt;border-right:solid #C9D2E3 1.0pt;
+  padding:1.6pt 4.3pt 1.6pt 4.3pt'>
+  <p class=MsoNormal><span style='font-size:9.0pt'>C, FORTRAN, Pascal, COBOL.
+  JAVA is object-oriented (bottom-up)</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=200 valign=top style='width:150.0pt;border:solid #C9D2E3 1.0pt;
+  border-top:none;background:#EEF2FA;padding:1.6pt 4.3pt 1.6pt 4.3pt'>
+  <p class=MsoNormal><span style='font-size:9.0pt'>Language levels</span></p>
+  </td>
+  <td width=472 valign=top style='width:354.0pt;border-top:none;border-left:
+  none;border-bottom:solid #C9D2E3 1.0pt;border-right:solid #C9D2E3 1.0pt;
+  background:#EEF2FA;padding:1.6pt 4.3pt 1.6pt 4.3pt'>
+  <p class=MsoNormal><span style='font-size:9.0pt'>machine (binary) → assembly
+  → high-level; compiler vs interpreter</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=200 valign=top style='width:150.0pt;border:solid #C9D2E3 1.0pt;
+  border-top:none;padding:1.6pt 4.3pt 1.6pt 4.3pt'>
+  <p class=MsoNormal><span style='font-size:9.0pt'>Dot operator</span></p>
+  </td>
+  <td width=472 valign=top style='width:354.0pt;border-top:none;border-left:
+  none;border-bottom:solid #C9D2E3 1.0pt;border-right:solid #C9D2E3 1.0pt;
+  padding:1.6pt 4.3pt 1.6pt 4.3pt'>
+  <p class=MsoNormal><span style='font-size:9.0pt'>connects a structure
+  variable and its member/element (e.g. student.name)</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=200 valign=top style='width:150.0pt;border:solid #C9D2E3 1.0pt;
+  border-top:none;background:#EEF2FA;padding:1.6pt 4.3pt 1.6pt 4.3pt'>
+  <p class=MsoNormal><span style='font-size:9.0pt'>HTML internal linking</span></p>
+  </td>
+  <td width=472 valign=top style='width:354.0pt;border-top:none;border-left:
+  none;border-bottom:solid #C9D2E3 1.0pt;border-right:solid #C9D2E3 1.0pt;
+  background:#EEF2FA;padding:1.6pt 4.3pt 1.6pt 4.3pt'>
+  <p class=MsoNormal><span style='font-size:9.0pt'>uses the name / id attribute
+  (a named anchor) to link within a page</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=200 valign=top style='width:150.0pt;border:solid #C9D2E3 1.0pt;
+  border-top:none;padding:1.6pt 4.3pt 1.6pt 4.3pt'>
+  <p class=MsoNormal><span style='font-size:9.0pt'>Data structures</span></p>
+  </td>
+  <td width=472 valign=top style='width:354.0pt;border-top:none;border-left:
+  none;border-bottom:solid #C9D2E3 1.0pt;border-right:solid #C9D2E3 1.0pt;
+  padding:1.6pt 4.3pt 1.6pt 4.3pt'>
+  <p class=MsoNormal><span style='font-size:9.0pt'>array, stack (LIFO), queue
+  (FIFO), linked list, tree</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=200 valign=top style='width:150.0pt;border:solid #C9D2E3 1.0pt;
+  border-top:none;background:#EEF2FA;padding:1.6pt 4.3pt 1.6pt 4.3pt'>
+  <p class=MsoNormal><span style='font-size:9.0pt'>Number of key generations</span></p>
+  </td>
+  <td width=472 valign=top style='width:354.0pt;border-top:none;border-left:
+  none;border-bottom:solid #C9D2E3 1.0pt;border-right:solid #C9D2E3 1.0pt;
+  background:#EEF2FA;padding:1.6pt 4.3pt 1.6pt 4.3pt'>
+  <p class=MsoNormal><span style='font-size:9.0pt'>1st vacuum tubes, 2nd
+  transistors, 3rd ICs, 4th microprocessors, 5th AI</span></p>
+  </td>
+ </tr>
+</table>
+
+<h1 style='margin-top:10.5pt;margin-right:0in;margin-bottom:3.0pt;margin-left:
+0in'><b><span style='font-size:13.0pt;color:#2D4A8A'>6 · Common Applications
+(MS Office etc.)</span></b></h1>
+
+<p class=MsoListParagraph style='margin-top:0in;margin-right:0in;margin-bottom:
+1.1pt;margin-left:.5in;text-indent:-.25in'>●<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><b><span style='font-size:9.5pt'>MS Word: </span></b><span
+style='font-size:9.5pt'>word processor — documents, formatting, mail merge</span></p>
+
+<p class=MsoListParagraph style='margin-top:0in;margin-right:0in;margin-bottom:
+1.1pt;margin-left:.5in;text-indent:-.25in'>●<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><b><span style='font-size:9.5pt'>MS Excel: </span></b><span
+style='font-size:9.5pt'>spreadsheet — cells, formulas (=SUM, =AVERAGE),
+functions, charts; rows/columns</span></p>
+
+<p class=MsoListParagraph style='margin-top:0in;margin-right:0in;margin-bottom:
+1.1pt;margin-left:.5in;text-indent:-.25in'>●<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><b><span style='font-size:9.5pt'>MS PowerPoint: </span></b><span
+style='font-size:9.5pt'>presentation slides</span></p>
+
+<p class=MsoListParagraph style='margin-top:0in;margin-right:0in;margin-bottom:
+1.1pt;margin-left:.5in;text-indent:-.25in'>●<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><b><span style='font-size:9.5pt'>File types: </span></b><span
+style='font-size:9.5pt'>.docx, .xlsx, .pptx, .pdf; extensions indicate file
+format</span></p>
+
+<p class=MsoListParagraph style='margin-top:0in;margin-right:0in;margin-bottom:
+1.1pt;margin-left:.5in;text-indent:-.25in'>●<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><b><span style='font-size:9.5pt'>Shortcuts: </span></b><span
+style='font-size:9.5pt'>Ctrl+C/V/X (copy/paste/cut), Ctrl+Z (undo), Ctrl+S
+(save)</span></p>
+
+<h1 style='margin-top:10.5pt;margin-right:0in;margin-bottom:3.0pt;margin-left:
+0in'><b><span style='font-size:13.0pt;color:#2D4A8A'>7 · Emerging Tech &amp;
+Digital Policy (Current Affairs)</span></b></h1>
+
+<div style='border:solid #9A6A00 1.0pt;padding:0in 0in 0in 0in;background:#FDF3D8'>
+
+<p class=MsoNormal style='margin-top:3.0pt;margin-right:0in;margin-bottom:4.0pt;
+margin-left:0in;background:#FDF3D8;border:none;padding:0in'><span
+style='font-size:9.5pt;color:#5A3D00'>The small current-affairs slice of this
+subject. Biggest development: the DPDP Rules, 2025 were notified on 13 November
+2025, operationalising India's data-protection law — a likely factual question.</span></p>
+
+</div>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width=672
+ style='width:7.0in;margin-left:-.25pt;border-collapse:collapse;border:none'>
+ <thead>
+  <tr>
+   <td width=213 valign=top style='width:160.0pt;border:solid #C9D2E3 1.0pt;
+   background:#2D4A8A;padding:1.6pt 4.3pt 1.6pt 4.3pt'>
+   <p class=MsoNormal><b><span style='font-size:9.0pt;color:white'>Item</span></b></p>
+   </td>
+   <td width=459 valign=top style='width:344.0pt;border:solid #C9D2E3 1.0pt;
+   border-left:none;background:#2D4A8A;padding:1.6pt 4.3pt 1.6pt 4.3pt'>
+   <p class=MsoNormal><b><span style='font-size:9.0pt;color:white'>Detail</span></b></p>
+   </td>
+  </tr>
+ </thead>
+ <tr>
+  <td width=213 valign=top style='width:160.0pt;border:solid #C9D2E3 1.0pt;
+  border-top:none;padding:1.6pt 4.3pt 1.6pt 4.3pt'>
+  <p class=MsoNormal><span style='font-size:9.0pt'>DPDP Act, 2023 + DPDP Rules,
+  2025</span></p>
+  </td>
+  <td width=459 valign=top style='width:344.0pt;border-top:none;border-left:
+  none;border-bottom:solid #C9D2E3 1.0pt;border-right:solid #C9D2E3 1.0pt;
+  padding:1.6pt 4.3pt 1.6pt 4.3pt'>
+  <p class=MsoNormal><span style='font-size:9.0pt'>Digital Personal Data
+  Protection framework; Rules notified 13 Nov 2025 by MeitY; phased rollout;
+  sets up the Data Protection Board of India (DPBI); 'data fiduciary' &amp;
+  'data principal'</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=213 valign=top style='width:160.0pt;border:solid #C9D2E3 1.0pt;
+  border-top:none;background:#EEF2FA;padding:1.6pt 4.3pt 1.6pt 4.3pt'>
+  <p class=MsoNormal><span style='font-size:9.0pt'>IndiaAI Mission</span></p>
+  </td>
+  <td width=459 valign=top style='width:344.0pt;border-top:none;border-left:
+  none;border-bottom:solid #C9D2E3 1.0pt;border-right:solid #C9D2E3 1.0pt;
+  background:#EEF2FA;padding:1.6pt 4.3pt 1.6pt 4.3pt'>
+  <p class=MsoNormal><span style='font-size:9.0pt'>₹10,000+ crore national AI
+  mission — compute (GPUs), datasets, safety; IndiaAI Safety Institute</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=213 valign=top style='width:160.0pt;border:solid #C9D2E3 1.0pt;
+  border-top:none;padding:1.6pt 4.3pt 1.6pt 4.3pt'>
+  <p class=MsoNormal><span style='font-size:9.0pt'>AI Governance Guidelines
+  (Nov 2025)</span></p>
+  </td>
+  <td width=459 valign=top style='width:344.0pt;border-top:none;border-left:
+  none;border-bottom:solid #C9D2E3 1.0pt;border-right:solid #C9D2E3 1.0pt;
+  padding:1.6pt 4.3pt 1.6pt 4.3pt'>
+  <p class=MsoNormal><span style='font-size:9.0pt'>MeitY 'light-touch'
+  principles for responsible AI (non-binding)</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=213 valign=top style='width:160.0pt;border:solid #C9D2E3 1.0pt;
+  border-top:none;background:#EEF2FA;padding:1.6pt 4.3pt 1.6pt 4.3pt'>
+  <p class=MsoNormal><span style='font-size:9.0pt'>Artificial Intelligence</span></p>
+  </td>
+  <td width=459 valign=top style='width:344.0pt;border-top:none;border-left:
+  none;border-bottom:solid #C9D2E3 1.0pt;border-right:solid #C9D2E3 1.0pt;
+  background:#EEF2FA;padding:1.6pt 4.3pt 1.6pt 4.3pt'>
+  <p class=MsoNormal><span style='font-size:9.0pt'>ChatGPT is based on a Large
+  Language Model (LLM); ML, deep learning, neural networks, generative AI;
+  BharatGen (indigenous LLM)</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=213 valign=top style='width:160.0pt;border:solid #C9D2E3 1.0pt;
+  border-top:none;padding:1.6pt 4.3pt 1.6pt 4.3pt'>
+  <p class=MsoNormal><span style='font-size:9.0pt'>Cybersecurity</span></p>
+  </td>
+  <td width=459 valign=top style='width:344.0pt;border-top:none;border-left:
+  none;border-bottom:solid #C9D2E3 1.0pt;border-right:solid #C9D2E3 1.0pt;
+  padding:1.6pt 4.3pt 1.6pt 4.3pt'>
+  <p class=MsoNormal><span style='font-size:9.0pt'>CERT-In (national nodal
+  agency for cyber incidents); malware, phishing, ransomware; firewall,
+  encryption; SEBI/RBI cyber frameworks</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=213 valign=top style='width:160.0pt;border:solid #C9D2E3 1.0pt;
+  border-top:none;background:#EEF2FA;padding:1.6pt 4.3pt 1.6pt 4.3pt'>
+  <p class=MsoNormal><span style='font-size:9.0pt'>Digital Public
+  Infrastructure (DPI)</span></p>
+  </td>
+  <td width=459 valign=top style='width:344.0pt;border-top:none;border-left:
+  none;border-bottom:solid #C9D2E3 1.0pt;border-right:solid #C9D2E3 1.0pt;
+  background:#EEF2FA;padding:1.6pt 4.3pt 1.6pt 4.3pt'>
+  <p class=MsoNormal><span style='font-size:9.0pt'>Aadhaar, UPI (record
+  transaction volumes), ONDC, DigiLocker, Account Aggregator</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=213 valign=top style='width:160.0pt;border:solid #C9D2E3 1.0pt;
+  border-top:none;padding:1.6pt 4.3pt 1.6pt 4.3pt'>
+  <p class=MsoNormal><span style='font-size:9.0pt'>Other terms</span></p>
+  </td>
+  <td width=459 valign=top style='width:344.0pt;border-top:none;border-left:
+  none;border-bottom:solid #C9D2E3 1.0pt;border-right:solid #C9D2E3 1.0pt;
+  padding:1.6pt 4.3pt 1.6pt 4.3pt'>
+  <p class=MsoNormal><span style='font-size:9.0pt'>cloud computing
+  (IaaS/PaaS/SaaS), blockchain, IoT, quantum computing, semiconductors (India
+  Semiconductor Mission)</span></p>
+  </td>
+ </tr>
+</table>
+
+<div style='border:none;border-top:solid #C9D2E3 1.0pt;padding:4.0pt 0in 0in 0in'>
+
+<p class=MsoNormal style='margin-top:5.5pt;border:none;padding:0in'><i><span
+style='font-size:8.5pt;color:#5B6472'>Currency note: Sections 1-6
+(fundamentals) are static and exam-stable. Section 7 is compiled from
+late-2025/early-2026 reporting — DPDP enforcement timelines, IndiaAI Mission
+figures, AI governance and UPI/DPI milestones keep developing through 2026; re-verify
+against PIB / MeitY closer to the exam.</span></i></p>
+
+</div>
+
+</div>
+
+</body>
+
+</html>
