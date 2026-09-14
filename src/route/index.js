@@ -6,6 +6,7 @@ import Map from "./Map";
 import APFC_PYQ from "./APFC_PYQ";
 import APFC_NOTES from "./APFC_NOTES";
 import APFC_ENGLISH from "./APFC_ENGLISH/intex";
+import RootFlashcards from "./RootWords";
 
 const navStyle = {
   padding: 5,
@@ -34,6 +35,8 @@ const Index = () => {
         return <APFC_ENGLISH />;
       case "EDIT_PDF":
         return <EditPdf />;
+      case "ROOT_WORDS":
+        return <RootFlashcards />;
       default:
     }
   };
@@ -131,6 +134,16 @@ const Index = () => {
           onClick={() => setSelectedMenu("EDIT_PDF")}
         >
           Edit Pdf
+        </div>
+        <div
+          style={{
+            ...navStyle,
+            backgroundColor:
+              selectedMenu === "ROOT_WORDS" ? "lightSkyBlue" : "darkOrange",
+          }}
+          onClick={() => setSelectedMenu("ROOT_WORDS")}
+        >
+          Root Words
         </div>
       </div>
       {getItem()}
