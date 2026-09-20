@@ -1,0 +1,2468 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Accounting — Complete Revision Note · UPSC APFC 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --paper: #f8faf7;
+        --paper-2: #eef2ec;
+        --card: #ffffff;
+        --ink: #12241c;
+        --ink-soft: #3c4f45;
+        --ink-faint: #6b7d73;
+        --green: #0f5137;
+        --green-bright: #127a52;
+        --green-line: #c3d6cb;
+        --red: #9e2b25;
+        --red-soft: #c85a52;
+        --gold: #9a7420;
+        --gold-soft: #f3ead0;
+        --rule: #d5e0d8;
+        --rule-strong: #a9bcb0;
+        --shadow:
+          0 1px 0 rgba(18, 36, 28, 0.04),
+          0 8px 30px -18px rgba(18, 36, 28, 0.35);
+        --maxw: 74ch;
+      }
+      :root:not([data-theme="light"]) {
+        @media (prefers-color-scheme: dark) {
+          --paper: #0f1613;
+          --paper-2: #141d19;
+          --card: #161f1b;
+          --ink: #e7eee9;
+          --ink-soft: #b3c1b9;
+          --ink-faint: #83958b;
+          --green: #5cc79a;
+          --green-bright: #6fd6a9;
+          --green-line: #2b4438;
+          --red: #e8887f;
+          --red-soft: #d97169;
+          --gold: #d9bd77;
+          --gold-soft: #2a2416;
+          --rule: #26362e;
+          --rule-strong: #3a5044;
+          --shadow:
+            0 1px 0 rgba(0, 0, 0, 0.3), 0 10px 30px -18px rgba(0, 0, 0, 0.7);
+        }
+      }
+      :root[data-theme="dark"] {
+        --paper: #0f1613;
+        --paper-2: #141d19;
+        --card: #161f1b;
+        --ink: #e7eee9;
+        --ink-soft: #b3c1b9;
+        --ink-faint: #83958b;
+        --green: #5cc79a;
+        --green-bright: #6fd6a9;
+        --green-line: #2b4438;
+        --red: #e8887f;
+        --red-soft: #d97169;
+        --gold: #d9bd77;
+        --gold-soft: #2a2416;
+        --rule: #26362e;
+        --rule-strong: #3a5044;
+        --shadow:
+          0 1px 0 rgba(0, 0, 0, 0.3), 0 10px 30px -18px rgba(0, 0, 0, 0.7);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+      }
+      body {
+        margin: 0;
+        background: var(--paper);
+        color: var(--ink);
+        font-family:
+          "Inter",
+          system-ui,
+          -apple-system,
+          sans-serif;
+        font-size: 17px;
+        line-height: 1.7;
+        letter-spacing: -0.005em;
+        -webkit-font-smoothing: antialiased;
+      }
+      body::before {
+        /* faint ledger ruling behind the page */
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: 0;
+        background-image: linear-gradient(var(--rule) 1px, transparent 1px);
+        background-size: 100% 2.55em;
+        opacity: 0.35;
+      }
+
+      /* progress bar */
+      #scrollbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 3px;
+        width: 0%;
+        z-index: 50;
+        background: linear-gradient(90deg, var(--green), var(--green-bright));
+      }
+
+      /* layout */
+      .wrap {
+        position: relative;
+        z-index: 1;
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 0 20px;
+        display: grid;
+        grid-template-columns: 260px minmax(0, 1fr);
+        gap: 44px;
+      }
+      @media (max-width: 940px) {
+        .wrap {
+          grid-template-columns: 1fr;
+          gap: 0;
+        }
+      }
+
+      /* sidebar */
+      aside {
+        position: sticky;
+        top: 0;
+        align-self: start;
+        height: 100vh;
+        overflow-y: auto;
+        padding: 26px 4px 40px;
+        border-right: 1px solid var(--rule);
+      }
+      aside::-webkit-scrollbar {
+        width: 6px;
+      }
+      aside::-webkit-scrollbar-thumb {
+        background: var(--rule-strong);
+        border-radius: 3px;
+      }
+      @media (max-width: 940px) {
+        aside {
+          position: static;
+          height: auto;
+          border-right: none;
+          border-bottom: 1px solid var(--rule);
+          padding: 16px 0;
+        }
+        .toc-wrap {
+          max-height: 0;
+          overflow: hidden;
+          transition: max-height 0.3s ease;
+        }
+        .toc-wrap.open {
+          max-height: 2400px;
+        }
+        .toc-toggle {
+          display: flex !important;
+        }
+      }
+      .brand {
+        font-family: "Spectral", serif;
+        font-weight: 700;
+        font-size: 1.05rem;
+        color: var(--green);
+        letter-spacing: -0.01em;
+        margin-bottom: 2px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .brand .mark {
+        width: 26px;
+        height: 26px;
+        border: 1.5px solid var(--green);
+        border-radius: 5px;
+        display: grid;
+        place-items: center;
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.72rem;
+        font-weight: 600;
+        line-height: 1;
+      }
+      .brand .mark span {
+        display: block;
+      }
+      .brand .mark .d {
+        color: var(--green);
+      }
+      .brand .mark .c {
+        color: var(--red);
+      }
+      .side-sub {
+        font-size: 0.72rem;
+        color: var(--ink-faint);
+        text-transform: none;
+        letter-spacing: 0.02em;
+        margin: 2px 0 18px 34px;
+      }
+      .toc-toggle {
+        display: none;
+        width: 100%;
+        align-items: center;
+        justify-content: space-between;
+        background: none;
+        border: 1px solid var(--rule);
+        color: var(--ink);
+        border-radius: 8px;
+        padding: 9px 12px;
+        font-family: inherit;
+        font-size: 0.85rem;
+        font-weight: 600;
+        cursor: pointer;
+        margin-top: 8px;
+      }
+      nav a {
+        display: block;
+        font-size: 0.82rem;
+        color: var(--ink-soft);
+        text-decoration: none;
+        padding: 5px 10px 5px 12px;
+        border-left: 2px solid transparent;
+        line-height: 1.35;
+        border-radius: 0 6px 6px 0;
+        transition:
+          color 0.15s,
+          background 0.15s,
+          border-color 0.15s;
+      }
+      nav a .num {
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.72rem;
+        color: var(--ink-faint);
+        margin-right: 7px;
+      }
+      nav a:hover {
+        background: var(--paper-2);
+        color: var(--ink);
+      }
+      nav a.active {
+        color: var(--green);
+        border-left-color: var(--green);
+        background: var(--paper-2);
+        font-weight: 600;
+      }
+      nav a.active .num {
+        color: var(--green);
+      }
+
+      /* main */
+      main {
+        padding: 0 0 90px;
+        min-width: 0;
+      }
+      .hero {
+        padding: 56px 0 30px;
+        border-bottom: 2px solid var(--rule-strong);
+        margin-bottom: 6px;
+        position: relative;
+      }
+      .eyebrow {
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.74rem;
+        color: var(--green-bright);
+        letter-spacing: 0.04em;
+        margin-bottom: 14px;
+      }
+      h1 {
+        font-family: "Spectral", serif;
+        font-weight: 800;
+        font-size: clamp(2.1rem, 5vw, 3.1rem);
+        line-height: 1.05;
+        margin: 0.1em 0 0.35em;
+        letter-spacing: -0.02em;
+        color: var(--ink);
+      }
+      .lede {
+        font-size: 1.06rem;
+        color: var(--ink-soft);
+        max-width: 60ch;
+        margin: 0;
+      }
+      .hero-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 22px;
+      }
+      .chip {
+        font-size: 0.76rem;
+        font-weight: 600;
+        color: var(--green);
+        background: var(--paper-2);
+        border: 1px solid var(--green-line);
+        padding: 5px 11px;
+        border-radius: 20px;
+      }
+      .chip.red {
+        color: var(--red);
+        border-color: var(--red-soft);
+        background: transparent;
+      }
+
+      .toolbar {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin-top: 22px;
+      }
+      .btn {
+        font-family: inherit;
+        font-size: 0.8rem;
+        font-weight: 600;
+        cursor: pointer;
+        background: var(--card);
+        color: var(--ink);
+        border: 1px solid var(--rule-strong);
+        padding: 8px 13px;
+        border-radius: 8px;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        transition:
+          transform 0.1s,
+          border-color 0.15s;
+      }
+      .btn:hover {
+        border-color: var(--green);
+        color: var(--green);
+      }
+      .btn:active {
+        transform: translateY(1px);
+      }
+
+      /* progress panel */
+      .prog {
+        margin: 26px 0 8px;
+        background: var(--card);
+        border: 1px solid var(--rule);
+        border-radius: 12px;
+        padding: 16px 18px;
+        box-shadow: var(--shadow);
+      }
+      .prog-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 12px;
+        font-size: 0.85rem;
+        color: var(--ink-soft);
+      }
+      .prog-top b {
+        font-family: "Spectral", serif;
+        font-size: 1.4rem;
+        color: var(--green);
+        font-weight: 700;
+      }
+      .prog-track {
+        height: 8px;
+        background: var(--paper-2);
+        border-radius: 6px;
+        margin-top: 10px;
+        overflow: hidden;
+        border: 1px solid var(--rule);
+      }
+      .prog-fill {
+        height: 100%;
+        width: 0%;
+        background: linear-gradient(90deg, var(--green), var(--green-bright));
+        transition: width 0.4s ease;
+        border-radius: 6px;
+      }
+      .prog small {
+        display: block;
+        margin-top: 9px;
+        font-size: 0.76rem;
+        color: var(--ink-faint);
+      }
+
+      /* sections */
+      section {
+        padding: 38px 0 8px;
+        scroll-margin-top: 14px;
+        border-bottom: 1px solid var(--rule);
+      }
+      section:last-of-type {
+        border-bottom: none;
+      }
+      .sec-head {
+        display: flex;
+        align-items: flex-start;
+        gap: 14px;
+        margin-bottom: 6px;
+      }
+      .sec-no {
+        font-family: "IBM Plex Mono", monospace;
+        font-weight: 600;
+        font-size: 0.9rem;
+        color: var(--green);
+        border: 1.5px solid var(--green-line);
+        border-radius: 8px;
+        padding: 6px 9px;
+        line-height: 1;
+        margin-top: 8px;
+        flex: none;
+        min-width: 38px;
+        text-align: center;
+      }
+      h2 {
+        font-family: "Spectral", serif;
+        font-weight: 700;
+        font-size: clamp(1.55rem, 3.4vw, 2.05rem);
+        line-height: 1.15;
+        margin: 0.15em 0 0.1em;
+        letter-spacing: -0.015em;
+        color: var(--ink);
+      }
+      .revise {
+        margin-left: auto;
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        font-size: 0.76rem;
+        color: var(--ink-faint);
+        cursor: pointer;
+        user-select: none;
+        margin-top: 10px;
+        flex: none;
+        white-space: nowrap;
+      }
+      .revise input {
+        accent-color: var(--green);
+        width: 16px;
+        height: 16px;
+        cursor: pointer;
+      }
+      h3 {
+        font-family: "Spectral", serif;
+        font-weight: 600;
+        font-size: 1.28rem;
+        margin: 1.5em 0 0.3em;
+        color: var(--green);
+        letter-spacing: -0.01em;
+      }
+      h4 {
+        font-size: 1rem;
+        font-weight: 700;
+        margin: 1.3em 0 0.2em;
+        color: var(--ink);
+      }
+      p {
+        margin: 0.55em 0;
+        max-width: var(--maxw);
+      }
+      ul,
+      ol {
+        max-width: var(--maxw);
+        padding-left: 1.25em;
+        margin: 0.5em 0;
+      }
+      li {
+        margin: 0.32em 0;
+      }
+      li::marker {
+        color: var(--green-bright);
+      }
+      b,
+      strong {
+        font-weight: 700;
+        color: var(--ink);
+      }
+      .term {
+        font-weight: 700;
+        color: var(--green);
+      }
+      em {
+        color: var(--ink-soft);
+      }
+      a.inline {
+        color: var(--green);
+        text-decoration: underline;
+        text-decoration-color: var(--green-line);
+      }
+
+      /* definition block */
+      .def {
+        border-left: 3px solid var(--green);
+        background: var(--paper-2);
+        padding: 12px 16px;
+        border-radius: 0 10px 10px 0;
+        margin: 1em 0;
+        max-width: var(--maxw);
+      }
+      .def .k {
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.7rem;
+        color: var(--green-bright);
+        letter-spacing: 0.03em;
+        display: block;
+        margin-bottom: 3px;
+      }
+
+      /* callouts */
+      .note {
+        border: 1px solid var(--rule-strong);
+        border-radius: 12px;
+        padding: 14px 18px 14px 16px;
+        margin: 1.1em 0;
+        max-width: var(--maxw);
+        background: var(--card);
+        box-shadow: var(--shadow);
+        border-left: 4px solid var(--gold);
+      }
+      .note.trap {
+        border-left-color: var(--red);
+      }
+      .note.mnem {
+        border-left-color: var(--green-bright);
+      }
+      .note .tag {
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.7rem;
+        font-weight: 600;
+        letter-spacing: 0.03em;
+        display: block;
+        margin-bottom: 4px;
+        color: var(--gold);
+      }
+      .note.trap .tag {
+        color: var(--red);
+      }
+      .note.mnem .tag {
+        color: var(--green-bright);
+      }
+      .note p {
+        margin: 0.25em 0;
+      }
+
+      /* tables — ledger style */
+      .tbl-wrap {
+        overflow-x: auto;
+        margin: 1.2em 0;
+        border: 1px solid var(--rule-strong);
+        border-radius: 12px;
+        box-shadow: var(--shadow);
+        background: var(--card);
+      }
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        min-width: 440px;
+        font-size: 0.9rem;
+      }
+      caption {
+        text-align: left;
+        font-family: "Spectral", serif;
+        font-weight: 600;
+        font-size: 1.02rem;
+        padding: 12px 16px 8px;
+        color: var(--green);
+      }
+      th,
+      td {
+        padding: 9px 14px;
+        text-align: left;
+        border-bottom: 1px solid var(--rule);
+        vertical-align: top;
+      }
+      thead th {
+        background: var(--paper-2);
+        font-weight: 700;
+        color: var(--ink);
+        font-size: 0.82rem;
+        border-bottom: 2px solid var(--rule-strong);
+      }
+      tbody tr:last-child td {
+        border-bottom: none;
+      }
+      tbody tr:hover {
+        background: var(--paper-2);
+      }
+      td.num,
+      th.num {
+        font-family: "IBM Plex Mono", monospace;
+        font-variant-numeric: tabular-nums;
+        text-align: right;
+      }
+      .dr {
+        color: var(--red);
+        font-weight: 600;
+      }
+      .cr {
+        color: var(--green);
+        font-weight: 600;
+      }
+
+      /* T-account */
+      .taccount {
+        max-width: 440px;
+        margin: 1.2em 0;
+        border: 1.5px solid var(--rule-strong);
+        border-radius: 10px;
+        overflow: hidden;
+        background: var(--card);
+        box-shadow: var(--shadow);
+      }
+      .taccount .ttitle {
+        text-align: center;
+        font-family: "Spectral", serif;
+        font-weight: 600;
+        padding: 8px;
+        border-bottom: 1.5px solid var(--rule-strong);
+        background: var(--paper-2);
+      }
+      .tgrid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
+      .tgrid > div {
+        padding: 10px 14px;
+        min-height: 70px;
+      }
+      .tgrid .left {
+        border-right: 1.5px solid var(--rule-strong);
+      }
+      .tgrid .hd {
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.74rem;
+        font-weight: 600;
+        margin-bottom: 6px;
+      }
+      .tgrid .left .hd {
+        color: var(--red);
+      }
+      .tgrid .right .hd {
+        color: var(--green);
+      }
+      .tgrid .row {
+        font-size: 0.85rem;
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+      }
+      .tgrid .amt {
+        font-family: "IBM Plex Mono", monospace;
+        font-variant-numeric: tabular-nums;
+      }
+
+      /* formula strip */
+      .formula {
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.95rem;
+        background: var(--paper-2);
+        border: 1px dashed var(--rule-strong);
+        border-radius: 10px;
+        padding: 12px 16px;
+        margin: 1em 0;
+        max-width: var(--maxw);
+        color: var(--ink);
+        overflow-x: auto;
+        line-height: 1.9;
+      }
+      .formula .op {
+        color: var(--green-bright);
+        font-weight: 600;
+      }
+
+      /* self test */
+      .qa {
+        border: 1px solid var(--rule);
+        border-radius: 12px;
+        margin: 0.7em 0;
+        background: var(--card);
+        max-width: var(--maxw);
+        overflow: hidden;
+      }
+      .qa summary {
+        cursor: pointer;
+        padding: 13px 16px;
+        font-weight: 600;
+        list-style: none;
+        display: flex;
+        gap: 10px;
+        align-items: flex-start;
+      }
+      .qa summary::-webkit-details-marker {
+        display: none;
+      }
+      .qa summary::before {
+        content: "Q";
+        font-family: "IBM Plex Mono", monospace;
+        color: var(--green);
+        font-weight: 700;
+        flex: none;
+        border: 1.5px solid var(--green-line);
+        border-radius: 6px;
+        width: 24px;
+        height: 24px;
+        display: grid;
+        place-items: center;
+        font-size: 0.78rem;
+      }
+      .qa[open] summary {
+        border-bottom: 1px solid var(--rule);
+      }
+      .qa .ans {
+        padding: 12px 16px 14px 50px;
+        color: var(--ink-soft);
+        font-size: 0.94rem;
+      }
+      .qa .ans b {
+        color: var(--green);
+      }
+
+      .grid2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+        max-width: var(--maxw);
+      }
+      @media (max-width: 620px) {
+        .grid2 {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      footer {
+        max-width: var(--maxw);
+        margin-top: 40px;
+        padding-top: 22px;
+        border-top: 2px solid var(--rule-strong);
+        font-size: 0.84rem;
+        color: var(--ink-faint);
+      }
+      footer b {
+        color: var(--ink-soft);
+      }
+
+      .backtop {
+        position: fixed;
+        right: 20px;
+        bottom: 20px;
+        z-index: 40;
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background: var(--green);
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        box-shadow: var(--shadow);
+        font-size: 1.2rem;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.25s;
+        display: grid;
+        place-items: center;
+      }
+      .backtop.show {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      @media print {
+        body::before,
+        #scrollbar,
+        aside,
+        .toolbar,
+        .backtop,
+        .prog,
+        .toc-toggle {
+          display: none !important;
+        }
+        .wrap {
+          display: block;
+          max-width: none;
+        }
+        section {
+          break-inside: avoid;
+          border-bottom: 1px solid #ccc;
+        }
+        .qa {
+          break-inside: avoid;
+        }
+        .qa .ans {
+          display: block !important;
+        }
+        a {
+          color: inherit;
+          text-decoration: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="scrollbar"></div>
+    <div class="wrap">
+      <!-- SIDEBAR -->
+      <aside>
+        <div class="brand">
+          <span class="mark"
+            ><span class="d">Dr</span><span class="c">Cr</span></span
+          >
+          APFC Accounting
+        </div>
+        <div class="side-sub">Complete concept &amp; revision note · 2026</div>
+        <button class="toc-toggle" id="tocToggle" aria-expanded="false">
+          Contents <span>▾</span>
+        </button>
+        <div class="toc-wrap" id="tocWrap">
+          <nav id="toc"></nav>
+        </div>
+      </aside>
+
+      <!-- MAIN -->
+      <main>
+        <header class="hero">
+          <div class="eyebrow">
+            UPSC · EPFO · Assistant Provident Fund Commissioner 2026
+          </div>
+          <h1>Accounting</h1>
+          <p class="lede">
+            The full backbone of the General Accounting portion — from first
+            principles to final accounts — written to be understood once and
+            revised many times before the exam.
+          </p>
+          <div class="hero-meta">
+            <span class="chip">General Accounting Principles</span>
+            <span class="chip">Concept + Formula + MCQ traps</span>
+            <span class="chip red">Revision-first layout</span>
+          </div>
+          <div class="toolbar">
+            <button class="btn" id="themeBtn">◑ Theme</button>
+            <button class="btn" id="printBtn">⎙ Print / Save PDF</button>
+            <button class="btn" id="resetBtn">↺ Reset progress</button>
+          </div>
+
+          <div class="prog">
+            <div class="prog-top">
+              <span>Revision progress</span><span><b id="progPct">0%</b></span>
+            </div>
+            <div class="prog-track">
+              <div class="prog-fill" id="progFill"></div>
+            </div>
+            <small id="progText"
+              >Tick “Mark revised” on each section as you finish it. Your
+              progress is saved on this device.</small
+            >
+          </div>
+        </header>
+
+        <!-- 1 -->
+        <section id="s1" data-title="Introduction to Accounting">
+          <div class="sec-head">
+            <div class="sec-no">01</div>
+            <h2>Introduction to Accounting</h2>
+          </div>
+
+          <div class="def">
+            <span class="k">DEFINITION</span> <b>Accounting</b> is the art of
+            <b>recording, classifying and summarising</b> in a significant
+            manner, and in terms of money, transactions and events which are, in
+            part at least, of a financial character, and <b>interpreting</b> the
+            results thereof.
+            <em
+              >(American Institute of Certified Public Accountants — AICPA)</em
+            >
+          </div>
+
+          <h3>Book-keeping vs Accounting vs Accountancy</h3>
+          <div class="tbl-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Basis</th>
+                  <th>Book-keeping</th>
+                  <th>Accounting</th>
+                  <th>Accountancy</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Scope</td>
+                  <td>Recording &amp; classifying</td>
+                  <td>Recording → summarising → interpreting</td>
+                  <td>Whole body of knowledge/principles</td>
+                </tr>
+                <tr>
+                  <td>Stage</td>
+                  <td>Primary / clerical</td>
+                  <td>Analytical</td>
+                  <td>Conceptual framework</td>
+                </tr>
+                <tr>
+                  <td>Skill</td>
+                  <td>Lower level</td>
+                  <td>Higher, needs judgement</td>
+                  <td>Highest</td>
+                </tr>
+                <tr>
+                  <td>Relation</td>
+                  <td>Begins the process</td>
+                  <td>Begins where book-keeping ends</td>
+                  <td>Governs both</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>Objectives &amp; functions</h3>
+          <ul>
+            <li>
+              Maintain <b>systematic records</b> of financial transactions.
+            </li>
+            <li>
+              Ascertain <b>profit or loss</b> (via Trading and P&amp;L account).
+            </li>
+            <li>Ascertain <b>financial position</b> (via Balance Sheet).</li>
+            <li>Provide information to <b>users</b> for decision-making.</li>
+            <li>
+              Act as legal evidence and help meet statutory/tax obligations.
+            </li>
+          </ul>
+
+          <h3>Branches of accounting</h3>
+          <div class="tbl-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Branch</th>
+                  <th>Focus</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><b>Financial accounting</b></td>
+                  <td>
+                    Historical records; profit &amp; financial position for
+                    external users.
+                  </td>
+                </tr>
+                <tr>
+                  <td><b>Cost accounting</b></td>
+                  <td>
+                    Ascertaining and controlling cost of products/services.
+                  </td>
+                </tr>
+                <tr>
+                  <td><b>Management accounting</b></td>
+                  <td>
+                    Internal reports to help managers plan, decide and control.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>Users of accounting information</h3>
+          <div class="grid2">
+            <div class="def">
+              <span class="k">INTERNAL</span> Owners, management, employees.
+            </div>
+            <div class="def">
+              <span class="k">EXTERNAL</span> Investors, lenders/banks,
+              creditors, government &amp; tax authorities, researchers, public.
+            </div>
+          </div>
+
+          <h3>Basis of accounting</h3>
+          <div class="tbl-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Cash basis</th>
+                  <th>Accrual (mercantile) basis</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Records only when cash is received/paid.</td>
+                  <td>
+                    Records when income is <b>earned</b> / expense is
+                    <b>incurred</b>, regardless of cash.
+                  </td>
+                </tr>
+                <tr>
+                  <td>Ignores outstanding &amp; prepaid items.</td>
+                  <td>Considers outstanding, prepaid, accrued items.</td>
+                </tr>
+                <tr>
+                  <td>Not recognised by Companies Act.</td>
+                  <td>Legally required for companies; gives a true picture.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="note mnem">
+            <span class="tag">REMEMBER</span>
+            <p>
+              Accounting <b>records only monetary</b> transactions — quality of
+              management, staff morale, etc. are important but
+              <b>not recorded</b> (money measurement concept).
+            </p>
+          </div>
+        </section>
+
+        <!-- 2 -->
+        <section id="s2" data-title="Basic Accounting Terms">
+          <div class="sec-head">
+            <div class="sec-no">02</div>
+            <h2>Basic Accounting Terms</h2>
+          </div>
+          <p>
+            These recur in every chapter and in objective questions — fix the
+            exact meanings.
+          </p>
+          <div class="tbl-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Term</th>
+                  <th>Meaning</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><b>Capital</b></td>
+                  <td>
+                    Amount invested by the owner; a liability of the business
+                    towards the owner.
+                  </td>
+                </tr>
+                <tr>
+                  <td><b>Drawings</b></td>
+                  <td>
+                    Cash/goods withdrawn by owner for personal use; reduces
+                    capital.
+                  </td>
+                </tr>
+                <tr>
+                  <td><b>Assets</b></td>
+                  <td>
+                    Resources owned that give future benefit —
+                    <em>fixed, current, tangible, intangible, fictitious</em>.
+                  </td>
+                </tr>
+                <tr>
+                  <td><b>Liabilities</b></td>
+                  <td>
+                    Amounts owed by the business — internal (capital) &amp;
+                    external (creditors, loans).
+                  </td>
+                </tr>
+                <tr>
+                  <td><b>Debtor</b></td>
+                  <td>Person who owes money <b>to</b> the business.</td>
+                </tr>
+                <tr>
+                  <td><b>Creditor</b></td>
+                  <td>Person to whom the business owes money.</td>
+                </tr>
+                <tr>
+                  <td><b>Revenue / income</b></td>
+                  <td>
+                    Inflow from sale of goods, services, interest, commission,
+                    etc.
+                  </td>
+                </tr>
+                <tr>
+                  <td><b>Expense</b></td>
+                  <td>Cost incurred to earn revenue (rent, salary, wages).</td>
+                </tr>
+                <tr>
+                  <td><b>Expenditure</b></td>
+                  <td>
+                    Spending of money — <em>capital</em> (long-term benefit) vs
+                    <em>revenue</em> (short-term).
+                  </td>
+                </tr>
+                <tr>
+                  <td><b>Purchases / Sales</b></td>
+                  <td>Goods bought / sold for resale (cash or credit).</td>
+                </tr>
+                <tr>
+                  <td><b>Stock (Inventory)</b></td>
+                  <td>Goods unsold — opening &amp; closing stock.</td>
+                </tr>
+                <tr>
+                  <td><b>Goods</b></td>
+                  <td>Items in which the business regularly deals.</td>
+                </tr>
+                <tr>
+                  <td><b>Voucher</b></td>
+                  <td>Documentary evidence of a transaction.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="note trap">
+            <span class="tag">MCQ TRAP</span>
+            <p>
+              <b>Fictitious assets</b> are <em>not real assets</em> — they are
+              unwritten-off expenses/losses (e.g. preliminary expenses, discount
+              on issue of shares). <b>Intangible assets</b> (goodwill, patents)
+              <em>are</em> real and have value.
+            </p>
+          </div>
+        </section>
+
+        <!-- 3 -->
+        <section id="s3" data-title="Accounting Principles (GAAP)">
+          <div class="sec-head">
+            <div class="sec-no">03</div>
+            <h2>Accounting Principles — GAAP</h2>
+          </div>
+          <p>
+            <b>GAAP</b> = Generally Accepted Accounting Principles: the common
+            rules that make statements uniform and comparable. They split into
+            <b>concepts</b> (assumptions) and <b>conventions</b> (practices).
+          </p>
+
+          <h3>Accounting concepts</h3>
+          <div class="tbl-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Concept</th>
+                  <th>Core idea</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><b>Business entity</b></td>
+                  <td>
+                    Business is separate from its owner; owner's capital is a
+                    liability of the business.
+                  </td>
+                </tr>
+                <tr>
+                  <td><b>Money measurement</b></td>
+                  <td>Only transactions expressible in money are recorded.</td>
+                </tr>
+                <tr>
+                  <td><b>Going concern</b></td>
+                  <td>
+                    Business will continue for the foreseeable future; assets
+                    recorded at cost, not break-up value.
+                  </td>
+                </tr>
+                <tr>
+                  <td><b>Accounting period</b></td>
+                  <td>
+                    Life is split into fixed periods (usually 1 year) to measure
+                    results.
+                  </td>
+                </tr>
+                <tr>
+                  <td><b>Cost concept</b></td>
+                  <td>Assets recorded at acquisition (historical) cost.</td>
+                </tr>
+                <tr>
+                  <td><b>Dual aspect</b></td>
+                  <td>
+                    Every transaction has two effects — basis of double entry.
+                    <em>Assets = Liabilities + Capital.</em>
+                  </td>
+                </tr>
+                <tr>
+                  <td><b>Matching</b></td>
+                  <td>
+                    Match expenses of a period with revenues of the same period
+                    to find true profit.
+                  </td>
+                </tr>
+                <tr>
+                  <td><b>Realisation</b></td>
+                  <td>
+                    Revenue is recognised when it is <b>earned/realised</b>, not
+                    when cash is received.
+                  </td>
+                </tr>
+                <tr>
+                  <td><b>Accrual</b></td>
+                  <td>
+                    Record income/expense when it arises, irrespective of cash
+                    flow.
+                  </td>
+                </tr>
+                <tr>
+                  <td><b>Objectivity</b></td>
+                  <td>
+                    Records must be based on verifiable evidence (vouchers).
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>Accounting conventions</h3>
+          <div class="tbl-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Convention</th>
+                  <th>Core idea</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><b>Consistency</b></td>
+                  <td>Same methods followed year to year → comparability.</td>
+                </tr>
+                <tr>
+                  <td><b>Conservatism (Prudence)</b></td>
+                  <td>
+                    “Anticipate no profit, provide for all possible losses.”
+                    Closing stock at
+                    <em>cost or market, whichever is lower</em>.
+                  </td>
+                </tr>
+                <tr>
+                  <td><b>Materiality</b></td>
+                  <td>
+                    Record/disclose only items significant enough to affect
+                    decisions.
+                  </td>
+                </tr>
+                <tr>
+                  <td><b>Full disclosure</b></td>
+                  <td>
+                    All relevant information must be disclosed truthfully.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="note mnem">
+            <span class="tag">AS-1 · FUNDAMENTAL ASSUMPTIONS</span>
+            <p>
+              Under Accounting Standard 1, three assumptions are presumed unless
+              stated otherwise: <b>Going concern, Consistency, Accrual</b>. If
+              followed, no disclosure needed; if <em>not</em> followed,
+              disclosure is required.
+            </p>
+          </div>
+          <div class="note trap">
+            <span class="tag">MCQ TRAP</span>
+            <p>
+              Valuing closing stock at “cost or market price, whichever is
+              lower” is an application of <b>Conservatism / Prudence</b> — a
+              very common one-liner question.
+            </p>
+          </div>
+        </section>
+
+        <!-- 4 -->
+        <section id="s4" data-title="Accounting Equation">
+          <div class="sec-head">
+            <div class="sec-no">04</div>
+            <h2>The Accounting Equation</h2>
+          </div>
+          <p>
+            Flowing from the <b>dual aspect concept</b>, total assets always
+            equal total claims against them.
+          </p>
+          <div class="formula">
+            Assets <span class="op">=</span> Liabilities
+            <span class="op">+</span> Capital<br />
+            Capital <span class="op">=</span> Assets
+            <span class="op">−</span> Liabilities<br />
+            Capital <span class="op">=</span> Opening Capital
+            <span class="op">+</span> Profit <span class="op">+</span> Fresh
+            Capital <span class="op">−</span> Drawings
+          </div>
+          <h3>Effect of transactions (illustration)</h3>
+          <div class="tbl-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Transaction</th>
+                  <th>Assets</th>
+                  <th>Liabilities</th>
+                  <th>Capital</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Started business with cash ₹1,00,000</td>
+                  <td class="num">+1,00,000</td>
+                  <td class="num">0</td>
+                  <td class="num">+1,00,000</td>
+                </tr>
+                <tr>
+                  <td>Bought goods on credit ₹20,000</td>
+                  <td class="num">+20,000</td>
+                  <td class="num">+20,000</td>
+                  <td class="num">0</td>
+                </tr>
+                <tr>
+                  <td>Paid creditor ₹5,000</td>
+                  <td class="num">−5,000</td>
+                  <td class="num">−5,000</td>
+                  <td class="num">0</td>
+                </tr>
+                <tr>
+                  <td>Owner withdrew ₹2,000</td>
+                  <td class="num">−2,000</td>
+                  <td class="num">0</td>
+                  <td class="num">−2,000</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="note">
+            <span class="tag">KEY</span>
+            <p>
+              Whatever the transaction, the equation must <b>stay balanced</b>.
+              If it doesn't, an error exists.
+            </p>
+          </div>
+        </section>
+
+        <!-- 5 -->
+        <section id="s5" data-title="Double Entry & Golden Rules">
+          <div class="sec-head">
+            <div class="sec-no">05</div>
+            <h2>Double Entry &amp; Golden Rules</h2>
+          </div>
+          <div class="def">
+            <span class="k">DOUBLE ENTRY SYSTEM</span> Every transaction affects
+            <b>two accounts</b> — one debited, one credited — with equal
+            amounts. Total debits always equal total credits.
+          </div>
+          <p>
+            <b>Advantages:</b> complete record, arithmetical accuracy checked
+            via trial balance, easy to detect fraud/errors, reliable profit and
+            position.
+          </p>
+
+          <h3>Traditional (British) classification of accounts</h3>
+          <div class="tbl-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Type</th>
+                  <th>Covers</th>
+                  <th>Golden rule</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><b>Personal</b></td>
+                  <td>
+                    Persons, firms, institutions (Ram's A/c, Bank A/c, Capital
+                    A/c)
+                  </td>
+                  <td>
+                    <span class="dr">Dr</span> the receiver,
+                    <span class="cr">Cr</span> the giver
+                  </td>
+                </tr>
+                <tr>
+                  <td><b>Real</b></td>
+                  <td>Assets &amp; property (Cash, Machinery, Building)</td>
+                  <td>
+                    <span class="dr">Dr</span> what comes in,
+                    <span class="cr">Cr</span> what goes out
+                  </td>
+                </tr>
+                <tr>
+                  <td><b>Nominal</b></td>
+                  <td>
+                    Expenses, losses, incomes, gains (Rent, Salary, Interest
+                    received)
+                  </td>
+                  <td>
+                    <span class="dr">Dr</span> all expenses &amp; losses,
+                    <span class="cr">Cr</span> all incomes &amp; gains
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>Modern (American) approach — rules by nature of account</h3>
+          <div class="tbl-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Account</th>
+                  <th>Increase</th>
+                  <th>Decrease</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Assets</td>
+                  <td class="dr">Debit</td>
+                  <td class="cr">Credit</td>
+                </tr>
+                <tr>
+                  <td>Expenses / Losses</td>
+                  <td class="dr">Debit</td>
+                  <td class="cr">Credit</td>
+                </tr>
+                <tr>
+                  <td>Liabilities</td>
+                  <td class="cr">Credit</td>
+                  <td class="dr">Debit</td>
+                </tr>
+                <tr>
+                  <td>Capital</td>
+                  <td class="cr">Credit</td>
+                  <td class="dr">Debit</td>
+                </tr>
+                <tr>
+                  <td>Income / Gains</td>
+                  <td class="cr">Credit</td>
+                  <td class="dr">Debit</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="note mnem">
+            <span class="tag">MNEMONIC</span>
+            <p>
+              <b>“DEAD CLIC”</b> → <b>D</b>ebit increases <b>E</b>xpenses,
+              <b>A</b>ssets, <b>D</b>rawings · <b>C</b>redit increases
+              <b>L</b>iabilities, <b>I</b>ncome, <b>C</b>apital.
+            </p>
+          </div>
+        </section>
+
+        <!-- 6 -->
+        <section id="s6" data-title="Journal">
+          <div class="sec-head">
+            <div class="sec-no">06</div>
+            <h2>Journal — the Book of Original Entry</h2>
+          </div>
+          <p>
+            The journal records transactions <b>chronologically</b> before
+            posting to the ledger. The process is called <b>journalising</b>.
+          </p>
+          <div class="tbl-wrap">
+            <table>
+              <caption>
+                Journal format
+              </caption>
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Particulars</th>
+                  <th>L.F.</th>
+                  <th class="num">Dr (₹)</th>
+                  <th class="num">Cr (₹)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Apr 1</td>
+                  <td>
+                    Cash A/c … <span class="dr">Dr</span
+                    ><br />&nbsp;&nbsp;&nbsp;To Capital A/c<br /><em
+                      >(Being business started with cash)</em
+                    >
+                  </td>
+                  <td>—</td>
+                  <td class="num">1,00,000</td>
+                  <td class="num">—</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td class="num">—</td>
+                  <td class="num">1,00,000</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <ul>
+            <li>
+              <b>Narration</b> — the brief explanation in brackets under each
+              entry.
+            </li>
+            <li>
+              <b>Compound entry</b> — one entry involving more than two
+              accounts.
+            </li>
+            <li>
+              <b>L.F.</b> (Ledger Folio) — page number where the entry is posted
+              in the ledger.
+            </li>
+          </ul>
+        </section>
+
+        <!-- 7 -->
+        <section id="s7" data-title="Ledger">
+          <div class="sec-head">
+            <div class="sec-no">07</div>
+            <h2>Ledger — the Book of Final Entry</h2>
+          </div>
+          <p>
+            The ledger is the principal book that contains all <b>accounts</b>.
+            Transferring entries from journal to ledger is <b>posting</b>. A
+            <b>“T-account”</b> has a debit (left) and credit (right) side.
+          </p>
+          <div class="taccount">
+            <div class="ttitle">Cash Account</div>
+            <div class="tgrid">
+              <div class="left">
+                <div class="hd">Dr</div>
+                <div class="row">
+                  <span>To Capital A/c</span><span class="amt">1,00,000</span>
+                </div>
+              </div>
+              <div class="right">
+                <div class="hd">Cr</div>
+                <div class="row">
+                  <span>By Purchases A/c</span><span class="amt">20,000</span>
+                </div>
+                <div class="row">
+                  <span>By Balance c/d</span><span class="amt">80,000</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p>
+            <b>Balancing:</b> the difference between the two sides is the
+            closing balance (<em>balance c/d</em>), carried to the next period
+            as <em>balance b/d</em>. Assets/expenses normally have a
+            <b>debit</b> balance; liabilities/capital/income a
+            <b>credit</b> balance.
+          </p>
+        </section>
+
+        <!-- 8 -->
+        <section id="s8" data-title="Trial Balance">
+          <div class="sec-head">
+            <div class="sec-no">08</div>
+            <h2>Trial Balance</h2>
+          </div>
+          <div class="def">
+            <span class="k">DEFINITION</span> A <b>statement</b> (not an
+            account) listing debit and credit balances of all ledger accounts on
+            a given date, prepared to test the <b>arithmetical accuracy</b> of
+            the books.
+          </div>
+          <p>
+            <b>Objectives:</b> check arithmetic accuracy · basis for final
+            accounts · summary of all accounts · helps locate errors.
+          </p>
+
+          <h3>Errors that a trial balance can &amp; cannot detect</h3>
+          <div class="grid2">
+            <div class="note trap">
+              <span class="tag">NOT DISCLOSED (agrees despite error)</span>
+              <p>
+                Errors of <b>omission</b> (complete) · errors of
+                <b>principle</b> · errors of <b>commission</b> that are
+                compensating · recording <b>wrong amount</b> in both accounts ·
+                posting to <b>wrong account of the same class</b>.
+              </p>
+            </div>
+            <div class="note">
+              <span class="tag">DISCLOSED (trial balance disagrees)</span>
+              <p>
+                Posting to <b>wrong side</b> · posting <b>wrong amount</b> to
+                one account · <b>omitting</b> to post one side ·
+                <b>wrong casting</b> (totalling) · errors in carrying forward.
+              </p>
+            </div>
+          </div>
+          <div class="note trap">
+            <span class="tag">MCQ TRAP</span>
+            <p>
+              A trial balance that
+              <b>tallies is not a proof of complete accuracy</b> — errors of
+              principle and complete omission still leave it balanced.
+            </p>
+          </div>
+        </section>
+
+        <!-- 9 -->
+        <section id="s9" data-title="Subsidiary Books & Cash Book">
+          <div class="sec-head">
+            <div class="sec-no">09</div>
+            <h2>Subsidiary Books &amp; Cash Book</h2>
+          </div>
+          <p>
+            When transactions are many, the journal is split into
+            <b>special/subsidiary books</b> for speed and division of labour.
+          </p>
+          <div class="tbl-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Subsidiary book</th>
+                  <th>Records</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Purchases book</td>
+                  <td>Credit purchases of goods only.</td>
+                </tr>
+                <tr>
+                  <td>Sales book</td>
+                  <td>Credit sales of goods only.</td>
+                </tr>
+                <tr>
+                  <td>Purchase returns (returns outward)</td>
+                  <td>Goods returned to suppliers.</td>
+                </tr>
+                <tr>
+                  <td>Sales returns (returns inward)</td>
+                  <td>Goods returned by customers.</td>
+                </tr>
+                <tr>
+                  <td>Bills receivable / payable book</td>
+                  <td>Bills of exchange received / accepted.</td>
+                </tr>
+                <tr>
+                  <td>Cash book</td>
+                  <td>All cash &amp; bank transactions.</td>
+                </tr>
+                <tr>
+                  <td>Journal proper</td>
+                  <td>
+                    Entries not fitting any special book (opening, closing,
+                    adjustments).
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>Types of cash book</h3>
+          <ul>
+            <li><b>Single column</b> — cash only.</li>
+            <li><b>Double column</b> — cash + bank (or cash + discount).</li>
+            <li><b>Triple column</b> — cash, bank and discount columns.</li>
+            <li>
+              <b>Petty cash book</b> — small routine payments, usually on the
+              <b>imprest system</b> (a fixed float is reimbursed to the original
+              amount each period).
+            </li>
+          </ul>
+          <div class="note mnem">
+            <span class="tag">DUAL NATURE</span>
+            <p>
+              The cash book is
+              <b>both a subsidiary book and a ledger account</b> — cash/bank
+              accounts are not separately opened in the ledger.
+            </p>
+          </div>
+          <div class="note trap">
+            <span class="tag">MCQ TRAP</span>
+            <p>
+              <b>Contra entry</b> = a transaction affecting both cash and bank
+              columns (e.g. cash deposited into bank), marked with the letter
+              <b>“C”</b>; it is not posted to the ledger again.
+            </p>
+          </div>
+        </section>
+
+        <!-- 10 -->
+        <section id="s10" data-title="Bank Reconciliation Statement">
+          <div class="sec-head">
+            <div class="sec-no">10</div>
+            <h2>Bank Reconciliation Statement (BRS)</h2>
+          </div>
+          <div class="def">
+            <span class="k">DEFINITION</span> A statement reconciling the
+            balance shown by the firm's <b>cash book (bank column)</b> with the
+            balance shown by the <b>pass book / bank statement</b> on a
+            particular date.
+          </div>
+          <h3>Common causes of difference</h3>
+          <ul>
+            <li>Cheques <b>issued but not yet presented</b> for payment.</li>
+            <li>Cheques <b>deposited but not yet cleared/credited</b>.</li>
+            <li>
+              Bank charges, interest debited by bank not entered in cash book.
+            </li>
+            <li>Interest/dividends collected by bank directly.</li>
+            <li>
+              Direct deposits by customers; standing-order payments by bank.
+            </li>
+            <li>Errors in the cash book or the pass book.</li>
+          </ul>
+          <div class="note">
+            <span class="tag">APPROACH</span>
+            <p>
+              Start from one balance, then add/subtract each item according to
+              how it affects <em>that</em> book, to arrive at the other balance.
+              Remember: an overdraft is a
+              <b>credit balance in the cash book</b> and a
+              <b>debit balance in the pass book</b>.
+            </p>
+          </div>
+        </section>
+
+        <!-- 11 -->
+        <section id="s11" data-title="Depreciation, Provisions & Reserves">
+          <div class="sec-head">
+            <div class="sec-no">11</div>
+            <h2>Depreciation, Provisions &amp; Reserves</h2>
+          </div>
+          <div class="def">
+            <span class="k">DEPRECIATION</span> The
+            <b>permanent, continuous and gradual</b> fall in the book value of a
+            fixed asset due to use, wear &amp; tear, obsolescence or efflux of
+            time. It is a <b>non-cash</b> expense charged against profit.
+          </div>
+          <p>
+            <b>Causes:</b> wear and tear, passage of time, obsolescence,
+            depletion, accidents.
+          </p>
+
+          <h3>Straight-line vs Written-down-value method</h3>
+          <div class="tbl-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Basis</th>
+                  <th>Straight Line (SLM / Fixed Instalment)</th>
+                  <th>Written Down Value (WDV / Diminishing)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Charged on</td>
+                  <td>Original cost</td>
+                  <td>Book value (reducing balance)</td>
+                </tr>
+                <tr>
+                  <td>Amount each year</td>
+                  <td>Equal every year</td>
+                  <td>Decreases every year</td>
+                </tr>
+                <tr>
+                  <td>Book value</td>
+                  <td>Can become zero</td>
+                  <td>Never becomes exactly zero</td>
+                </tr>
+                <tr>
+                  <td>Suitable for</td>
+                  <td>Assets with uniform use (furniture, patents)</td>
+                  <td>
+                    Assets needing higher early write-off (machinery, vehicles)
+                  </td>
+                </tr>
+                <tr>
+                  <td>Recognised by</td>
+                  <td>—</td>
+                  <td>Income Tax Act (mainly)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="formula">
+            SLM p.a. <span class="op">=</span> (Cost
+            <span class="op">−</span> Scrap value)
+            <span class="op">÷</span> Useful life
+          </div>
+
+          <h3>Provision vs Reserve</h3>
+          <div class="tbl-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Provision</th>
+                  <th>Reserve</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    For a <b>known liability</b> of uncertain amount (e.g.
+                    provision for doubtful debts).
+                  </td>
+                  <td>
+                    Appropriation of <b>profit</b> to strengthen the business.
+                  </td>
+                </tr>
+                <tr>
+                  <td>Charge <b>against</b> profit (compulsory).</td>
+                  <td>
+                    Appropriation <b>of</b> profit (after profit is found).
+                  </td>
+                </tr>
+                <tr>
+                  <td>Created even if there is a loss.</td>
+                  <td>Created only if there are profits.</td>
+                </tr>
+                <tr>
+                  <td>Not available for dividend.</td>
+                  <td>Can be used for dividend (revenue reserve).</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="note trap">
+            <span class="tag">MCQ TRAP</span>
+            <p>
+              <b>Reserve</b> vs <b>Provision</b>: provision reduces profit and
+              is a <em>charge</em>; reserve is created <em>from</em> profit.
+              Also distinguish <b>revenue reserve</b> (distributable) from
+              <b>capital reserve</b> (not for dividend).
+            </p>
+          </div>
+        </section>
+
+        <!-- 12 -->
+        <section id="s12" data-title="Rectification of Errors">
+          <div class="sec-head">
+            <div class="sec-no">12</div>
+            <h2>Rectification of Errors</h2>
+          </div>
+          <div class="tbl-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Error type</th>
+                  <th>Meaning</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><b>Error of omission</b></td>
+                  <td>Transaction fully or partly not recorded.</td>
+                </tr>
+                <tr>
+                  <td><b>Error of commission</b></td>
+                  <td>
+                    Wrong amount, wrong posting, wrong casting, wrong balancing.
+                  </td>
+                </tr>
+                <tr>
+                  <td><b>Error of principle</b></td>
+                  <td>
+                    Ignoring accounting principles — e.g. treating capital
+                    expenditure as revenue.
+                  </td>
+                </tr>
+                <tr>
+                  <td><b>Compensating error</b></td>
+                  <td>Two or more errors that cancel each other's effect.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="note">
+            <span class="tag">SUSPENSE ACCOUNT</span>
+            <p>
+              When a trial balance does not agree and the difference cannot be
+              located before final accounts, it is temporarily placed in a
+              <b>suspense account</b>. As one-sided errors are rectified, the
+              suspense account is cleared; when it shows nil, all such errors
+              are corrected.
+            </p>
+          </div>
+        </section>
+
+        <!-- 13 -->
+        <section id="s13" data-title="Final Accounts">
+          <div class="sec-head">
+            <div class="sec-no">13</div>
+            <h2>Final Accounts</h2>
+          </div>
+          <p>
+            Prepared at year-end to know profit/loss and financial position.
+            Order: <b>Trading A/c → Profit &amp; Loss A/c → Balance Sheet</b>.
+          </p>
+
+          <h3>1 · Trading Account</h3>
+          <p>
+            Finds <b>Gross Profit</b> (or gross loss) from buying and selling.
+          </p>
+          <div class="formula">
+            Gross Profit <span class="op">=</span> Net Sales
+            <span class="op">−</span> Cost of Goods Sold<br />
+            COGS <span class="op">=</span> Opening Stock
+            <span class="op">+</span> Net Purchases
+            <span class="op">+</span> Direct Expenses
+            <span class="op">−</span> Closing Stock
+          </div>
+          <p>
+            <em>Direct expenses:</em> wages, carriage inward, freight, factory
+            rent, power &amp; fuel.
+          </p>
+
+          <h3>2 · Profit &amp; Loss Account</h3>
+          <p>
+            Starts with gross profit; deducts <b>indirect expenses</b> (office,
+            selling, financial) and adds other incomes to give
+            <b>Net Profit</b>.
+          </p>
+          <div class="formula">
+            Net Profit <span class="op">=</span> Gross Profit
+            <span class="op">+</span> Other Incomes
+            <span class="op">−</span> Indirect Expenses
+          </div>
+
+          <h3>3 · Balance Sheet</h3>
+          <p>
+            A <b>statement</b> (not an account) of assets and liabilities
+            showing financial position on a date. It always balances (dual
+            aspect). <b>Marshalling</b> = the order of arranging items — by
+            <em>liquidity</em> or by <em>permanence</em>.
+          </p>
+
+          <h3>Common adjustments</h3>
+          <div class="tbl-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Adjustment</th>
+                  <th>Treatment</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Closing stock</td>
+                  <td>Credit Trading A/c; show as current asset in B/S.</td>
+                </tr>
+                <tr>
+                  <td>Outstanding expense</td>
+                  <td>Add to expense (P&amp;L); show as liability.</td>
+                </tr>
+                <tr>
+                  <td>Prepaid expense</td>
+                  <td>Deduct from expense; show as asset.</td>
+                </tr>
+                <tr>
+                  <td>Accrued income</td>
+                  <td>Add to income; show as asset.</td>
+                </tr>
+                <tr>
+                  <td>Income received in advance</td>
+                  <td>Deduct from income; show as liability.</td>
+                </tr>
+                <tr>
+                  <td>Depreciation</td>
+                  <td>Debit P&amp;L; deduct from asset in B/S.</td>
+                </tr>
+                <tr>
+                  <td>Bad debts / provision for doubtful debts</td>
+                  <td>Debit P&amp;L; deduct from debtors.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="note mnem">
+            <span class="tag">GOLDEN CHECK</span>
+            <p>
+              Every adjustment given <b>outside</b> the trial balance affects
+              <b>two places</b> — one in Trading/P&amp;L, one in the Balance
+              Sheet.
+            </p>
+          </div>
+        </section>
+
+        <!-- 14 -->
+        <section id="s14" data-title="Bills of Exchange">
+          <div class="sec-head">
+            <div class="sec-no">14</div>
+            <h2>Bills of Exchange (Overview)</h2>
+          </div>
+          <div class="def">
+            <span class="k">DEFINITION (NI ACT 1881)</span> An instrument in
+            writing containing an <b>unconditional order</b>, signed by the
+            maker, directing a certain person to pay a certain sum of money only
+            to, or to the order of, a certain person or the bearer.
+          </div>
+          <ul>
+            <li><b>Drawer</b> — maker (creditor) who draws the bill.</li>
+            <li>
+              <b>Drawee</b> — the person directed to pay (debtor); becomes
+              <b>acceptor</b> after accepting.
+            </li>
+            <li><b>Payee</b> — the person to receive payment.</li>
+            <li>
+              <b>Days of grace</b> — 3 extra days added to compute the due date.
+            </li>
+            <li>
+              <b>Discounting</b> — getting a bill encashed from a bank before
+              due date at a discount.
+            </li>
+            <li>
+              <b>Endorsement / dishonour / noting</b> — transfer, non-payment,
+              and its official record by a notary.
+            </li>
+          </ul>
+        </section>
+
+        <!-- 15 -->
+        <section id="s15" data-title="Accounting Standards, Ind AS & IFRS">
+          <div class="sec-head">
+            <div class="sec-no">15</div>
+            <h2>Accounting Standards, Ind AS &amp; IFRS</h2>
+          </div>
+          <ul>
+            <li>
+              <b>Accounting Standards (AS)</b> — written policy documents issued
+              by the <b>ICAI</b> (Institute of Chartered Accountants of India)
+              to bring uniformity.
+            </li>
+            <li>
+              <b>Ind AS</b> — Indian Accounting Standards converged with IFRS,
+              notified by the Ministry of Corporate Affairs; applicable to
+              specified companies in phases.
+            </li>
+            <li>
+              <b>IFRS</b> — International Financial Reporting Standards issued
+              by the <b>IASB</b>, aimed at global comparability.
+            </li>
+            <li>
+              <b>Objectives of standards:</b> uniformity, comparability,
+              reliability, reduced accounting alternatives.
+            </li>
+          </ul>
+          <div class="note trap">
+            <span class="tag">EXAM POINTER</span>
+            <p>
+              <b>AS</b> in India are issued by <b>ICAI</b>; <b>IFRS</b> by the
+              <b>IASB</b>. Ind AS are “converged with” (not identical to) IFRS.
+            </p>
+          </div>
+        </section>
+
+        <!-- 16 -->
+        <section id="s16" data-title="Ratio Analysis (Essentials)">
+          <div class="sec-head">
+            <div class="sec-no">16</div>
+            <h2>Ratio Analysis — Essentials</h2>
+          </div>
+          <p>
+            Tools to interpret financial statements. Group and remember the
+            standard ratios.
+          </p>
+          <div class="tbl-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Type</th>
+                  <th>Ratio</th>
+                  <th>Formula</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td rowspan="2"><b>Liquidity</b></td>
+                  <td>Current ratio</td>
+                  <td>
+                    Current Assets ÷ Current Liabilities <em>(ideal 2:1)</em>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Quick / Acid-test</td>
+                  <td>
+                    (Current Assets − Stock − Prepaid) ÷ Current Liabilities
+                    <em>(ideal 1:1)</em>
+                  </td>
+                </tr>
+                <tr>
+                  <td rowspan="2"><b>Solvency</b></td>
+                  <td>Debt–Equity</td>
+                  <td>Long-term Debt ÷ Shareholders' Funds</td>
+                </tr>
+                <tr>
+                  <td>Proprietary</td>
+                  <td>Shareholders' Funds ÷ Total Assets</td>
+                </tr>
+                <tr>
+                  <td rowspan="2"><b>Profitability</b></td>
+                  <td>Gross profit ratio</td>
+                  <td>(Gross Profit ÷ Net Sales) × 100</td>
+                </tr>
+                <tr>
+                  <td>Net profit ratio</td>
+                  <td>(Net Profit ÷ Net Sales) × 100</td>
+                </tr>
+                <tr>
+                  <td rowspan="2"><b>Activity / Turnover</b></td>
+                  <td>Stock turnover</td>
+                  <td>COGS ÷ Average Stock</td>
+                </tr>
+                <tr>
+                  <td>Debtors turnover</td>
+                  <td>Net Credit Sales ÷ Average Debtors</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- 17 -->
+        <section id="s17" data-title="Cost & Management Accounting">
+          <div class="sec-head">
+            <div class="sec-no">17</div>
+            <h2>Cost &amp; Management Accounting (Basics)</h2>
+          </div>
+          <ul>
+            <li>
+              <b>Elements of cost:</b> Material, Labour, Expenses → each
+              <em>direct</em> or <em>indirect</em>. Indirect items together form
+              <b>overheads</b>.
+            </li>
+            <li>
+              <b>Prime cost</b> = Direct Material + Direct Labour + Direct
+              Expenses.
+            </li>
+            <li>
+              <b>Cost of production</b> = Prime cost + Factory (works) overhead
+              + Office overhead.
+            </li>
+            <li><b>Behaviour:</b> fixed, variable and semi-variable costs.</li>
+            <li>
+              <b>Marginal costing &amp; break-even:</b>
+              <em>Contribution = Sales − Variable cost</em>;
+              <em>BEP (units) = Fixed cost ÷ Contribution per unit</em>.
+            </li>
+            <li>
+              <b>Management accounting</b> uses this data (plus budgets,
+              standards) purely for <b>internal decisions</b>; it has no fixed
+              statutory format.
+            </li>
+          </ul>
+          <div class="formula">
+            Contribution <span class="op">=</span> Sales
+            <span class="op">−</span> Variable Cost<br />
+            BEP (units) <span class="op">=</span> Fixed Cost
+            <span class="op">÷</span> Contribution per unit<br />
+            P/V ratio <span class="op">=</span> (Contribution
+            <span class="op">÷</span> Sales) <span class="op">×</span> 100
+          </div>
+        </section>
+
+        <!-- 18 SELF TEST -->
+        <section id="s18" data-title="Quick Self-Test">
+          <div class="sec-head">
+            <div class="sec-no">18</div>
+            <h2>Quick Self-Test</h2>
+          </div>
+          <p>
+            Answer in your head, then reveal. Great for the final days before
+            the exam.
+          </p>
+
+          <details class="qa">
+            <summary>
+              Which concept treats the owner and the business as separate?
+            </summary>
+            <div class="ans">
+              <b>Business entity concept.</b> Owner's capital is therefore a
+              liability of the business.
+            </div>
+          </details>
+          <details class="qa">
+            <summary>
+              Valuing stock at “cost or market price, whichever is lower”
+              follows which convention?
+            </summary>
+            <div class="ans"><b>Conservatism / Prudence.</b></div>
+          </details>
+          <details class="qa">
+            <summary>Golden rule for a nominal account?</summary>
+            <div class="ans">
+              <b
+                >Debit all expenses &amp; losses, Credit all incomes &amp;
+                gains.</b
+              >
+            </div>
+          </details>
+          <details class="qa">
+            <summary>Name two errors a trial balance cannot disclose.</summary>
+            <div class="ans">
+              Any two of:
+              <b
+                >error of complete omission, error of principle, compensating
+                error, wrong amount recorded in both accounts, posting to wrong
+                account of the same class.</b
+              >
+            </div>
+          </details>
+          <details class="qa">
+            <summary>
+              Under which method does depreciation stay equal every year?
+            </summary>
+            <div class="ans">
+              <b>Straight-line (fixed instalment) method</b>, charged on
+              original cost.
+            </div>
+          </details>
+          <details class="qa">
+            <summary>
+              Difference between a provision and a reserve in one line?
+            </summary>
+            <div class="ans">
+              A <b>provision is a charge against profit</b> for a known
+              liability; a <b>reserve is an appropriation of profit</b>.
+            </div>
+          </details>
+          <details class="qa">
+            <summary>Formula for Gross Profit?</summary>
+            <div class="ans">
+              <b>Gross Profit = Net Sales − Cost of Goods Sold</b>, where COGS =
+              Opening Stock + Net Purchases + Direct Expenses − Closing Stock.
+            </div>
+          </details>
+          <details class="qa">
+            <summary>
+              Who issues Accounting Standards in India, and who issues IFRS?
+            </summary>
+            <div class="ans">
+              Accounting Standards → <b>ICAI</b>; IFRS → <b>IASB</b>.
+            </div>
+          </details>
+          <details class="qa">
+            <summary>Ideal current ratio and quick ratio?</summary>
+            <div class="ans">
+              <b>Current ratio 2:1</b>, <b>Quick ratio 1:1.</b>
+            </div>
+          </details>
+          <details class="qa">
+            <summary>What is a contra entry?</summary>
+            <div class="ans">
+              A transaction affecting <b>both cash and bank columns</b> of the
+              cash book (e.g. cash deposited into bank), marked “C” and not
+              re-posted to the ledger.
+            </div>
+          </details>
+        </section>
+
+        <footer>
+          <p>
+            <b>How to use this note:</b> First pass — read every section for
+            understanding and tick “Mark revised.” Later passes — skim the
+            tables, formula strips and MCQ-trap boxes, then close the page and
+            attempt Section 18 from memory.
+          </p>
+          <p style="margin-top: 10px">
+            Prepared as a concept + revision aid for the
+            <b>UPSC APFC (EPFO) 2026</b> General Accounting portion. Always
+            cross-check numeric formats and the latest official
+            syllabus/notification before the exam.
+          </p>
+        </footer>
+      </main>
+    </div>
+
+    <button class="backtop" id="backtop" aria-label="Back to top">↑</button>
+
+    <script>
+      (function () {
+        "use strict";
+        var LS_THEME = "apfc_acc_theme",
+          LS_PROG = "apfc_acc_progress_v1";
+        var root = document.documentElement;
+
+        /* ---------- safe storage ---------- */
+        function get(k) {
+          try {
+            return localStorage.getItem(k);
+          } catch (e) {
+            return null;
+          }
+        }
+        function set(k, v) {
+          try {
+            localStorage.setItem(k, v);
+          } catch (e) {}
+        }
+        function del(k) {
+          try {
+            localStorage.removeItem(k);
+          } catch (e) {}
+        }
+
+        /* ---------- theme ---------- */
+        var saved = get(LS_THEME);
+        if (saved) {
+          root.setAttribute("data-theme", saved);
+        }
+        document
+          .getElementById("themeBtn")
+          .addEventListener("click", function () {
+            var cur = root.getAttribute("data-theme") || "light";
+            var next = cur === "light" ? "dark" : "light";
+            root.setAttribute("data-theme", next);
+            set(LS_THEME, next);
+          });
+
+        /* ---------- build TOC + revise checkboxes ---------- */
+        var secs = Array.prototype.slice.call(
+          document.querySelectorAll("section[data-title]"),
+        );
+        var toc = document.getElementById("toc");
+        var progress = {};
+        try {
+          progress = JSON.parse(get(LS_PROG) || "{}") || {};
+        } catch (e) {
+          progress = {};
+        }
+
+        secs.forEach(function (sec, i) {
+          var id = sec.id,
+            title = sec.getAttribute("data-title");
+          var n = String(i + 1).padStart(2, "0");
+          // toc link
+          var a = document.createElement("a");
+          a.href = "#" + id;
+          a.dataset.target = id;
+          a.innerHTML = '<span class="num">' + n + "</span>" + title;
+          toc.appendChild(a);
+          // revise checkbox in section head
+          var head = sec.querySelector(".sec-head");
+          var lbl = document.createElement("label");
+          lbl.className = "revise";
+          var cb = document.createElement("input");
+          cb.type = "checkbox";
+          cb.checked = !!progress[id];
+          lbl.appendChild(cb);
+          lbl.appendChild(document.createTextNode("Mark revised"));
+          head.appendChild(lbl);
+          cb.addEventListener("change", function () {
+            progress[id] = cb.checked;
+            set(LS_PROG, JSON.stringify(progress));
+            updateProgress();
+          });
+        });
+
+        var links = Array.prototype.slice.call(toc.querySelectorAll("a"));
+
+        /* ---------- progress meter ---------- */
+        var fill = document.getElementById("progFill"),
+          pct = document.getElementById("progPct"),
+          ptext = document.getElementById("progText");
+        function updateProgress() {
+          var done = secs.filter(function (s) {
+            return progress[s.id];
+          }).length;
+          var total = secs.length;
+          var p = Math.round((done / total) * 100);
+          fill.style.width = p + "%";
+          pct.textContent = p + "%";
+          ptext.textContent =
+            done === 0
+              ? "Tick “Mark revised” on each section as you finish it. Your progress is saved on this device."
+              : done +
+                " of " +
+                total +
+                " sections revised" +
+                (p === 100
+                  ? " — full coverage. Now attempt Section 18 blind."
+                  : ".");
+        }
+        updateProgress();
+
+        /* ---------- reset ---------- */
+        document
+          .getElementById("resetBtn")
+          .addEventListener("click", function () {
+            if (!confirm("Clear your revision progress on this device?"))
+              return;
+            progress = {};
+            del(LS_PROG);
+            document.querySelectorAll(".revise input").forEach(function (c) {
+              c.checked = false;
+            });
+            updateProgress();
+          });
+
+        /* ---------- print ---------- */
+        document
+          .getElementById("printBtn")
+          .addEventListener("click", function () {
+            window.print();
+          });
+
+        /* ---------- scrollbar + active section + backtop ---------- */
+        var sb = document.getElementById("scrollbar"),
+          backtop = document.getElementById("backtop");
+        function onScroll() {
+          var st = window.scrollY || document.documentElement.scrollTop;
+          var h = document.documentElement.scrollHeight - window.innerHeight;
+          sb.style.width = (h > 0 ? (st / h) * 100 : 0) + "%";
+          backtop.classList.toggle("show", st > 500);
+        }
+        window.addEventListener("scroll", onScroll, { passive: true });
+        onScroll();
+        backtop.addEventListener("click", function () {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+
+        /* active link via IntersectionObserver */
+        if ("IntersectionObserver" in window) {
+          var byId = {};
+          links.forEach(function (l) {
+            byId[l.dataset.target] = l;
+          });
+          var obs = new IntersectionObserver(
+            function (entries) {
+              entries.forEach(function (en) {
+                if (en.isIntersecting) {
+                  links.forEach(function (l) {
+                    l.classList.remove("active");
+                  });
+                  var l = byId[en.target.id];
+                  if (l) {
+                    l.classList.add("active");
+                    // keep active link in view within sidebar
+                    l.scrollIntoView({ block: "nearest" });
+                  }
+                }
+              });
+            },
+            { rootMargin: "-20% 0px -70% 0px", threshold: 0 },
+          );
+          secs.forEach(function (s) {
+            obs.observe(s);
+          });
+        }
+
+        /* ---------- mobile TOC toggle ---------- */
+        var tg = document.getElementById("tocToggle"),
+          tw = document.getElementById("tocWrap");
+        tg.addEventListener("click", function () {
+          var open = tw.classList.toggle("open");
+          tg.setAttribute("aria-expanded", open ? "true" : "false");
+          tg.querySelector("span").textContent = open ? "▴" : "▾";
+        });
+        // close TOC after choosing on mobile
+        links.forEach(function (l) {
+          l.addEventListener("click", function () {
+            if (window.matchMedia("(max-width:940px)").matches) {
+              tw.classList.remove("open");
+              tg.setAttribute("aria-expanded", "false");
+              tg.querySelector("span").textContent = "▾";
+            }
+          });
+        });
+      })();
+    </script>
+  </body>
+</html>
