@@ -1,0 +1,2349 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>Auditing & Insurance — APFC 2026 Revision Notes</title>
+    <style>
+      :root {
+        --bg: #f6f4ef;
+        --panel: #ffffff;
+        --panel-2: #faf8f3;
+        --ink: #20242b;
+        --muted: #5c6470;
+        --line: #e4ddcf;
+        --brand: #7a1f2b;
+        --brand-2: #a8323f;
+        --accent: #0f6e5c;
+        --accent-soft: #e6f1ee;
+        --warn: #8a5a00;
+        --warn-soft: #fbf1dc;
+        --blue: #1f4e79;
+        --blue-soft: #e7eef6;
+        --code: #2d2a26;
+        --shadow:
+          0 1px 2px rgba(0, 0, 0, 0.05), 0 6px 20px rgba(30, 20, 10, 0.06);
+        box-sizing: border-box;
+        padding-top: env(safe-area-inset-top, 0px);
+        padding-bottom: env(safe-area-inset-bottom, 0px);
+      }
+      @media (prefers-color-scheme: dark) {
+        :root:not([data-theme="light"]) {
+          --bg: #14161a;
+          --panel: #1c1f25;
+          --panel-2: #20242b;
+          --ink: #e7e9ee;
+          --muted: #a2acbb;
+          --line: #2c313a;
+          --brand: #e0808c;
+          --brand-2: #eb96a1;
+          --accent: #5fd0b7;
+          --accent-soft: #123029;
+          --warn: #e7b968;
+          --warn-soft: #2e2717;
+          --blue: #8fb6e0;
+          --blue-soft: #16232f;
+          --code: #dfe3ea;
+          --shadow:
+            0 1px 2px rgba(0, 0, 0, 0.3), 0 10px 30px rgba(0, 0, 0, 0.35);
+        }
+      }
+      :root[data-theme="dark"] {
+        --bg: #14161a;
+        --panel: #1c1f25;
+        --panel-2: #20242b;
+        --ink: #e7e9ee;
+        --muted: #a2acbb;
+        --line: #2c313a;
+        --brand: #e0808c;
+        --brand-2: #eb96a1;
+        --accent: #5fd0b7;
+        --accent-soft: #123029;
+        --warn: #e7b968;
+        --warn-soft: #2e2717;
+        --blue: #8fb6e0;
+        --blue-soft: #16232f;
+        --code: #dfe3ea;
+        --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 10px 30px rgba(0, 0, 0, 0.35);
+      }
+      * {
+        box-sizing: inherit;
+      }
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: calc(env(safe-area-inset-top, 0px) + 70px);
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font-family:
+          "Iowan Old Style", "Palatino Linotype", Palatino, Georgia,
+          "Times New Roman", serif;
+        font-size: 17px;
+        line-height: 1.62;
+        -webkit-text-size-adjust: 100%;
+      }
+      .wrap {
+        max-width: 940px;
+        margin: 0 auto;
+        padding: 0 20px 90px;
+      }
+
+      /* Header */
+      header.top {
+        position: sticky;
+        top: 0;
+        z-index: 40;
+        background: color-mix(in srgb, var(--bg) 88%, transparent);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--line);
+        padding-top: env(safe-area-inset-top, 0px);
+      }
+      .top-inner {
+        max-width: 940px;
+        margin: 0 auto;
+        padding: 10px 20px;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+      }
+      .top-inner h1 {
+        font-size: 16px;
+        margin: 0;
+        font-family:
+          ui-sans-serif,
+          system-ui,
+          -apple-system,
+          "Segoe UI",
+          Roboto,
+          sans-serif;
+        letter-spacing: 0.2px;
+        font-weight: 700;
+      }
+      .top-inner .sub {
+        font-size: 12px;
+        color: var(--muted);
+        font-family: ui-sans-serif, system-ui, sans-serif;
+      }
+      .top-actions {
+        margin-left: auto;
+        display: flex;
+        gap: 8px;
+      }
+      .btn {
+        font-family: ui-sans-serif, system-ui, sans-serif;
+        font-size: 13px;
+        cursor: pointer;
+        border: 1px solid var(--line);
+        background: var(--panel);
+        color: var(--ink);
+        padding: 7px 12px;
+        border-radius: 9px;
+        line-height: 1;
+        transition: 0.15s;
+      }
+      .btn:hover {
+        border-color: var(--brand);
+        color: var(--brand);
+      }
+
+      /* Hero */
+      .hero {
+        margin: 26px 0 8px;
+        padding: 30px 30px 26px;
+        border-radius: 18px;
+        background: linear-gradient(
+          135deg,
+          var(--brand) 0%,
+          var(--brand-2) 100%
+        );
+        color: #fff;
+        box-shadow: var(--shadow);
+        position: relative;
+        overflow: hidden;
+      }
+      .hero::after {
+        content: "";
+        position: absolute;
+        right: -40px;
+        top: -40px;
+        width: 200px;
+        height: 200px;
+        background: radial-gradient(
+          circle,
+          rgba(255, 255, 255, 0.18),
+          transparent 70%
+        );
+        border-radius: 50%;
+      }
+      .hero .kicker {
+        font-family: ui-sans-serif, system-ui, sans-serif;
+        font-size: 12.5px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        opacity: 0.9;
+      }
+      .hero h2 {
+        margin: 0.35em 0 0.2em;
+        font-size: 30px;
+        line-height: 1.15;
+      }
+      .hero p {
+        margin: 0.3em 0 0;
+        opacity: 0.94;
+        font-size: 15.5px;
+        max-width: 640px;
+        font-family: ui-sans-serif, system-ui, sans-serif;
+      }
+      .hero .tags {
+        margin-top: 16px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .hero .tags span {
+        background: rgba(255, 255, 255, 0.16);
+        border: 1px solid rgba(255, 255, 255, 0.28);
+        padding: 5px 11px;
+        border-radius: 20px;
+        font-size: 12px;
+        font-family: ui-sans-serif, system-ui, sans-serif;
+      }
+
+      /* How to use */
+      .howto {
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 16px 20px;
+        margin: 18px 0;
+        box-shadow: var(--shadow);
+      }
+      .howto h3 {
+        margin: 0 0 6px;
+        font-size: 15px;
+        font-family: ui-sans-serif, system-ui, sans-serif;
+        color: var(--brand);
+      }
+      .howto p {
+        margin: 6px 0 0;
+        font-size: 14.5px;
+        color: var(--muted);
+        font-family: ui-sans-serif, system-ui, sans-serif;
+      }
+
+      /* TOC */
+      nav.toc {
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 18px 22px;
+        margin: 18px 0 30px;
+        box-shadow: var(--shadow);
+      }
+      nav.toc h3 {
+        margin: 0 0 10px;
+        font-size: 13px;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        color: var(--muted);
+        font-family: ui-sans-serif, system-ui, sans-serif;
+      }
+      .toc-cols {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2px 26px;
+      }
+      nav.toc a {
+        display: block;
+        padding: 5px 0;
+        color: var(--ink);
+        text-decoration: none;
+        font-size: 14.5px;
+        font-family: ui-sans-serif, system-ui, sans-serif;
+        border-bottom: 1px dotted transparent;
+      }
+      nav.toc a:hover {
+        color: var(--brand);
+        border-bottom-color: var(--line);
+      }
+      nav.toc a b {
+        color: var(--brand);
+        font-variant-numeric: tabular-nums;
+        margin-right: 8px;
+      }
+      .toc-head {
+        font-weight: 700;
+        color: var(--brand) !important;
+        margin-top: 8px;
+        font-size: 13px !important;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      /* Sections */
+      .part-band {
+        margin: 44px 0 8px;
+        padding: 14px 22px;
+        border-radius: 14px;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        box-shadow: var(--shadow);
+      }
+      .part-band.aud {
+        background: linear-gradient(135deg, #1f4e79, #2d6ca0);
+      }
+      .part-band.ins {
+        background: linear-gradient(135deg, #0f6e5c, #159a80);
+      }
+      .part-band .num {
+        font-family: ui-sans-serif, system-ui, sans-serif;
+        font-size: 26px;
+        font-weight: 800;
+        opacity: 0.6;
+      }
+      .part-band h2 {
+        margin: 0;
+        font-size: 22px;
+        font-family: ui-sans-serif, system-ui, sans-serif;
+      }
+      .part-band .cap {
+        margin-left: auto;
+        font-size: 12px;
+        font-family: ui-sans-serif, system-ui, sans-serif;
+        opacity: 0.85;
+        text-align: right;
+      }
+
+      section.topic {
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 8px 26px 22px;
+        margin: 18px 0;
+        box-shadow: var(--shadow);
+        scroll-margin-top: 76px;
+      }
+      section.topic > h3 {
+        font-family: ui-sans-serif, system-ui, sans-serif;
+        font-size: 19px;
+        color: var(--brand);
+        margin: 22px 0 10px;
+        padding-top: 14px;
+        border-top: 2px solid var(--line);
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+      }
+      section.topic > h3:first-child {
+        border-top: none;
+        padding-top: 8px;
+      }
+      section.topic > h3 .dot {
+        flex: 0 0 auto;
+        width: 24px;
+        height: 24px;
+        border-radius: 7px;
+        background: var(--brand);
+        color: #fff;
+        font-size: 12px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 800;
+        margin-top: 3px;
+      }
+      h4 {
+        font-family: ui-sans-serif, system-ui, sans-serif;
+        font-size: 15.5px;
+        margin: 16px 0 6px;
+        color: var(--ink);
+      }
+      p {
+        margin: 9px 0;
+      }
+      ul,
+      ol {
+        margin: 8px 0 8px;
+        padding-left: 22px;
+      }
+      li {
+        margin: 5px 0;
+      }
+      strong {
+        color: var(--ink);
+      }
+      .term {
+        color: var(--brand);
+        font-weight: 700;
+      }
+
+      /* Callout boxes */
+      .box {
+        border-radius: 12px;
+        padding: 13px 16px;
+        margin: 14px 0;
+        font-size: 15.5px;
+        border: 1px solid;
+      }
+      .box .lbl {
+        font-family: ui-sans-serif, system-ui, sans-serif;
+        font-size: 11.5px;
+        letter-spacing: 1.4px;
+        text-transform: uppercase;
+        font-weight: 800;
+        display: block;
+        margin-bottom: 5px;
+      }
+      .def {
+        background: var(--blue-soft);
+        border-color: color-mix(in srgb, var(--blue) 35%, transparent);
+      }
+      .def .lbl {
+        color: var(--blue);
+      }
+      .mnem {
+        background: var(--warn-soft);
+        border-color: color-mix(in srgb, var(--warn) 40%, transparent);
+      }
+      .mnem .lbl {
+        color: var(--warn);
+      }
+      .key {
+        background: var(--accent-soft);
+        border-color: color-mix(in srgb, var(--accent) 38%, transparent);
+      }
+      .key .lbl {
+        color: var(--accent);
+      }
+      .exam {
+        background: color-mix(in srgb, var(--brand) 8%, var(--panel));
+        border-color: color-mix(in srgb, var(--brand) 35%, transparent);
+      }
+      .exam .lbl {
+        color: var(--brand);
+      }
+
+      /* Tables */
+      .twrap {
+        overflow-x: auto;
+        margin: 14px 0;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+      }
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        font-size: 14.5px;
+        font-family: ui-sans-serif, system-ui, sans-serif;
+        min-width: 520px;
+      }
+      th,
+      td {
+        text-align: left;
+        padding: 9px 13px;
+        border-bottom: 1px solid var(--line);
+        vertical-align: top;
+      }
+      th {
+        background: var(--panel-2);
+        font-weight: 700;
+        color: var(--brand);
+        font-size: 13px;
+        letter-spacing: 0.3px;
+      }
+      tr:last-child td {
+        border-bottom: none;
+      }
+      td:first-child {
+        font-weight: 600;
+      }
+
+      /* Revision tracker */
+      .rev {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        flex-wrap: wrap;
+        margin: 16px 0 4px;
+        padding: 12px 16px;
+        border: 1px dashed var(--line);
+        border-radius: 12px;
+        background: var(--panel-2);
+        font-family: ui-sans-serif, system-ui, sans-serif;
+      }
+      .rev .rlabel {
+        font-size: 12.5px;
+        color: var(--muted);
+        letter-spacing: 0.5px;
+      }
+      .rev label {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 13px;
+        cursor: pointer;
+        user-select: none;
+        padding: 4px 10px;
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        background: var(--panel);
+      }
+      .rev label:hover {
+        border-color: var(--accent);
+      }
+      .rev input {
+        accent-color: var(--accent);
+        width: 15px;
+        height: 15px;
+      }
+      .rev label.done {
+        background: var(--accent-soft);
+        border-color: var(--accent);
+        color: var(--accent);
+      }
+
+      .progress-wrap {
+        position: sticky;
+        bottom: 0;
+        z-index: 30;
+        margin-top: 30px;
+      }
+      .progress {
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        padding: 11px 16px;
+        box-shadow: var(--shadow);
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-family: ui-sans-serif, system-ui, sans-serif;
+        font-size: 13px;
+      }
+      .bar {
+        flex: 1;
+        height: 8px;
+        background: var(--line);
+        border-radius: 6px;
+        overflow: hidden;
+      }
+      .bar > i {
+        display: block;
+        height: 100%;
+        width: 0%;
+        background: linear-gradient(90deg, var(--accent), var(--brand));
+        transition: width 0.3s;
+      }
+      .resetlink {
+        background: none;
+        border: none;
+        color: var(--muted);
+        text-decoration: underline;
+        cursor: pointer;
+        font-size: 12px;
+        font-family: inherit;
+      }
+
+      .backtop {
+        display: block;
+        text-align: right;
+        margin-top: 6px;
+      }
+      .backtop a {
+        font-size: 12px;
+        color: var(--muted);
+        text-decoration: none;
+        font-family: ui-sans-serif, system-ui, sans-serif;
+      }
+      .backtop a:hover {
+        color: var(--brand);
+      }
+
+      footer {
+        margin-top: 40px;
+        padding: 22px;
+        text-align: center;
+        color: var(--muted);
+        font-size: 12.5px;
+        font-family: ui-sans-serif, system-ui, sans-serif;
+        border-top: 1px solid var(--line);
+      }
+
+      @media (max-width: 640px) {
+        body {
+          font-size: 16px;
+        }
+        .wrap {
+          padding: 0 14px 90px;
+        }
+        .toc-cols {
+          grid-template-columns: 1fr;
+        }
+        .hero {
+          padding: 24px 20px;
+        }
+        .hero h2 {
+          font-size: 24px;
+        }
+        section.topic {
+          padding: 6px 16px 18px;
+        }
+        .top-inner .sub {
+          display: none;
+        }
+      }
+      @media print {
+        header.top,
+        .progress-wrap,
+        .rev,
+        .top-actions,
+        .backtop,
+        .howto {
+          display: none !important;
+        }
+        body {
+          background: #fff;
+          color: #000;
+          font-size: 11pt;
+        }
+        section.topic,
+        nav.toc,
+        .hero {
+          box-shadow: none;
+          break-inside: avoid;
+        }
+        .hero {
+          background: #7a1f2b !important;
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="top">
+      <div class="top-inner">
+        <div>
+          <h1>Auditing &amp; Insurance</h1>
+          <div class="sub">APFC 2026 · Complete Revision Notes</div>
+        </div>
+        <div class="top-actions">
+          <button class="btn" id="themeBtn" title="Toggle light/dark">
+            ◐ Theme
+          </button>
+          <button
+            class="btn"
+            onclick="window.print()"
+            title="Print / Save as PDF"
+          >
+            ⎙ Print
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <div class="wrap">
+      <div class="hero" id="top">
+        <div class="kicker">
+          UPSC · Assistant Provident Fund Commissioner (EPFO)
+        </div>
+        <h2>Auditing &amp; Insurance</h2>
+        <p>
+          A single-file, exam-focused note built for spaced revision — concepts
+          explained plainly, then compressed into tables, mnemonics and
+          quick-revision boxes you can loop through again and again.
+        </p>
+        <div class="tags">
+          <span>Accounting &amp; Auditing paper</span>
+          <span>Social Security &amp; Insurance</span>
+          <span>Prelims + Interview</span>
+          <span>Revise ✕ multiple</span>
+        </div>
+      </div>
+
+      <div class="howto">
+        <h3>How to use these notes</h3>
+        <p>
+          <b>Round 1:</b> read the plain-English explanation under each topic.
+          <b>Round 2:</b> read only the blue <em>Definition</em> and green
+          <em>Key Points</em> boxes. <b>Round 3+:</b> test yourself using the
+          amber <em>Mnemonic</em> boxes and comparison tables. Tick each topic
+          in its revision strip — your progress is saved in this browser and
+          shown in the bar at the bottom.
+        </p>
+      </div>
+
+      <nav class="toc">
+        <h3>Contents</h3>
+        <div class="toc-cols">
+          <div>
+            <a class="toc-head">Part A · Auditing</a>
+            <a href="#a1"><b>1</b>Meaning, Nature &amp; Objectives</a>
+            <a href="#a2"><b>2</b>Advantages &amp; Limitations</a>
+            <a href="#a3"><b>3</b>Types / Classification of Audit</a>
+            <a href="#a4"><b>4</b>Accounting vs Auditing vs Investigation</a>
+            <a href="#a5"
+              ><b>5</b>Internal Control, Check &amp; Internal Audit</a
+            >
+            <a href="#a6"><b>6</b>Vouching, Verification &amp; Valuation</a>
+            <a href="#a7"
+              ><b>7</b>Audit Programme, Note Book, Working Papers, Evidence</a
+            >
+            <a href="#a8"><b>8</b>The Auditor — Rights, Duties, Liabilities</a>
+            <a href="#a9"><b>9</b>Audit Report &amp; Standards on Auditing</a>
+            <a href="#a10"><b>10</b>Special Audits + APFC angle</a>
+          </div>
+          <div>
+            <a class="toc-head">Part B · Insurance</a>
+            <a href="#b1"><b>1</b>Meaning, Nature &amp; Functions</a>
+            <a href="#b2"><b>2</b>Principles of Insurance</a>
+            <a href="#b3"><b>3</b>Types of Insurance</a>
+            <a href="#b4"><b>4</b>Life vs General Insurance</a>
+            <a href="#b5"><b>5</b>Reinsurance &amp; Double Insurance</a>
+            <a href="#b6"><b>6</b>Role in Economic Development</a>
+            <a href="#b7"><b>7</b>Insurance in India — History &amp; IRDAI</a>
+            <a href="#b8"
+              ><b>8</b>Insurance &amp; Social Security (APFC core)</a
+            >
+            <a href="#b9"><b>9</b>Current Affairs &amp; Quick Facts</a>
+          </div>
+        </div>
+      </nav>
+
+      <!-- ============ PART A : AUDITING ============ -->
+      <div class="part-band aud" id="partA">
+        <span class="num">A</span>
+        <h2>AUDITING</h2>
+        <span class="cap"
+          >Examination of financial records to express an opinion on their truth
+          &amp; fairness</span
+        >
+      </div>
+
+      <section class="topic" id="a1">
+        <h3><span class="dot">1</span>Meaning, Nature &amp; Objectives</h3>
+
+        <p>
+          The word <span class="term">audit</span> comes from the Latin
+          <em>“audire”</em> — meaning <strong>to hear</strong>. In ancient
+          times, accounts were read out aloud and the auditor literally
+          <em>heard</em> them to check for errors and fraud.
+        </p>
+
+        <div class="box def">
+          <span class="lbl">Definition</span>
+          Auditing is the
+          <strong>systematic and independent examination</strong> of books of
+          accounts, vouchers, records and financial statements of an
+          organisation to ascertain whether they show a
+          <strong>true and fair view</strong> of the financial position and
+          results, and whether they comply with legal requirements.
+          <em
+            >(Classic definition — Spicer &amp; Pegler, and the modern ICAI
+            view.)</em
+          >
+        </div>
+
+        <h4>Essential features (nature) of an audit</h4>
+        <ul>
+          <li>
+            <strong>Systematic examination</strong> — carried out in a planned,
+            orderly manner using an audit programme.
+          </li>
+          <li>
+            <strong>Independent &amp; unbiased</strong> — the auditor must be
+            free from influence of management.
+          </li>
+          <li>
+            <strong>Examination of evidence</strong> — based on vouchers,
+            documents and other audit evidence.
+          </li>
+          <li>
+            <strong>Opinion, not certification of accuracy</strong> — the
+            auditor gives an <em>expert opinion</em> on truth and fairness, he
+            does not guarantee 100% accuracy.
+          </li>
+          <li>
+            <strong>Done by a qualified person</strong> — an independent
+            professional (Chartered Accountant in India).
+          </li>
+        </ul>
+
+        <h4>Objectives of audit</h4>
+        <div class="twrap">
+          <table>
+            <tr>
+              <th>Primary objective</th>
+              <th>Secondary (subsidiary) objectives</th>
+            </tr>
+            <tr>
+              <td>
+                To express an opinion on whether the financial statements give a
+                <strong>true and fair view</strong> and comply with the
+                applicable financial reporting framework.
+              </td>
+              <td>
+                <strong>(a) Detection of errors</strong> — errors of omission,
+                commission, principle, and compensating errors.<br />
+                <strong>(b) Detection of fraud</strong> — misappropriation of
+                cash/goods, and manipulation of accounts (window dressing /
+                secret reserves).<br />
+                <strong>(c) Prevention</strong> — the moral/deterrent effect of
+                a periodic audit discourages errors &amp; fraud.
+              </td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="box mnem">
+          <span class="lbl">Mnemonic — 4 Errors</span>
+          <strong>“O-C-P-C”</strong> → <strong>O</strong>mission,
+          <strong>C</strong>ommission, <strong>P</strong>rinciple,
+          <strong>C</strong>ompensating. <br /><em
+            >Compensating error = two or more errors that cancel each other out
+            → trial balance still tallies (hardest to detect).</em
+          >
+        </div>
+
+        <div class="rev" data-rev="a1">
+          <span class="rlabel">Revision tracker:</span>
+          <label><input type="checkbox" data-r="a1r1" /> Round 1</label>
+          <label><input type="checkbox" data-r="a1r2" /> Round 2</label>
+          <label><input type="checkbox" data-r="a1r3" /> Round 3</label>
+        </div>
+        <div class="backtop"><a href="#top">↑ Back to top</a></div>
+      </section>
+
+      <section class="topic" id="a2">
+        <h3>
+          <span class="dot">2</span>Advantages &amp; Limitations of Auditing
+        </h3>
+
+        <h4>Advantages</h4>
+        <ul>
+          <li>
+            <strong>Reliability</strong> — audited accounts are trusted by
+            shareholders, banks, tax authorities and investors.
+          </li>
+          <li>
+            <strong>Detection &amp; prevention</strong> of errors and fraud;
+            moral check on staff.
+          </li>
+          <li>
+            <strong>Legal recognition</strong> — accepted by courts, Income-Tax
+            Dept., and regulators as evidence.
+          </li>
+          <li>
+            <strong>Aid to management</strong> — throws light on weaknesses of
+            internal control; helps decision-making.
+          </li>
+          <li>
+            <strong>Settlement of accounts</strong> — useful for
+            admission/retirement of partners, insurance claims, mergers, and
+            valuation of business/goodwill.
+          </li>
+          <li>
+            <strong>Access to credit</strong> — lenders rely on audited
+            statements.
+          </li>
+        </ul>
+
+        <h4>Limitations</h4>
+        <ul>
+          <li>
+            <strong>Not a guarantee of accuracy</strong> — audit gives
+            reasonable assurance, not absolute assurance.
+          </li>
+          <li>
+            <strong>Test checking / sampling</strong> — the auditor examines
+            only samples, so some errors may go undetected.
+          </li>
+          <li>
+            <strong>Dependence on explanations</strong> and information given by
+            management — can be misled.
+          </li>
+          <li>
+            <strong>Inherent limitations of internal control</strong> and
+            possibility of collusion / management override.
+          </li>
+          <li>
+            <strong>Judgement based</strong> — involves the auditor's personal
+            judgement; conclusive proof is rarely available.
+          </li>
+          <li>
+            <strong>Costly &amp; time-bound</strong> — cannot check every
+            transaction within limited time.
+          </li>
+        </ul>
+
+        <div class="box key">
+          <span class="lbl">Key point</span>
+          Audit provides <strong>“reasonable assurance”</strong>, NOT
+          <strong>“absolute assurance”</strong>. This single line is a favourite
+          one-mark trap.
+        </div>
+
+        <div class="rev" data-rev="a2">
+          <span class="rlabel">Revision tracker:</span>
+          <label><input type="checkbox" data-r="a2r1" /> Round 1</label>
+          <label><input type="checkbox" data-r="a2r2" /> Round 2</label>
+          <label><input type="checkbox" data-r="a2r3" /> Round 3</label>
+        </div>
+        <div class="backtop"><a href="#top">↑ Back to top</a></div>
+      </section>
+
+      <section class="topic" id="a3">
+        <h3><span class="dot">3</span>Types / Classification of Audit</h3>
+
+        <h4>A. On the basis of organisation / legal requirement</h4>
+        <div class="twrap">
+          <table>
+            <tr>
+              <th>Type</th>
+              <th>Meaning</th>
+            </tr>
+            <tr>
+              <td>Statutory audit</td>
+              <td>
+                Compulsory under a law (e.g. companies under the Companies Act
+                2013, banks, insurance companies). Auditor's appointment, rights
+                &amp; duties are fixed by statute.
+              </td>
+            </tr>
+            <tr>
+              <td>Private / voluntary audit</td>
+              <td>
+                Not required by law but done voluntarily by sole traders,
+                partnerships, individuals. Scope fixed by agreement.
+              </td>
+            </tr>
+            <tr>
+              <td>Government audit</td>
+              <td>
+                Audit of government departments and PSUs, conducted by the
+                <strong>CAG (Comptroller &amp; Auditor General of India)</strong
+                >.
+              </td>
+            </tr>
+            <tr>
+              <td>Internal audit</td>
+              <td>
+                Conducted by employees/independent agency appointed by
+                management as an ongoing control tool.
+              </td>
+            </tr>
+          </table>
+        </div>
+
+        <h4>B. On the basis of time / approach</h4>
+        <div class="twrap">
+          <table>
+            <tr>
+              <th>Type</th>
+              <th>Meaning &amp; suitability</th>
+            </tr>
+            <tr>
+              <td>Continuous audit</td>
+              <td>
+                Audit continues throughout the year at regular intervals. Suited
+                to large businesses with many transactions. Merit: early
+                detection; Demerit: costly, staff may alter figures already
+                checked.
+              </td>
+            </tr>
+            <tr>
+              <td>Periodical / Final / Annual audit</td>
+              <td>
+                Begins after the close of the financial year and is completed in
+                one continuous session. Suited to small &amp; medium concerns.
+              </td>
+            </tr>
+            <tr>
+              <td>Interim audit</td>
+              <td>
+                Conducted between two annual audits, usually to declare an
+                interim dividend.
+              </td>
+            </tr>
+            <tr>
+              <td>Balance-sheet audit</td>
+              <td>
+                Works backward from the balance sheet items to the entries —
+                verification-focused. Common in the USA.
+              </td>
+            </tr>
+          </table>
+        </div>
+
+        <h4>C. On the basis of scope / function</h4>
+        <p>
+          <strong>Complete audit</strong> (whole year checked),
+          <strong>Partial audit</strong> (only a portion, e.g. only cash),
+          <strong
+            >Cost audit, Management audit, Tax audit, Cash audit, Special
+            audit</strong
+          >
+          (covered in Topic 10).
+        </p>
+
+        <div class="box mnem">
+          <span class="lbl">Mnemonic — statutory bodies</span>
+          <strong>Company → CA</strong>, <strong>Government/PSU → CAG</strong>,
+          <strong>Cooperative societies → Registrar/Govt auditor</strong>.
+        </div>
+
+        <div class="rev" data-rev="a3">
+          <span class="rlabel">Revision tracker:</span>
+          <label><input type="checkbox" data-r="a3r1" /> Round 1</label>
+          <label><input type="checkbox" data-r="a3r2" /> Round 2</label>
+          <label><input type="checkbox" data-r="a3r3" /> Round 3</label>
+        </div>
+        <div class="backtop"><a href="#top">↑ Back to top</a></div>
+      </section>
+
+      <section class="topic" id="a4">
+        <h3>
+          <span class="dot">4</span>Accounting vs Auditing vs Investigation
+        </h3>
+
+        <div class="twrap">
+          <table>
+            <tr>
+              <th>Basis</th>
+              <th>Accounting</th>
+              <th>Auditing</th>
+              <th>Investigation</th>
+            </tr>
+            <tr>
+              <td>Meaning</td>
+              <td>Recording, classifying &amp; summarising transactions</td>
+              <td>Independent examination of accounts to form an opinion</td>
+              <td>Critical enquiry into accounts for a special purpose</td>
+            </tr>
+            <tr>
+              <td>Objective</td>
+              <td>Ascertain profit/loss &amp; financial position</td>
+              <td>Verify truth &amp; fairness of accounts</td>
+              <td>
+                Establish a specific fact (e.g. fraud, purchase of business)
+              </td>
+            </tr>
+            <tr>
+              <td>Timing</td>
+              <td>Continuous, before audit</td>
+              <td>After accounting is complete</td>
+              <td>Any time, as required</td>
+            </tr>
+            <tr>
+              <td>Scope</td>
+              <td>Governed by accounting principles</td>
+              <td>Governed by law &amp; auditing standards</td>
+              <td>Governed by terms of engagement</td>
+            </tr>
+            <tr>
+              <td>Done by</td>
+              <td>Accountant</td>
+              <td>Qualified independent auditor</td>
+              <td>Auditor or expert (need not be a CA)</td>
+            </tr>
+            <tr>
+              <td>Nature of report</td>
+              <td>—</td>
+              <td>Opinion (true &amp; fair)</td>
+              <td>Detailed, purpose-specific</td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="box key">
+          <span class="lbl">One-liner to remember</span>
+          <strong
+            >“Accounting is the making of accounts; Auditing is the checking of
+            accounts; Investigation is the searching of accounts for a special
+            purpose.”</strong
+          >
+          Auditing begins where accounting ends.
+        </div>
+
+        <div class="rev" data-rev="a4">
+          <span class="rlabel">Revision tracker:</span>
+          <label><input type="checkbox" data-r="a4r1" /> Round 1</label>
+          <label><input type="checkbox" data-r="a4r2" /> Round 2</label>
+          <label><input type="checkbox" data-r="a4r3" /> Round 3</label>
+        </div>
+        <div class="backtop"><a href="#top">↑ Back to top</a></div>
+      </section>
+
+      <section class="topic" id="a5">
+        <h3>
+          <span class="dot">5</span>Internal Control, Internal Check &amp;
+          Internal Audit
+        </h3>
+
+        <p>
+          These three are closely related and frequently confused — the
+          distinction is a classic exam question.
+        </p>
+
+        <div class="box def">
+          <span class="lbl">Definitions</span>
+          <strong>Internal Control</strong> — the whole system of controls
+          (financial and otherwise) established by management to conduct
+          business in an orderly, efficient manner, safeguard assets and ensure
+          reliable records. It is the <em>umbrella</em> concept.<br /><br />
+          <strong>Internal Check</strong> — an arrangement of duties such that
+          <strong
+            >no single person handles a transaction from beginning to
+            end</strong
+          >; the work of one person is automatically checked by another. It is
+          built into the routine and needs no separate staff. (Part of internal
+          control.)<br /><br />
+          <strong>Internal Audit</strong> — an independent appraisal activity
+          <em>within</em> the organisation, done by separate staff/agency to
+          review operations and controls as a service to management.
+        </div>
+
+        <div class="twrap">
+          <table>
+            <tr>
+              <th>Basis</th>
+              <th>Internal Check</th>
+              <th>Internal Audit</th>
+            </tr>
+            <tr>
+              <td>Nature</td>
+              <td>Part of the routine / arrangement of work</td>
+              <td>Separate, independent review of the routine</td>
+            </tr>
+            <tr>
+              <td>Timing</td>
+              <td>Runs simultaneously with the transaction</td>
+              <td>Done after the transaction is recorded</td>
+            </tr>
+            <tr>
+              <td>Staff</td>
+              <td>No separate staff — automatic</td>
+              <td>Separate staff / agency required</td>
+            </tr>
+            <tr>
+              <td>Cost</td>
+              <td>Economical</td>
+              <td>Comparatively costly</td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="box mnem">
+          <span class="lbl">Mnemonic — objectives of internal control</span>
+          <strong>“SEAR”</strong> → <strong>S</strong>afeguard assets · ensure
+          <strong>E</strong>fficiency · ensure <strong>A</strong>ccuracy &amp;
+          reliability of records · promote
+          <strong>R</strong>eliability/adherence to policies (compliance).
+        </div>
+        <p>
+          <em>Relationship:</em> Internal Control is the widest term; Internal
+          Check and Internal Audit are both <strong>parts of</strong> the
+          internal control system.
+        </p>
+
+        <div class="rev" data-rev="a5">
+          <span class="rlabel">Revision tracker:</span>
+          <label><input type="checkbox" data-r="a5r1" /> Round 1</label>
+          <label><input type="checkbox" data-r="a5r2" /> Round 2</label>
+          <label><input type="checkbox" data-r="a5r3" /> Round 3</label>
+        </div>
+        <div class="backtop"><a href="#top">↑ Back to top</a></div>
+      </section>
+
+      <section class="topic" id="a6">
+        <h3>
+          <span class="dot">6</span>Vouching, Verification &amp; Valuation
+        </h3>
+
+        <h4>Vouching</h4>
+        <div class="box def">
+          <span class="lbl">Definition</span>
+          <strong>Vouching</strong> is the examination of documentary evidence
+          (vouchers) to establish the
+          <strong>authenticity, accuracy and validity</strong> of transactions
+          recorded in the books. It is called the
+          <strong>“backbone / essence of auditing.”</strong>
+        </div>
+        <p>
+          A voucher may be a receipt, invoice, bill, agreement, counterfoil,
+          minute book, etc. While vouching the auditor checks: date, amount,
+          account head, authorisation, and whether it relates to the business
+          and the period under audit.
+        </p>
+
+        <h4>Verification &amp; Valuation of assets and liabilities</h4>
+        <div class="twrap">
+          <table>
+            <tr>
+              <th>Verification</th>
+              <th>Valuation</th>
+            </tr>
+            <tr>
+              <td>
+                Confirming
+                <strong
+                  >existence, ownership, possession, and freedom from
+                  charge</strong
+                >
+                of assets/liabilities as on the balance-sheet date.
+              </td>
+              <td>
+                Confirming that assets/liabilities are stated at their
+                <strong>correct/appropriate value</strong> (as per accounting
+                principles).
+              </td>
+            </tr>
+            <tr>
+              <td>Wider term — includes valuation.</td>
+              <td>
+                Part of verification; primarily the responsibility of
+                management, but the auditor must check its correctness.
+              </td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="box mnem">
+          <span class="lbl">Mnemonic — Verification checks</span>
+          <strong>“E-V-O-P”</strong> → <strong>E</strong>xistence ·
+          <strong>V</strong>aluation · <strong>O</strong>wnership ·
+          <strong>P</strong>resentation (proper disclosure).
+        </div>
+
+        <div class="box exam">
+          <span class="lbl">Exam trap</span>
+          <strong>Vouching ≠ Verification.</strong> Vouching relates to
+          transactions in the <em>books/entries</em>; Verification relates to
+          <em>assets and liabilities</em> shown in the balance sheet. “Vouching
+          is the basis of verification.”
+        </div>
+
+        <div class="rev" data-rev="a6">
+          <span class="rlabel">Revision tracker:</span>
+          <label><input type="checkbox" data-r="a6r1" /> Round 1</label>
+          <label><input type="checkbox" data-r="a6r2" /> Round 2</label>
+          <label><input type="checkbox" data-r="a6r3" /> Round 3</label>
+        </div>
+        <div class="backtop"><a href="#top">↑ Back to top</a></div>
+      </section>
+
+      <section class="topic" id="a7">
+        <h3>
+          <span class="dot">7</span>Audit Programme, Note Book, Working Papers
+          &amp; Evidence
+        </h3>
+
+        <div class="twrap">
+          <table>
+            <tr>
+              <th>Tool</th>
+              <th>What it is</th>
+            </tr>
+            <tr>
+              <td>Audit Programme</td>
+              <td>
+                A <strong>written plan</strong> listing the exact audit
+                procedures, allotting work to audit staff with time schedules.
+                Ensures nothing is left unchecked and fixes responsibility. Can
+                be <em>fixed</em> or <em>flexible</em>.
+              </td>
+            </tr>
+            <tr>
+              <td>Audit Note Book</td>
+              <td>
+                A register kept by audit staff to record
+                <strong
+                  >queries, errors, doubtful points, explanations sought</strong
+                >
+                and points to be discussed with seniors/management. Useful
+                evidence in case of negligence suits.
+              </td>
+            </tr>
+            <tr>
+              <td>Audit Working Papers</td>
+              <td>
+                Documents prepared/obtained by the auditor supporting the audit
+                — schedules, analyses, confirmations. They are the
+                <strong>property of the auditor</strong> and support the audit
+                opinion.
+              </td>
+            </tr>
+            <tr>
+              <td>Audit Evidence</td>
+              <td>
+                Information used by the auditor to arrive at conclusions —
+                documentary, physical, oral, and analytical. Should be
+                <strong>sufficient &amp; appropriate</strong>.
+              </td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="box key">
+          <span class="lbl">Key point</span>
+          Working papers are the <strong>property of the auditor</strong> (not
+          the client). Audit evidence must be both
+          <strong>sufficient (quantity)</strong> and
+          <strong>appropriate (quality = relevant + reliable)</strong>.
+        </div>
+
+        <div class="rev" data-rev="a7">
+          <span class="rlabel">Revision tracker:</span>
+          <label><input type="checkbox" data-r="a7r1" /> Round 1</label>
+          <label><input type="checkbox" data-r="a7r2" /> Round 2</label>
+          <label><input type="checkbox" data-r="a7r3" /> Round 3</label>
+        </div>
+        <div class="backtop"><a href="#top">↑ Back to top</a></div>
+      </section>
+
+      <section class="topic" id="a8">
+        <h3>
+          <span class="dot">8</span>The Auditor — Qualification, Appointment,
+          Rights, Duties &amp; Liabilities
+        </h3>
+        <p>
+          <em
+            >(Company auditor under the Companies Act, 2013 — the most
+            examinable framework.)</em
+          >
+        </p>
+
+        <h4>Qualification &amp; appointment</h4>
+        <ul>
+          <li>
+            Only a <strong>Chartered Accountant</strong> (or a firm where
+            majority partners are CAs) can be appointed as a company auditor —
+            <em>Sec. 141</em>.
+          </li>
+          <li>
+            <strong>First auditor</strong> appointed by the Board within 30 days
+            of incorporation.
+          </li>
+          <li>
+            Subsequent auditors appointed by
+            <strong>members at the AGM</strong> — <em>Sec. 139</em> — normally
+            for a term of <strong>5 years</strong>, subject to ratification
+            norms and <strong>rotation</strong> of auditors for prescribed
+            companies.
+          </li>
+        </ul>
+
+        <h4>Rights (powers) of an auditor — Sec. 143</h4>
+        <ul>
+          <li>
+            Right of <strong>access at all times</strong> to books, accounts and
+            vouchers.
+          </li>
+          <li>
+            Right to obtain <strong>information &amp; explanations</strong> from
+            officers.
+          </li>
+          <li>
+            Right to
+            <strong>receive notice of and attend general meetings</strong> and
+            be heard.
+          </li>
+          <li>
+            Right to <strong>sign the audit report</strong> and to remuneration.
+          </li>
+        </ul>
+
+        <h4>Duties</h4>
+        <ul>
+          <li>
+            To make a <strong>report</strong> to the members on the accounts and
+            whether they show a true &amp; fair view.
+          </li>
+          <li>
+            To enquire into loans, transactions, and to comply with
+            <strong>Standards on Auditing</strong>.
+          </li>
+          <li>
+            To report <strong>fraud</strong> (above a threshold) to the Central
+            Government — a duty added by the 2013 Act.
+          </li>
+        </ul>
+
+        <h4>Liabilities</h4>
+        <p>
+          <strong>Civil liability</strong> — for negligence and breach of duty
+          (damages). <strong>Criminal liability</strong> — for wilful false
+          statements. <strong>Liability under the Companies Act</strong> and to
+          third parties in certain cases.
+        </p>
+
+        <div class="box exam">
+          <span class="lbl">Landmark case (interview-worthy)</span>
+          <strong>Kingston Cotton Mills Co. (1896):</strong> "An auditor is a
+          <em>watchdog, not a bloodhound</em>" — he is justified in relying on
+          trusted officials' representations unless there is suspicion. This
+          defines the standard of reasonable care.
+        </div>
+
+        <div class="rev" data-rev="a8">
+          <span class="rlabel">Revision tracker:</span>
+          <label><input type="checkbox" data-r="a8r1" /> Round 1</label>
+          <label><input type="checkbox" data-r="a8r2" /> Round 2</label>
+          <label><input type="checkbox" data-r="a8r3" /> Round 3</label>
+        </div>
+        <div class="backtop"><a href="#top">↑ Back to top</a></div>
+      </section>
+
+      <section class="topic" id="a9">
+        <h3>
+          <span class="dot">9</span>Audit Report &amp; Standards on Auditing
+        </h3>
+
+        <h4>Audit report</h4>
+        <p>
+          The audit report is the <strong>end product of an audit</strong> — the
+          auditor's written opinion. Types of opinion:
+        </p>
+        <div class="twrap">
+          <table>
+            <tr>
+              <th>Opinion</th>
+              <th>When given</th>
+            </tr>
+            <tr>
+              <td>Unqualified / Clean</td>
+              <td>Accounts give a true &amp; fair view — no reservations.</td>
+            </tr>
+            <tr>
+              <td>Qualified</td>
+              <td>
+                Generally true &amp; fair <em>except for</em> certain matters
+                (specific reservations).
+              </td>
+            </tr>
+            <tr>
+              <td>Adverse / Negative</td>
+              <td>
+                Accounts do <strong>not</strong> give a true &amp; fair view.
+              </td>
+            </tr>
+            <tr>
+              <td>Disclaimer of opinion</td>
+              <td>
+                Auditor is <strong>unable to form an opinion</strong> (e.g.
+                records not available / scope limited).
+              </td>
+            </tr>
+          </table>
+        </div>
+
+        <h4>Standards on Auditing (SAs)</h4>
+        <p>
+          Issued in India by the <strong>ICAI</strong> (Institute of Chartered
+          Accountants of India) through its Auditing &amp; Assurance Standards
+          Board. They lay down the principles and procedures every auditor must
+          follow, giving audits uniformity and quality. Globally these
+          correspond to the
+          <strong>International Standards on Auditing (ISA)</strong> issued by
+          IFAC.
+        </p>
+
+        <div class="box mnem">
+          <span class="lbl">Mnemonic — 4 opinions</span>
+          <strong>"U-Q-A-D"</strong> → <strong>U</strong>nqualified (best) →
+          <strong>Q</strong>ualified → <strong>A</strong>dverse →
+          <strong>D</strong>isclaimer (worst / no opinion).
+        </div>
+
+        <div class="rev" data-rev="a9">
+          <span class="rlabel">Revision tracker:</span>
+          <label><input type="checkbox" data-r="a9r1" /> Round 1</label>
+          <label><input type="checkbox" data-r="a9r2" /> Round 2</label>
+          <label><input type="checkbox" data-r="a9r3" /> Round 3</label>
+        </div>
+        <div class="backtop"><a href="#top">↑ Back to top</a></div>
+      </section>
+
+      <section class="topic" id="a10">
+        <h3>
+          <span class="dot">10</span>Special Audits + the APFC / EPFO Angle
+        </h3>
+
+        <div class="twrap">
+          <table>
+            <tr>
+              <th>Audit</th>
+              <th>Focus</th>
+            </tr>
+            <tr>
+              <td>Cost audit</td>
+              <td>
+                Verification of cost records &amp; cost accounts; conducted by a
+                <strong>Cost Accountant</strong>; ordered under the Companies
+                Act for specified industries.
+              </td>
+            </tr>
+            <tr>
+              <td>Management audit</td>
+              <td>
+                Appraisal of the <strong>efficiency of management</strong> and
+                its functions — future-oriented, not just financial.
+              </td>
+            </tr>
+            <tr>
+              <td>Tax audit</td>
+              <td>
+                Under <strong>Sec. 44AB, Income-Tax Act 1961</strong> — audit of
+                accounts of businesses/professionals crossing a turnover limit,
+                done by a CA.
+              </td>
+            </tr>
+            <tr>
+              <td>Social audit</td>
+              <td>
+                Evaluation of an organisation's social &amp; ethical performance
+                (e.g. MGNREGA social audits).
+              </td>
+            </tr>
+            <tr>
+              <td>Performance / Propriety audit</td>
+              <td>
+                Done by CAG for government spending — checks economy,
+                efficiency, effectiveness (3 E's) and "wisdom, faithfulness
+                &amp; economy".
+              </td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="box key">
+          <span class="lbl">Why this matters for APFC (EPFO)</span>
+          As an Assistant PF Commissioner you deal with the
+          <strong>EPF, Pension (EPS) and EDLI funds</strong>. Auditing knowledge
+          helps in: (i) checking <strong>employer compliance</strong> and
+          correctness of contributions, (ii) internal audit of EPFO offices,
+          (iii) reading the
+          <strong>audited accounts of establishments</strong> during
+          inspections, and (iv) understanding the CAG's audit of EPFO. Concepts
+          like internal check, vouching and verification are exactly what an
+          inspecting officer applies in the field.
+        </div>
+
+        <div class="rev" data-rev="a10">
+          <span class="rlabel">Revision tracker:</span>
+          <label><input type="checkbox" data-r="a10r1" /> Round 1</label>
+          <label><input type="checkbox" data-r="a10r2" /> Round 2</label>
+          <label><input type="checkbox" data-r="a10r3" /> Round 3</label>
+        </div>
+        <div class="backtop"><a href="#top">↑ Back to top</a></div>
+      </section>
+
+      <!-- ============ PART B : INSURANCE ============ -->
+      <div class="part-band ins" id="partB">
+        <span class="num">B</span>
+        <h2>INSURANCE</h2>
+        <span class="cap"
+          >A contract that transfers the risk of a loss from one party to
+          another for a premium</span
+        >
+      </div>
+
+      <section class="topic" id="b1">
+        <h3>
+          <span class="dot">1</span>Meaning, Nature &amp; Functions of Insurance
+        </h3>
+
+        <div class="box def">
+          <span class="lbl">Definition</span>
+          <strong>Insurance</strong> is a <strong>contract (policy)</strong> in
+          which an individual/entity (the <strong>insured</strong>) receives
+          financial protection or reimbursement against losses from an insurance
+          company (the <strong>insurer</strong>), in return for a payment called
+          the <strong>premium</strong>. In essence it is a
+          <strong>co-operative device to spread the loss</strong> of a few over
+          many exposed to the same risk.
+        </div>
+
+        <h4>Nature / characteristics</h4>
+        <ul>
+          <li>
+            <strong>A contract</strong> — governed by the Indian Contract Act,
+            1872 and the Insurance Act, 1938.
+          </li>
+          <li>
+            <strong>Risk-sharing &amp; risk-transfer device</strong> — pools
+            risk among many.
+          </li>
+          <li>
+            <strong>Co-operative device</strong> — losses of the unfortunate few
+            are met from the common fund of premiums.
+          </li>
+          <li>
+            <strong>Based on the law of large numbers &amp; probability</strong>
+            — the more the members, the more accurate the prediction of loss.
+          </li>
+          <li>
+            <strong>Payment made on a contingency</strong> — only if the insured
+            event happens (except life, which is a certainty of timing).
+          </li>
+          <li>
+            <strong>Not gambling &amp; not charity</strong> — the insured has an
+            <em>insurable interest</em>; premium is scientifically calculated.
+          </li>
+        </ul>
+
+        <h4>Functions of insurance</h4>
+        <div class="twrap">
+          <table>
+            <tr>
+              <th>Primary</th>
+              <th>Secondary</th>
+              <th>Other</th>
+            </tr>
+            <tr>
+              <td>
+                Provide <strong>certainty</strong> (of loss payment)<br />Provide
+                <strong>protection</strong><br /><strong>Risk-sharing</strong>
+              </td>
+              <td>
+                Prevention of loss<br />Provides
+                <strong>capital / mobilises savings</strong><br />Improves
+                efficiency<br />Helps economic progress
+              </td>
+              <td>
+                Means of savings &amp; investment<br />Promotes foreign trade<br />Source
+                of employment
+              </td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="box mnem">
+          <span class="lbl">Mnemonic — insurance is NOT…</span>
+          Insurance is <strong>not gambling</strong> (insured must suffer a real
+          loss) and <strong>not charity</strong> (premium is charged). Wager =
+          create risk; Insurance = transfer existing risk.
+        </div>
+
+        <div class="rev" data-rev="b1">
+          <span class="rlabel">Revision tracker:</span>
+          <label><input type="checkbox" data-r="b1r1" /> Round 1</label>
+          <label><input type="checkbox" data-r="b1r2" /> Round 2</label>
+          <label><input type="checkbox" data-r="b1r3" /> Round 3</label>
+        </div>
+        <div class="backtop"><a href="#top">↑ Back to top</a></div>
+      </section>
+
+      <section class="topic" id="b2">
+        <h3><span class="dot">2</span>Principles of Insurance</h3>
+        <p>
+          The <strong>7 fundamental principles</strong> — the single most
+          important, most-asked area in the whole topic.
+        </p>
+
+        <div class="twrap">
+          <table>
+            <tr>
+              <th>#</th>
+              <th>Principle</th>
+              <th>Meaning</th>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>Utmost Good Faith <em>(Uberrimae Fidei)</em></td>
+              <td>
+                Both parties must disclose
+                <strong>all material facts</strong> truthfully.
+                Non-disclosure/misrepresentation makes the contract voidable.
+                Applies to <strong>all</strong> insurance.
+              </td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Insurable Interest</td>
+              <td>
+                The insured must have a
+                <strong>financial/legal stake</strong> in the subject-matter —
+                he benefits from its safety and suffers from its loss. Without
+                it the contract is void (it becomes a wager).
+              </td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Indemnity</td>
+              <td>
+                The insured is placed in the
+                <strong>same financial position</strong> as before the loss — no
+                profit from insurance. Applies to
+                <strong>general insurance</strong> (fire, marine, motor),
+                <strong>NOT to life</strong>.
+              </td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>Subrogation</td>
+              <td>
+                After paying the claim, the insurer
+                <strong>steps into the shoes of the insured</strong> and takes
+                over his rights against a third party. A corollary of indemnity.
+              </td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>Contribution</td>
+              <td>
+                Where the same risk is insured with more than one insurer, each
+                insurer shares the loss <strong>rateably</strong>; the insured
+                cannot recover more than the actual loss. Corollary of
+                indemnity.
+              </td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>Proximate Cause <em>(Causa Proxima)</em></td>
+              <td>
+                The <strong>nearest / effective cause</strong> of loss (not
+                remote cause) decides whether the insurer is liable.
+              </td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td>Loss Minimisation</td>
+              <td>
+                The insured must take <strong>reasonable steps</strong> to
+                minimise the loss, as any prudent uninsured person would.
+              </td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="box mnem">
+          <span class="lbl">Mnemonic — 7 principles</span>
+          <strong>"U-I-I-S-C-P-L"</strong> → <strong>U</strong>tmost good faith
+          · <strong>I</strong>nsurable interest · <strong>I</strong>ndemnity ·
+          <strong>S</strong>ubrogation · <strong>C</strong>ontribution ·
+          <strong>P</strong>roximate cause · <strong>L</strong>oss minimisation.
+        </div>
+
+        <div class="box exam">
+          <span class="lbl">High-yield distinctions</span>
+          •
+          <strong
+            >Indemnity, Subrogation &amp; Contribution DO NOT apply to Life
+            insurance</strong
+          >
+          (life can't be valued in money). They apply to general insurance.<br />
+          •
+          <strong
+            >Utmost good faith &amp; Insurable interest apply to ALL</strong
+          >
+          insurance.<br />
+          • In life insurance, insurable interest must exist
+          <strong>at the time of taking the policy</strong>; in fire,
+          <strong>at the time of policy AND loss</strong>; in marine,
+          <strong>at the time of loss</strong>.
+        </div>
+
+        <div class="rev" data-rev="b2">
+          <span class="rlabel">Revision tracker:</span>
+          <label><input type="checkbox" data-r="b2r1" /> Round 1</label>
+          <label><input type="checkbox" data-r="b2r2" /> Round 2</label>
+          <label><input type="checkbox" data-r="b2r3" /> Round 3</label>
+        </div>
+        <div class="backtop"><a href="#top">↑ Back to top</a></div>
+      </section>
+
+      <section class="topic" id="b3">
+        <h3><span class="dot">3</span>Types of Insurance</h3>
+
+        <p>
+          Broadly two categories: <strong>Life insurance</strong> and
+          <strong>General (Non-life) insurance</strong>.
+        </p>
+
+        <h4>Life insurance</h4>
+        <p>
+          Covers the risk of <strong>death</strong> and provides
+          savings/investment. Main plans:
+          <strong>Term (pure risk cover)</strong>, <strong>Whole-life</strong>,
+          <strong>Endowment</strong>, <strong>Money-back</strong>,
+          <strong>ULIP (Unit-Linked)</strong>, and
+          <strong>Annuity/Pension plans</strong>.
+        </p>
+
+        <h4>General (non-life) insurance</h4>
+        <div class="twrap">
+          <table>
+            <tr>
+              <th>Type</th>
+              <th>Covers</th>
+            </tr>
+            <tr>
+              <td>Fire insurance</td>
+              <td>Loss/damage to property by fire &amp; allied perils.</td>
+            </tr>
+            <tr>
+              <td>Marine insurance</td>
+              <td>
+                Loss to ship (hull), cargo &amp; freight during sea transit.
+                (Oldest form of insurance.)
+              </td>
+            </tr>
+            <tr>
+              <td>Motor insurance</td>
+              <td>
+                Vehicles —
+                <strong>third-party cover is compulsory</strong> under the Motor
+                Vehicles Act.
+              </td>
+            </tr>
+            <tr>
+              <td>Health / Medical insurance</td>
+              <td>
+                Hospitalisation &amp; medical expenses (e.g. Mediclaim, Ayushman
+                Bharat).
+              </td>
+            </tr>
+            <tr>
+              <td>Crop / Agriculture</td>
+              <td>Loss of crops (e.g. PM Fasal Bima Yojana).</td>
+            </tr>
+            <tr>
+              <td>Others</td>
+              <td>
+                Burglary, fidelity guarantee, liability, travel, personal
+                accident, etc.
+              </td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="box key">
+          <span class="lbl">Key facts</span>
+          <strong>Marine insurance</strong> is the oldest form of insurance.
+          <strong>Motor third-party liability</strong> is legally compulsory.
+          Life = <strong>protection + savings</strong>; General =
+          <strong>pure protection / indemnity</strong>.
+        </div>
+
+        <div class="rev" data-rev="b3">
+          <span class="rlabel">Revision tracker:</span>
+          <label><input type="checkbox" data-r="b3r1" /> Round 1</label>
+          <label><input type="checkbox" data-r="b3r2" /> Round 2</label>
+          <label><input type="checkbox" data-r="b3r3" /> Round 3</label>
+        </div>
+        <div class="backtop"><a href="#top">↑ Back to top</a></div>
+      </section>
+
+      <section class="topic" id="b4">
+        <h3><span class="dot">4</span>Life vs General Insurance</h3>
+
+        <div class="twrap">
+          <table>
+            <tr>
+              <th>Basis</th>
+              <th>Life Insurance</th>
+              <th>General Insurance</th>
+            </tr>
+            <tr>
+              <td>Subject-matter</td>
+              <td>Human life</td>
+              <td>Property, goods, liability, health</td>
+            </tr>
+            <tr>
+              <td>Nature of event</td>
+              <td>Certain (death is certain, only timing uncertain)</td>
+              <td>Uncertain / contingent (may or may not happen)</td>
+            </tr>
+            <tr>
+              <td>Principle of indemnity</td>
+              <td><strong>Does NOT apply</strong> (life has no money value)</td>
+              <td><strong>Applies</strong></td>
+            </tr>
+            <tr>
+              <td>Insurable interest</td>
+              <td>Needed at time of <strong>taking the policy</strong></td>
+              <td>
+                Needed at time of <strong>loss</strong> (fire: both times)
+              </td>
+            </tr>
+            <tr>
+              <td>Duration</td>
+              <td>Long-term</td>
+              <td>Usually short-term (often 1 year, renewable)</td>
+            </tr>
+            <tr>
+              <td>Element</td>
+              <td>Protection + <strong>savings/investment</strong></td>
+              <td>Only protection</td>
+            </tr>
+            <tr>
+              <td>Claim</td>
+              <td>Sum assured paid in full on death/maturity</td>
+              <td>Actual loss reimbursed (up to sum insured)</td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="rev" data-rev="b4">
+          <span class="rlabel">Revision tracker:</span>
+          <label><input type="checkbox" data-r="b4r1" /> Round 1</label>
+          <label><input type="checkbox" data-r="b4r2" /> Round 2</label>
+          <label><input type="checkbox" data-r="b4r3" /> Round 3</label>
+        </div>
+        <div class="backtop"><a href="#top">↑ Back to top</a></div>
+      </section>
+
+      <section class="topic" id="b5">
+        <h3><span class="dot">5</span>Reinsurance &amp; Double Insurance</h3>
+
+        <div class="twrap">
+          <table>
+            <tr>
+              <th>Basis</th>
+              <th>Reinsurance</th>
+              <th>Double Insurance</th>
+            </tr>
+            <tr>
+              <td>Meaning</td>
+              <td>
+                An insurer insures
+                <strong>part of its own risk with another insurer</strong> (a
+                re-insurer) to reduce its burden.
+              </td>
+              <td>
+                The
+                <strong>same risk is insured with two or more insurers</strong>
+                by the insured.
+              </td>
+            </tr>
+            <tr>
+              <td>Who does it</td>
+              <td>The insurer</td>
+              <td>The insured</td>
+            </tr>
+            <tr>
+              <td>Purpose</td>
+              <td>Spread very large risks</td>
+              <td>Extra safety / full recovery</td>
+            </tr>
+            <tr>
+              <td>Claim</td>
+              <td>Insured deals only with the original insurer</td>
+              <td>
+                Insured cannot recover more than actual loss (principle of
+                contribution applies)
+              </td>
+            </tr>
+          </table>
+        </div>
+        <p>
+          <em>India's national reinsurer:</em>
+          <strong>GIC Re (General Insurance Corporation of India)</strong>.
+        </p>
+
+        <div class="rev" data-rev="b5">
+          <span class="rlabel">Revision tracker:</span>
+          <label><input type="checkbox" data-r="b5r1" /> Round 1</label>
+          <label><input type="checkbox" data-r="b5r2" /> Round 2</label>
+          <label><input type="checkbox" data-r="b5r3" /> Round 3</label>
+        </div>
+        <div class="backtop"><a href="#top">↑ Back to top</a></div>
+      </section>
+
+      <section class="topic" id="b6">
+        <h3>
+          <span class="dot">6</span>Role of Insurance in Economic Development
+        </h3>
+        <ul>
+          <li>
+            <strong>Mobilises savings</strong> — premiums collected form a huge
+            pool of long-term funds.
+          </li>
+          <li>
+            <strong>Capital formation &amp; investment</strong> — insurers
+            invest in government securities, infrastructure and industry.
+          </li>
+          <li>
+            <strong>Provides security</strong> — encourages entrepreneurship
+            &amp; risk-taking.
+          </li>
+          <li>
+            <strong>Promotes trade &amp; commerce</strong> — marine &amp; credit
+            insurance enable exports/imports.
+          </li>
+          <li>
+            <strong>Reduces the burden on the State</strong> — private provision
+            of social security.
+          </li>
+          <li>
+            <strong>Generates employment</strong> and supports financial-market
+            development.
+          </li>
+        </ul>
+
+        <div class="box mnem">
+          <span class="lbl">Mnemonic</span>
+          <strong>"SCS-TER"</strong> → <strong>S</strong>avings mobilisation ·
+          <strong>C</strong>apital formation · <strong>S</strong>ecurity ·
+          <strong>T</strong>rade promotion · <strong>E</strong>mployment ·
+          <strong>R</strong>educes state burden.
+        </div>
+
+        <div class="rev" data-rev="b6">
+          <span class="rlabel">Revision tracker:</span>
+          <label><input type="checkbox" data-r="b6r1" /> Round 1</label>
+          <label><input type="checkbox" data-r="b6r2" /> Round 2</label>
+          <label><input type="checkbox" data-r="b6r3" /> Round 3</label>
+        </div>
+        <div class="backtop"><a href="#top">↑ Back to top</a></div>
+      </section>
+
+      <section class="topic" id="b7">
+        <h3>
+          <span class="dot">7</span>Insurance in India — History &amp; IRDAI
+        </h3>
+
+        <h4>Timeline of key milestones</h4>
+        <div class="twrap">
+          <table>
+            <tr>
+              <th>Year</th>
+              <th>Milestone</th>
+            </tr>
+            <tr>
+              <td>1818</td>
+              <td>
+                Oriental Life Insurance Company — first life insurer in India
+                (Kolkata).
+              </td>
+            </tr>
+            <tr>
+              <td>1938</td>
+              <td>
+                <strong>Insurance Act, 1938</strong> — first comprehensive law
+                to regulate insurance (still the parent Act).
+              </td>
+            </tr>
+            <tr>
+              <td>1956</td>
+              <td>
+                <strong>Nationalisation of life insurance → LIC</strong> formed
+                (LIC Act, 1956).
+              </td>
+            </tr>
+            <tr>
+              <td>1972</td>
+              <td>
+                <strong>Nationalisation of general insurance → GIC</strong> and
+                its 4 subsidiaries (General Insurance Business Nationalisation
+                Act, 1972).
+              </td>
+            </tr>
+            <tr>
+              <td>1993</td>
+              <td>
+                <strong>Malhotra Committee</strong> recommended opening up the
+                sector to private players.
+              </td>
+            </tr>
+            <tr>
+              <td>1999</td>
+              <td>
+                <strong>IRDA Act, 1999</strong> passed → regulator established
+                (began functioning 2000); sector opened to private &amp; foreign
+                participation.
+              </td>
+            </tr>
+            <tr>
+              <td>2014</td>
+              <td>
+                Renamed <strong>IRDAI</strong>; FDI raised from 26% →
+                <strong>49%</strong>.
+              </td>
+            </tr>
+            <tr>
+              <td>2015</td>
+              <td>Insurance Laws (Amendment) Act, 2015.</td>
+            </tr>
+            <tr>
+              <td>2021</td>
+              <td>FDI in insurance raised from 49% → <strong>74%</strong>.</td>
+            </tr>
+            <tr>
+              <td>2025</td>
+              <td>
+                Union Budget 2025-26
+                <strong>proposed raising FDI to 100%</strong> (for insurers
+                investing the entire premium in India) via the Insurance
+                Amendment Bill — enabling legislation/rules were under process
+                (to be notified).
+              </td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="box key">
+          <span class="lbl">IRDAI — the regulator</span>
+          <strong
+            >Insurance Regulatory and Development Authority of India.</strong
+          >
+          A <strong>statutory body</strong> under the IRDA Act, 1999,
+          headquartered at <strong>Hyderabad</strong>. Functions: protect
+          policyholders, licence &amp; regulate insurers/agents, promote &amp;
+          ensure orderly growth of the sector, and fix conduct/solvency norms.
+          Vision: <strong>"Insurance for All by 2047."</strong>
+        </div>
+
+        <div class="box mnem">
+          <span class="lbl">Mnemonic — LIC &amp; GIC years</span>
+          <strong>Life → 56, General → 72.</strong> (Life comes first
+          alphabetically and chronologically.) Regulator IRDA →
+          <strong>99</strong>.
+        </div>
+
+        <div class="rev" data-rev="b7">
+          <span class="rlabel">Revision tracker:</span>
+          <label><input type="checkbox" data-r="b7r1" /> Round 1</label>
+          <label><input type="checkbox" data-r="b7r2" /> Round 2</label>
+          <label><input type="checkbox" data-r="b7r3" /> Round 3</label>
+        </div>
+        <div class="backtop"><a href="#top">↑ Back to top</a></div>
+      </section>
+
+      <section class="topic" id="b8">
+        <h3>
+          <span class="dot">8</span>Insurance &amp; Social Security (the APFC
+          core link)
+        </h3>
+
+        <p>
+          For APFC, insurance is not just commercial — it underpins
+          <strong>social security</strong>. Insurance-based government schemes
+          are directly relevant:
+        </p>
+
+        <div class="twrap">
+          <table>
+            <tr>
+              <th>Scheme</th>
+              <th>Nature</th>
+            </tr>
+            <tr>
+              <td>
+                <strong>EDLI</strong> (Employees' Deposit-Linked Insurance),
+                1976
+              </td>
+              <td>
+                Life-insurance cover for EPF members — a
+                <strong>lump sum to nominees on death</strong> of the member in
+                service. Administered by <strong>EPFO</strong> — core to APFC
+                work.
+              </td>
+            </tr>
+            <tr>
+              <td>PMJJBY (Jeevan Jyoti Bima Yojana)</td>
+              <td>
+                Government life-insurance cover (renewable term) for
+                bank-account holders.
+              </td>
+            </tr>
+            <tr>
+              <td>PMSBY (Suraksha Bima Yojana)</td>
+              <td>Accident-insurance cover at a very low premium.</td>
+            </tr>
+            <tr>
+              <td>Ayushman Bharat (PM-JAY)</td>
+              <td>
+                Health-insurance cover for poor &amp; vulnerable families.
+              </td>
+            </tr>
+            <tr>
+              <td>Atal Pension Yojana / ESIC</td>
+              <td>Pension &amp; medical-benefit social-security schemes.</td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="box key">
+          <span class="lbl">Why the examiner tests this</span>
+          APFC works under the
+          <strong>EPF &amp; MP Act, 1952</strong> administering three funds —
+          <strong>EPF, EPS (Pension), and EDLI (Insurance)</strong>. EDLI is a
+          pure insurance scheme, so the
+          <em>principles of insurance</em> (insurable interest, contract,
+          risk-pooling) apply directly. Expect linkage questions between
+          <strong>insurance ↔ social security ↔ EPFO</strong>.
+        </div>
+
+        <div class="rev" data-rev="b8">
+          <span class="rlabel">Revision tracker:</span>
+          <label><input type="checkbox" data-r="b8r1" /> Round 1</label>
+          <label><input type="checkbox" data-r="b8r2" /> Round 2</label>
+          <label><input type="checkbox" data-r="b8r3" /> Round 3</label>
+        </div>
+        <div class="backtop"><a href="#top">↑ Back to top</a></div>
+      </section>
+
+      <section class="topic" id="b9">
+        <h3>
+          <span class="dot">9</span>Current Affairs &amp; One-Shot Quick Facts
+        </h3>
+
+        <h4>Snap facts (rapid-fire)</h4>
+        <ul>
+          <li>
+            Oldest form of insurance → <strong>Marine</strong>. First insurance
+            law in India → <strong>Insurance Act, 1938</strong>.
+          </li>
+          <li>
+            LIC → <strong>1956</strong>; GIC → <strong>1972</strong>; IRDA Act →
+            <strong>1999</strong>; renamed IRDAI → <strong>2014</strong>.
+          </li>
+          <li>
+            IRDAI HQ → <strong>Hyderabad</strong>; national re-insurer →
+            <strong>GIC Re</strong>.
+          </li>
+          <li>
+            FDI journey → 26% → 49% (2014) → 74% (2021) →
+            <strong>100% proposed (Budget 2025-26)</strong>.
+          </li>
+          <li>IRDAI vision → <strong>"Insurance for All by 2047."</strong></li>
+          <li>
+            Compulsory insurance → <strong>Motor third-party liability</strong>.
+          </li>
+          <li>
+            Bancassurance → selling insurance <strong>through banks</strong>.
+          </li>
+        </ul>
+
+        <div class="box exam">
+          <span class="lbl">Auditing — snap facts</span>
+          Audit derives from Latin <strong>"audire"</strong> (to hear). Vouching
+          = <strong>backbone of auditing</strong>. Working papers = property of
+          the <strong>auditor</strong>. Government/PSU audit →
+          <strong>CAG</strong>. Company auditor must be a <strong>CA</strong>.
+          Auditor = <strong>watchdog, not bloodhound</strong>. Audit gives
+          <strong>reasonable</strong>, not absolute, assurance. Standards on
+          Auditing issued by <strong>ICAI</strong>.
+        </div>
+
+        <div class="rev" data-rev="b9">
+          <span class="rlabel">Revision tracker:</span>
+          <label><input type="checkbox" data-r="b9r1" /> Round 1</label>
+          <label><input type="checkbox" data-r="b9r2" /> Round 2</label>
+          <label><input type="checkbox" data-r="b9r3" /> Round 3</label>
+        </div>
+        <div class="backtop"><a href="#top">↑ Back to top</a></div>
+      </section>
+
+      <div class="progress-wrap">
+        <div class="progress">
+          <span id="pcount">0 / 0 ticked</span>
+          <div class="bar"><i id="pbar"></i></div>
+          <button class="resetlink" id="resetBtn">reset</button>
+        </div>
+      </div>
+
+      <footer>
+        Self-study revision notes · Auditing &amp; Insurance · prepared for UPSC
+        APFC (EPFO) 2026.<br />
+        Verify current-affairs figures (FDI limits, latest schemes) against
+        IRDAI / official sources before the exam, as policy can change.
+      </footer>
+    </div>
+
+    <script>
+      (function () {
+        // ---- Theme toggle (respects system, remembers choice) ----
+        var root = document.documentElement,
+          tb = document.getElementById("themeBtn");
+        try {
+          var saved = localStorage.getItem("apfc_theme");
+          if (saved) {
+            root.setAttribute("data-theme", saved);
+          }
+        } catch (e) {}
+        tb.addEventListener("click", function () {
+          var cur = root.getAttribute("data-theme");
+          var isDark = cur
+            ? cur === "dark"
+            : window.matchMedia("(prefers-color-scheme:dark)").matches;
+          var next = isDark ? "light" : "dark";
+          root.setAttribute("data-theme", next);
+          try {
+            localStorage.setItem("apfc_theme", next);
+          } catch (e) {}
+        });
+
+        // ---- Revision tracker with persistence ----
+        var boxes = Array.prototype.slice.call(
+          document.querySelectorAll("input[type=checkbox][data-r]"),
+        );
+        var store = {};
+        try {
+          store = JSON.parse(localStorage.getItem("apfc_rev") || "{}") || {};
+        } catch (e) {
+          store = {};
+        }
+
+        function paintLabel(cb) {
+          var l = cb.closest("label");
+          if (l) {
+            l.classList.toggle("done", cb.checked);
+          }
+        }
+        function update() {
+          var total = boxes.length,
+            done = 0;
+          boxes.forEach(function (cb) {
+            if (cb.checked) done++;
+          });
+          document.getElementById("pcount").textContent =
+            done + " / " + total + " ticked";
+          document.getElementById("pbar").style.width =
+            (total ? (done / total) * 100 : 0) + "%";
+        }
+        boxes.forEach(function (cb) {
+          var k = cb.getAttribute("data-r");
+          if (store[k]) {
+            cb.checked = true;
+          }
+          paintLabel(cb);
+          cb.addEventListener("change", function () {
+            store[k] = cb.checked;
+            try {
+              localStorage.setItem("apfc_rev", JSON.stringify(store));
+            } catch (e) {}
+            paintLabel(cb);
+            update();
+          });
+        });
+        update();
+
+        document
+          .getElementById("resetBtn")
+          .addEventListener("click", function () {
+            if (!confirm("Clear all revision ticks?")) return;
+            boxes.forEach(function (cb) {
+              cb.checked = false;
+              paintLabel(cb);
+            });
+            store = {};
+            try {
+              localStorage.removeItem("apfc_rev");
+            } catch (e) {}
+            update();
+          });
+      })();
+    </script>
+  </body>
+</html>
