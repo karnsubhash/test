@@ -779,6 +779,540 @@
         pointer-events: auto;
       }
 
+      /* ---- primary button + PYQ modal ---- */
+      .btn-primary {
+        background: var(--green);
+        color: #fff;
+        border-color: var(--green);
+      }
+      .btn-primary:hover {
+        background: var(--green-bright);
+        color: #fff;
+        border-color: var(--green-bright);
+      }
+      .btn-count {
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.68rem;
+        background: rgba(255, 255, 255, 0.22);
+        padding: 1px 6px;
+        border-radius: 10px;
+        margin-left: 2px;
+      }
+
+      .modal-overlay {
+        position: fixed;
+        inset: 0;
+        z-index: 100;
+        background: rgba(8, 16, 12, 0.6);
+        -webkit-backdrop-filter: blur(3px);
+        backdrop-filter: blur(3px);
+        display: none;
+        opacity: 0;
+        transition: opacity 0.2s;
+        padding: 22px 14px;
+        padding-top: calc(22px + env(safe-area-inset-top, 0px));
+        padding-bottom: calc(22px + env(safe-area-inset-bottom, 0px));
+        overflow-y: auto;
+      }
+      .modal-overlay.open {
+        display: flex;
+        opacity: 1;
+        align-items: flex-start;
+        justify-content: center;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .modal-overlay {
+          transition: none;
+        }
+      }
+
+      .modal-card {
+        background: var(--paper);
+        width: 100%;
+        max-width: 780px;
+        border-radius: 16px;
+        border: 1px solid var(--rule-strong);
+        box-shadow: 0 30px 90px -30px rgba(0, 0, 0, 0.65);
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        max-height: calc(100vh - 44px);
+        overflow: hidden;
+      }
+      .modal-head {
+        padding: 16px 20px 12px;
+        border-bottom: 1px solid var(--rule);
+        background: var(--card);
+        flex: none;
+      }
+      .mh-row {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .mh-row h3 {
+        margin: 0;
+        font-family: "Spectral", serif;
+        color: var(--green);
+        font-size: 1.3rem;
+        letter-spacing: -0.01em;
+      }
+      .mh-row .sub {
+        font-size: 0.74rem;
+        color: var(--ink-faint);
+        margin-top: 2px;
+      }
+      .modal-close {
+        margin-left: auto;
+        background: none;
+        border: 1px solid var(--rule-strong);
+        border-radius: 9px;
+        width: 36px;
+        height: 36px;
+        cursor: pointer;
+        color: var(--ink);
+        font-size: 1.15rem;
+        line-height: 1;
+        flex: none;
+      }
+      .modal-close:hover {
+        border-color: var(--red);
+        color: var(--red);
+      }
+      .scorebar {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        margin-top: 12px;
+        flex-wrap: wrap;
+      }
+      .pill {
+        font-size: 0.76rem;
+        font-weight: 600;
+        padding: 5px 11px;
+        border-radius: 20px;
+        background: var(--paper-2);
+        border: 1px solid var(--rule);
+        color: var(--ink-soft);
+      }
+      .pill b {
+        color: var(--green);
+      }
+      .pill.wrongp b {
+        color: var(--red);
+      }
+      .filter {
+        display: flex;
+        gap: 6px;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        margin-top: 12px;
+        padding-bottom: 3px;
+        scrollbar-width: thin;
+      }
+      .filter::-webkit-scrollbar {
+        height: 5px;
+      }
+      .filter::-webkit-scrollbar-thumb {
+        background: var(--rule-strong);
+        border-radius: 3px;
+      }
+      .filter button {
+        font-size: 0.73rem;
+        padding: 5px 11px;
+        border-radius: 16px;
+        cursor: pointer;
+        font-family: inherit;
+        border: 1px solid var(--rule-strong);
+        background: var(--card);
+        color: var(--ink-soft);
+        white-space: nowrap;
+      }
+      .filter button:hover {
+        border-color: var(--green);
+      }
+      .filter button.active {
+        background: var(--green);
+        color: #fff;
+        border-color: var(--green);
+      }
+
+      .modal-body {
+        padding: 4px 20px 18px;
+        overflow-y: auto;
+        flex: 1 1 auto;
+        min-height: 0;
+      }
+      .quiz-q {
+        padding: 18px 0;
+        border-bottom: 1px solid var(--rule);
+      }
+      .quiz-q:last-child {
+        border-bottom: none;
+      }
+      .quiz-q.hide {
+        display: none;
+      }
+      .quiz-meta {
+        display: flex;
+        gap: 7px;
+        flex-wrap: wrap;
+        margin-bottom: 9px;
+        align-items: center;
+      }
+      .qn-badge {
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.72rem;
+        font-weight: 600;
+        color: var(--green);
+        border: 1.5px solid var(--green-line);
+        border-radius: 7px;
+        padding: 2px 7px;
+      }
+      .qtag {
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.65rem;
+        font-weight: 600;
+        padding: 3px 8px;
+        border-radius: 12px;
+        letter-spacing: 0.02em;
+      }
+      .qtag.topic {
+        color: var(--green);
+        background: var(--paper-2);
+        border: 1px solid var(--green-line);
+      }
+      .qtag.year {
+        color: var(--gold);
+        border: 1px solid var(--gold);
+      }
+      .quiz-qtext {
+        font-weight: 600;
+        margin: 0 0 11px;
+        line-height: 1.55;
+        color: var(--ink);
+      }
+      .quiz-data {
+        font-size: 0.84rem;
+        background: var(--paper-2);
+        border: 1px solid var(--rule);
+        border-radius: 9px;
+        padding: 9px 13px;
+        margin: 0 0 12px;
+        color: var(--ink-soft);
+        overflow-x: auto;
+        line-height: 1.6;
+      }
+      .quiz-data b {
+        color: var(--ink);
+      }
+      .quiz-data table {
+        border-collapse: collapse;
+        width: auto;
+        min-width: 0;
+        margin-top: 6px;
+        font-size: 0.82rem;
+      }
+      .quiz-data th,
+      .quiz-data td {
+        border: 1px solid var(--rule-strong);
+        padding: 4px 9px;
+        text-align: left;
+      }
+      .quiz-data th {
+        background: var(--card);
+        color: var(--ink);
+      }
+      .quiz-opts {
+        display: grid;
+        gap: 8px;
+      }
+      .quiz-opt {
+        text-align: left;
+        font-family: inherit;
+        font-size: 0.92rem;
+        padding: 11px 14px;
+        width: 100%;
+        border: 1.5px solid var(--rule-strong);
+        border-radius: 11px;
+        background: var(--card);
+        color: var(--ink);
+        cursor: pointer;
+        display: flex;
+        gap: 11px;
+        align-items: flex-start;
+        line-height: 1.45;
+        transition:
+          border-color 0.15s,
+          background 0.15s;
+      }
+      .quiz-opt:hover:not(.locked) {
+        border-color: var(--green);
+      }
+      .quiz-opt .lit {
+        font-family: "IBM Plex Mono", monospace;
+        font-weight: 600;
+        color: var(--green-bright);
+        flex: none;
+      }
+      .quiz-opt.locked {
+        cursor: default;
+      }
+      .quiz-opt.correct {
+        border-color: var(--green);
+        background: rgba(18, 120, 82, 0.14);
+      }
+      .quiz-opt.correct .lit {
+        color: var(--green);
+      }
+      .quiz-opt.wrong {
+        border-color: var(--red);
+        background: rgba(158, 43, 37, 0.12);
+      }
+      .quiz-opt.wrong .lit {
+        color: var(--red);
+      }
+      .quiz-opt .mk {
+        margin-left: auto;
+        font-weight: 700;
+        flex: none;
+      }
+      .quiz-explain {
+        margin-top: 11px;
+        font-size: 0.87rem;
+        color: var(--ink-soft);
+        border-left: 3px solid var(--green);
+        background: var(--paper-2);
+        padding: 9px 13px;
+        border-radius: 0 9px 9px 0;
+        display: none;
+      }
+      .quiz-explain.show {
+        display: block;
+      }
+      .quiz-explain .lead {
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.68rem;
+        font-weight: 600;
+        color: var(--green);
+        display: block;
+        margin-bottom: 3px;
+        letter-spacing: 0.02em;
+      }
+      .quiz-explain.miss {
+        border-left-color: var(--red);
+      }
+      .quiz-explain.miss .lead {
+        color: var(--red);
+      }
+      .quiz-explain b {
+        color: var(--ink);
+      }
+      .empty {
+        padding: 40px 10px;
+        text-align: center;
+        color: var(--ink-faint);
+        font-size: 0.9rem;
+      }
+
+      .modal-foot {
+        padding: 12px 20px;
+        border-top: 1px solid var(--rule);
+        background: var(--card);
+        display: flex;
+        gap: 10px;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        flex: none;
+      }
+      .modal-foot small {
+        font-size: 0.75rem;
+        color: var(--ink-faint);
+      }
+      body.modal-open {
+        overflow: hidden;
+      }
+
+      @media (max-width: 560px) {
+        .modal-card {
+          border-radius: 14px;
+          max-height: calc(100vh - 28px);
+        }
+        .mh-row h3 {
+          font-size: 1.12rem;
+        }
+        .modal-head,
+        .modal-body,
+        .modal-foot {
+          padding-left: 15px;
+          padding-right: 15px;
+        }
+      }
+
+      /* ---- attempt-mode test flow ---- */
+      .attempt-bar {
+        margin-top: 12px;
+      }
+      .qcounter {
+        font-size: 0.82rem;
+        color: var(--ink-soft);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .qcounter b {
+        color: var(--green);
+        font-family: "IBM Plex Mono", monospace;
+      }
+      .mini-progress {
+        flex: 1;
+        height: 6px;
+        background: var(--paper-2);
+        border: 1px solid var(--rule);
+        border-radius: 5px;
+        overflow: hidden;
+      }
+      .mini-progress i {
+        display: block;
+        height: 100%;
+        width: 0;
+        border-radius: 5px;
+        background: linear-gradient(90deg, var(--green), var(--green-bright));
+        transition: width 0.3s;
+      }
+      .navigator {
+        display: flex;
+        gap: 6px;
+        overflow-x: auto;
+        padding: 11px 0 3px;
+        scrollbar-width: thin;
+      }
+      .navigator::-webkit-scrollbar {
+        height: 5px;
+      }
+      .navigator::-webkit-scrollbar-thumb {
+        background: var(--rule-strong);
+        border-radius: 3px;
+      }
+      .nav-chip {
+        flex: none;
+        width: 30px;
+        height: 30px;
+        border-radius: 8px;
+        border: 1.5px solid var(--rule-strong);
+        background: var(--card);
+        color: var(--ink-soft);
+        font-size: 0.76rem;
+        font-family: "IBM Plex Mono", monospace;
+        cursor: pointer;
+        display: grid;
+        place-items: center;
+        padding: 0;
+      }
+      .nav-chip.answered {
+        border-color: var(--green);
+        color: var(--green);
+        background: rgba(18, 120, 82, 0.1);
+      }
+      .nav-chip.current {
+        background: var(--green);
+        color: #fff;
+        border-color: var(--green);
+      }
+      .nav-chip.correct {
+        border-color: var(--green);
+        color: var(--green);
+        background: rgba(18, 120, 82, 0.16);
+      }
+      .nav-chip.wrong {
+        border-color: var(--red);
+        color: var(--red);
+        background: rgba(158, 43, 37, 0.14);
+      }
+
+      .quiz-opt.selected {
+        border-color: var(--green);
+        background: rgba(18, 120, 82, 0.09);
+      }
+      .quiz-opt.selected .lit {
+        color: var(--green);
+      }
+      .single .quiz-q {
+        border-bottom: none;
+        padding-top: 8px;
+      }
+
+      .foot-nav {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        width: 100%;
+        justify-content: space-between;
+      }
+      .foot-nav .grow {
+        flex: 1;
+        text-align: center;
+      }
+      .foot-nav .btn {
+        white-space: nowrap;
+      }
+
+      .result {
+        padding: 26px 6px 10px;
+        text-align: center;
+      }
+      .result .big {
+        font-family: "Spectral", serif;
+        font-size: 2.7rem;
+        color: var(--green);
+        font-weight: 800;
+        line-height: 1;
+      }
+      .result .lbl {
+        color: var(--ink-faint);
+        font-size: 0.86rem;
+        margin-top: 5px;
+      }
+      .result .brk {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        margin-top: 18px;
+        flex-wrap: wrap;
+      }
+      .result .stat {
+        background: var(--paper-2);
+        border: 1px solid var(--rule);
+        border-radius: 11px;
+        padding: 11px 18px;
+        min-width: 92px;
+      }
+      .result .stat b {
+        display: block;
+        font-size: 1.5rem;
+        font-family: "Spectral", serif;
+        line-height: 1.1;
+      }
+      .result .stat.good b {
+        color: var(--green);
+      }
+      .result .stat.bad b {
+        color: var(--red);
+      }
+      .result .stat.skip b {
+        color: var(--ink-faint);
+      }
+      .result .stat span {
+        font-size: 0.72rem;
+        color: var(--ink-faint);
+      }
+      .result .msg {
+        margin-top: 18px;
+        font-size: 0.9rem;
+        color: var(--ink-soft);
+      }
+
       @media print {
         body::before,
         #scrollbar,
@@ -786,7 +1320,8 @@
         .toolbar,
         .backtop,
         .prog,
-        .toc-toggle {
+        .toc-toggle,
+        .modal-overlay {
           display: none !important;
         }
         .wrap {
@@ -848,6 +1383,9 @@
             <span class="chip red">Revision-first layout</span>
           </div>
           <div class="toolbar">
+            <button class="btn btn-primary" id="pyqBtn">
+              ✎ Practice PYQs <span class="btn-count" id="pyqCount">35</span>
+            </button>
             <button class="btn" id="themeBtn">◑ Theme</button>
             <button class="btn" id="printBtn">⎙ Print / Save PDF</button>
             <button class="btn" id="resetBtn">↺ Reset progress</button>
@@ -2304,14 +2842,11 @@
         if (saved) {
           root.setAttribute("data-theme", saved);
         }
-        document
-          .getElementById("themeBtn")
-          .addEventListener("click", function () {
-            var cur = root.getAttribute("data-theme") || "light";
-            var next = cur === "light" ? "dark" : "light";
-            root.setAttribute("data-theme", next);
-            set(LS_THEME, next);
-          });
+        // document.getElementById("themeBtn").addEventListener("click",function(){
+        //   var cur=root.getAttribute("data-theme")||"light";
+        //   var next=cur==="light"?"dark":"light";
+        //   root.setAttribute("data-theme",next); set(LS_THEME,next);
+        // });
 
         /* ---------- build TOC + revise checkboxes ---------- */
         var secs = Array.prototype.slice.call(
@@ -2462,6 +2997,921 @@
             }
           });
         });
+      })();
+    </script>
+
+    <!-- ===== PYQ PRACTICE MODAL ===== -->
+    <div
+      class="modal-overlay"
+      id="pyqOverlay"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="pyqTitle"
+    >
+      <div class="modal-card">
+        <div class="modal-head">
+          <div class="mh-row">
+            <div>
+              <h3 id="pyqTitle">Accountancy PYQs</h3>
+              <div class="sub">
+                Attempt one at a time — pick an answer, move on, then submit
+              </div>
+            </div>
+            <button
+              class="modal-close"
+              id="pyqClose"
+              aria-label="Close practice"
+            >
+              ✕
+            </button>
+          </div>
+          <div class="filter" id="pyqFilter"></div>
+          <div class="attempt-bar">
+            <div class="qcounter">
+              <span
+                >Question <b id="qNow">1</b> / <span id="qTotal">0</span></span
+              >
+              <span class="mini-progress"><i id="miniFill"></i></span>
+              <span
+                id="answeredNote"
+                style="
+                  font-size: 0.75rem;
+                  color: var(--ink-faint);
+                  white-space: nowrap;
+                "
+              ></span>
+            </div>
+            <div
+              class="navigator"
+              id="navigator"
+              aria-label="Question navigator"
+            ></div>
+          </div>
+        </div>
+        <div class="modal-body" id="pyqBody"></div>
+        <div class="modal-foot" id="pyqFoot"></div>
+      </div>
+    </div>
+
+    <script>
+      (function () {
+        "use strict";
+        var LS = "apfc_acc_pyq_v2";
+
+        /* ---- Question bank: verified from the uploaded Topic-wise PYQ (Economy section) ---- */
+        var INV =
+          "<b>Perpetual inventory record</b>" +
+          "<table><thead><tr><th>Date</th><th>Particulars</th><th>Units</th><th>Rate/unit (₹)</th></tr></thead><tbody>" +
+          "<tr><td>Jan 1</td><td>Inventory in hand</td><td>200</td><td>7</td></tr>" +
+          "<tr><td>Jan 6</td><td>Issued for sale</td><td>100</td><td>&ndash;</td></tr>" +
+          "<tr><td>Jan 8</td><td>Purchases</td><td>1100</td><td>8</td></tr>" +
+          "<tr><td>Jan 9</td><td>Issued for sale</td><td>200</td><td>&ndash;</td></tr>" +
+          "<tr><td>Jan 25</td><td>Purchases</td><td>300</td><td>9</td></tr>" +
+          "</tbody></table>";
+
+        var Q = [
+          {
+            t: "Concepts & Standards",
+            y: "APFC 2023",
+            q: "A provision created against fluctuation in the value of investments is based on the convention of:",
+            o: [
+              "Conservatism",
+              "Full disclosure",
+              "Materiality",
+              "Consistency",
+            ],
+            a: 0,
+            e: "Providing for a possible fall in value — anticipating losses but not gains — is the essence of the <b>conservatism (prudence)</b> convention.",
+          },
+          {
+            t: "Concepts & Standards",
+            y: "APFC 2023",
+            q: "According to Accounting Standard-1, which of the following are the fundamental accounting assumptions?",
+            o: [
+              "Going Concern, Consistency, Accrual",
+              "Going Concern, Money Measurement, Conservatism",
+              "Going Concern, Consistency, Conservatism",
+              "Going Concern, Accounting Period, Accrual",
+            ],
+            a: 0,
+            e: "AS-1 recognises three fundamental assumptions: <b>Going Concern, Consistency and Accrual</b>. If followed no disclosure is needed; if not, disclosure is required.",
+          },
+          {
+            t: "Concepts & Standards",
+            y: "APFC 2023",
+            q: "In a business firm, assets are valued on the basis of their intrinsic value rather than realizable value. This accounting is based on:",
+            o: [
+              "Money measurement concept",
+              "Matching concept",
+              "Going concern assumption",
+              "Consistency principle",
+            ],
+            a: 2,
+            e: "Because the firm is assumed to continue rather than be sold off, assets are carried at cost/intrinsic value, not break-up value — the <b>going concern assumption</b>.",
+          },
+          {
+            t: "Concepts & Standards",
+            y: "APFC 2023",
+            q: "Which of the following is NOT a major consideration in the selection and application of accounting policies?",
+            o: [
+              "Prudence",
+              "Consistency",
+              "Substance over form",
+              "Materiality",
+            ],
+            a: 1,
+            e: "The three primary considerations for selecting accounting policies are <b>Prudence, Substance over Form and Materiality</b>. <b>Consistency</b> is a fundamental assumption, not a selection consideration.",
+          },
+          {
+            t: "Concepts & Standards",
+            y: "APFC 2023",
+            q: "Which one of the following is included in the 'Cost of Inventory' according to Accounting Standard-2 (Inventory Valuation)?",
+            o: [
+              "Administrative overheads that do not contribute to bringing the inventories to their present location and condition",
+              "Storage costs which are necessary in the production process prior to a further production stage",
+              "Selling and distribution costs",
+              "Duties and taxes on purchases that are subsequently recoverable from the tax authorities",
+            ],
+            a: 1,
+            e: "AS-2 <b>excludes</b> non-contributing admin overheads, selling/distribution costs and recoverable taxes. Storage costs that are <b>necessary before a further production stage</b> are included in cost.",
+          },
+          {
+            t: "Concepts & Standards",
+            y: "APFC 2015/16",
+            q: "In case of gold, revenue is recognized in the accounting period in which the gold is:",
+            o: ["delivered", "sold", "mined", "identified to be mined"],
+            a: 2,
+            e: "Gold (like other precious metals with assured realisability) is an exception to the realisation rule — revenue is recognised when it is <b>mined/produced</b>.",
+          },
+          {
+            t: "Concepts & Standards",
+            y: "APFC 2015/16",
+            q: "As per the traditional approach, the expense to be matched with revenue is based on:",
+            o: [
+              "original cost",
+              "opportunity cost",
+              "replacement cost",
+              "cash cost",
+            ],
+            a: 0,
+            e: "Traditional accounting matches revenue with expenses measured at their <b>original (historical) cost</b>.",
+          },
+          {
+            t: "Concepts & Standards",
+            y: "APFC 2015/16",
+            q: "In the context of accounting, the term IFRS stands for:",
+            o: [
+              "International Financial Reporting Standards",
+              "Indian Financial Reporting Standards",
+              "Indian Financial Reporting System",
+              "International Financial Reporting System",
+            ],
+            a: 0,
+            e: "<b>IFRS = International Financial Reporting Standards</b>, issued by the IASB for global comparability.",
+          },
+          {
+            t: "Concepts & Standards",
+            y: "EO/AO 2023",
+            q: "The practice of appending notes regarding contingent liability in the accounting statements is pursuant to:",
+            o: [
+              "Convention of consistency",
+              "Money measurement concept",
+              "Convention of conservatism",
+              "Convention of full disclosure",
+            ],
+            a: 3,
+            e: "Disclosing contingent liabilities as notes, so users get complete information, reflects the <b>convention of full disclosure</b>.",
+          },
+
+          {
+            t: "Account Types",
+            y: "APFC 2023",
+            q: "Goodwill Account is a/an:",
+            o: [
+              "Personal Account",
+              "Real Account",
+              "Nominal Account",
+              "Expense Account",
+            ],
+            a: 1,
+            e: "Goodwill is an <b>intangible asset</b>; accounts of assets/property are <b>real accounts</b>.",
+          },
+          {
+            t: "Account Types",
+            y: "EO/AO 2023",
+            q: "'Outstanding rent' may be classified as a/an:",
+            o: [
+              "Natural personal account",
+              "Representative personal account",
+              "Real account",
+              "Nominal account",
+            ],
+            a: 1,
+            e: "Outstanding rent represents the persons to whom the rent is due, so it is a <b>representative personal account</b>.",
+          },
+          {
+            t: "Account Types",
+            y: "APFC 2015/16",
+            q: "Income and Expenditure Account is a:",
+            o: [
+              "Real Account",
+              "Personal Account",
+              "Nominal Account",
+              "Capital Account",
+            ],
+            a: 2,
+            e: "Like a Profit &amp; Loss Account, it deals with incomes and expenses — a <b>nominal account</b>.",
+          },
+          {
+            t: "Account Types",
+            y: "APFC 2015/16",
+            q: "Branch Account under the debtors system is a:",
+            o: [
+              "Real account",
+              "Personal Account",
+              "Nominal account",
+              "Liability account",
+            ],
+            a: 2,
+            e: "Under the debtors system the Branch Account is prepared to find the branch profit/loss, so it is <b>nominal</b> in nature.",
+          },
+
+          {
+            t: "Capital vs Revenue",
+            y: "APFC 2023",
+            q: "The insurance claim received on account of machinery damaged completely by fire is a:",
+            o: [
+              "capital receipt",
+              "revenue receipt",
+              "capital expenditure",
+              "revenue expenditure",
+            ],
+            a: 0,
+            e: "A claim for a lost <b>fixed asset</b> is a <b>capital receipt</b> — it replaces a capital item, not routine income.",
+          },
+          {
+            t: "Capital vs Revenue",
+            y: "APFC 2023",
+            q: "Which one of the following is NOT a capital expenditure?",
+            o: [
+              "₹5,000 spent to remove a worn-out part of a machine",
+              "Expenses on a foreign tour for purchasing a new machine",
+              "Freight and insurance of the machinery purchased",
+              "Amount spent on repairing a secondhand machine before it is put to use",
+            ],
+            a: 0,
+            e: "Merely removing a worn-out part is a <b>repair (revenue expense)</b>. The others are acquisition/installation costs and are capitalised.",
+          },
+          {
+            t: "Capital vs Revenue",
+            y: "EO/AO 2023",
+            q: "Overhauling expenses of ₹25,000 for the engine of a motor car to get better fuel efficiency is:",
+            o: [
+              "Deferred revenue expenditure",
+              "Revenue receipt",
+              "Capital expenditure",
+              "Revenue expenditure",
+            ],
+            a: 2,
+            e: "Because it <b>increases the earning capacity/efficiency</b> of the asset, the overhaul is <b>capital expenditure</b>, not a routine repair.",
+          },
+          {
+            t: "Capital vs Revenue",
+            y: "APFC 2015/16",
+            q: "Preliminary expenses are examples of:",
+            o: [
+              "capital expenditure",
+              "capital gain",
+              "deferred revenue expenditure",
+              "revenue expenditure/expense",
+            ],
+            a: 2,
+            e: "Preliminary (formation) expenses give benefit over several years and are written off gradually — <b>deferred revenue expenditure</b>.",
+          },
+          {
+            t: "Capital vs Revenue",
+            y: "APFC 2015/16",
+            q: "Depreciation of fixed assets is an example of:",
+            o: [
+              "deferred revenue expenditure",
+              "capital expenditure",
+              "capital gain",
+              "revenue expenditure/expense",
+            ],
+            a: 3,
+            e: "Depreciation is a periodic charge against profit — a <b>revenue expenditure/expense</b>.",
+          },
+
+          {
+            t: "Errors & Trial Balance",
+            y: "APFC 2023",
+            q: "Which one of the following is NOT an error of commission?",
+            o: [
+              "Overcasting of the sales book",
+              "Credit sales to Ramesh ₹5,000 credited to his account",
+              "Wrong balancing of the machinery account",
+              "Cash sales not recorded in the cash book",
+            ],
+            a: 3,
+            e: "Wrong casting, wrong posting and wrong balancing are errors of commission. <b>Completely failing to record</b> the cash sales is an <b>error of omission</b>.",
+          },
+          {
+            t: "Errors & Trial Balance",
+            y: "EO/AO 2023",
+            q: "A credit purchase of machinery recorded in the Purchase Book instead of the Journal Proper is an example of:",
+            o: [
+              "Compensating errors",
+              "Errors of commission",
+              "Errors of principle",
+              "Errors of omission",
+            ],
+            a: 2,
+            e: "The Purchase Book is only for goods. Recording a <b>fixed asset</b> there confuses capital with revenue — an <b>error of principle</b>.",
+          },
+
+          {
+            t: "Depreciation & Reserves",
+            y: "APFC 2023",
+            q: "Which one of the following statements is correct?",
+            o: [
+              "Capital reserves are normally created out of free or distributable profits",
+              "Dividend equalization reserve is an example of general reserve",
+              "General reserve can be used only for some specific purposes",
+              "'Provision' is a charge against profit",
+            ],
+            a: 3,
+            e: "A <b>provision is a charge against profit</b> (created even in a loss). Capital reserves arise from capital profits, a general reserve is for unspecified purposes, and a dividend-equalization reserve is a specific reserve.",
+          },
+          {
+            t: "Depreciation & Reserves",
+            y: "EO/AO 2023",
+            q: "Which one of the following statements is NOT correct?",
+            o: [
+              "Depreciation is a non-cash expense",
+              "Depreciation is the process of valuation of assets",
+              "The main cause of depreciation is wear and tear caused by usage",
+              "Depreciation must be charged so as to ascertain the true profit or loss",
+            ],
+            a: 1,
+            e: "Depreciation is the <b>allocation of the cost</b> of a fixed asset over its life, <b>not a valuation</b> of the asset. The other three statements are correct.",
+          },
+
+          {
+            t: "Final Accounts (Numericals)",
+            y: "EO/AO 2023",
+            d: "<b>Trial Balance (as on 31.03.2022) — extract</b><br>Trade receivables: ₹2,50,000 · Provision for discount to debtors: ₹14,000 · Discount to debtors: ₹4,000<br>Additional discount allowed to debtors during the year: ₹20,000. The firm maintains a provision for discount to debtors equal to <b>10% of trade receivables' balances</b>.",
+            q: "Total amount to be charged to the Profit &amp; Loss Account (for the year ending 31.03.2022) for discount allowed and provision for discount created will be:",
+            o: ["₹25,000", "₹13,000", "₹9,000", "₹33,000"],
+            a: 3,
+            e: "Discount actually allowed = ₹4,000 + ₹20,000 = ₹24,000. New provision = 10% of (₹2,50,000 − ₹20,000) = ₹23,000. Charge to P&amp;L = ₹24,000 + (₹23,000 − ₹14,000 old provision) = <b>₹33,000</b>.",
+          },
+          {
+            t: "Final Accounts (Numericals)",
+            y: "EO/AO 2023",
+            d: INV,
+            q: "The value of inventory on 31 January under the perpetual inventory system using the First-In-First-Out (FIFO) method is:",
+            o: ["₹6,700", "₹8,700", "₹10,700", "₹12,000"],
+            a: 2,
+            e: "Under FIFO the earliest units are issued first. After both issues the balance is 1,000 units @ ₹8 and 300 units @ ₹9 = ₹8,000 + ₹2,700 = <b>₹10,700</b>.",
+          },
+          {
+            t: "Final Accounts (Numericals)",
+            y: "APFC 2023",
+            d: INV,
+            q: "The value of inventory on 31 January under the perpetual inventory system using the Last-In-First-Out (LIFO) method is:",
+            o: ["₹6,600", "₹8,600", "₹10,600", "₹12,000"],
+            a: 2,
+            e: "Under perpetual LIFO the latest units are issued first. Jan 6 issue takes 100 @ ₹7; Jan 9 issue takes 200 @ ₹8. Closing = 100@₹7 + 900@₹8 + 300@₹9 = ₹700 + ₹7,200 + ₹2,700 = <b>₹10,600</b>.",
+          },
+          {
+            t: "Final Accounts (Numericals)",
+            y: "EO/AO 2023",
+            d: "<b>Club — year ending 31.03.2022</b><br>Subscription outstanding on 31.03.2021: ₹16,000 · on 31.03.2022: ₹18,000<br>Subscription received in advance on 31.03.2021: ₹12,000 · on 31.03.2022: ₹11,000<br>70 members, each paying an annual subscription of ₹1,000.",
+            q: "Total subscription received during the year 2021-22 will be:",
+            o: ["₹67,000", "₹71,000", "₹69,000", "₹77,000"],
+            a: 0,
+            e: "Income = 70 × ₹1,000 = ₹70,000. Cash received = ₹70,000 + opening outstanding ₹16,000 − closing outstanding ₹18,000 − opening advance ₹12,000 + closing advance ₹11,000 = <b>₹67,000</b>.",
+          },
+          {
+            t: "Final Accounts (Numericals)",
+            y: "APFC 2015/16",
+            d: "Rate of gross profit: <b>25% on cost of goods sold</b> · Sales: <b>₹20,00,000</b>",
+            q: "The amount of gross profit is:",
+            o: ["₹5,00,000", "₹6,25,000", "₹3,75,000", "₹4,00,000"],
+            a: 3,
+            e: "GP is 25% on cost, so Sales = 125% of cost → Cost = ₹20,00,000 ÷ 1.25 = ₹16,00,000. Gross profit = ₹20,00,000 − ₹16,00,000 = <b>₹4,00,000</b>.",
+          },
+
+          {
+            t: "Consignment, JV & NPO",
+            y: "APFC 2015/16",
+            q: "The abnormal loss on consignment is credited to:",
+            o: [
+              "Profit and loss account",
+              "Consignee's account",
+              "Consignment account",
+              "Income and expenditure account",
+            ],
+            a: 2,
+            e: "Abnormal loss is removed from the Consignment Account by <b>crediting the Consignment Account</b> (and debiting the Abnormal Loss / P&amp;L Account).",
+          },
+          {
+            t: "Consignment, JV & NPO",
+            y: "APFC 2015/16",
+            q: "When goods are purchased for the joint venture, the amount is debited to:",
+            o: [
+              "Purchase Account",
+              "Joint venture account",
+              "Venture's capital account",
+              "Profit and loss account",
+            ],
+            a: 1,
+            e: "All joint-venture transactions run through the <b>Joint Venture Account</b>, which is debited when goods are purchased for the venture.",
+          },
+          {
+            t: "Consignment, JV & NPO",
+            y: "APFC 2015/16",
+            q: "Legacies are generally:",
+            o: [
+              "Capitalized and taken to the balance sheet",
+              "Treated as income",
+              "Treated as expenditure",
+              "Capitalized and taken to a suspense account",
+            ],
+            a: 0,
+            e: "A legacy (amount received under a will) is a <b>capital receipt</b> for a non-profit organisation — capitalised and shown in the balance sheet (added to the capital fund).",
+          },
+
+          {
+            t: "Company & Partnership",
+            y: "APFC 2015/16",
+            q: "Under which Schedule of the Companies Act, 2013 are the formats of financial statements prescribed?",
+            o: ["Schedule I", "Schedule II", "Schedule III", "Schedule IV"],
+            a: 2,
+            e: "<b>Schedule III</b> prescribes the format of the balance sheet and the statement of profit &amp; loss. (Schedule II deals with depreciation/useful life of assets.)",
+          },
+          {
+            t: "Company & Partnership",
+            y: "APFC 2015/16",
+            q: "In the absence of any provision in the partnership agreement, profits and losses are shared by the partners:",
+            o: [
+              "in the ratio of the capital of partners",
+              "equally",
+              "in the ratio of loans given by them to the firm",
+              "in the ratio of the initial capital introduced by the partners",
+            ],
+            a: 1,
+            e: "Under the Indian Partnership Act, 1932, if the deed is silent, partners share profits and losses <b>equally</b>.",
+          },
+
+          {
+            t: "Audit",
+            y: "APFC 2023",
+            q: "Which one of the following aspects is NOT covered in audit?",
+            o: [
+              "Examination of the system of accounting and internal control",
+              "Preparation of the books of accounts",
+              "Reporting to the appropriate person/body",
+              "Verification of the authenticity and validity of transactions",
+            ],
+            a: 1,
+            e: "<b>Preparation of the books of accounts</b> is an accounting (not auditing) function. Audit examines, verifies and reports — it does not create the records.",
+          },
+          {
+            t: "Audit",
+            y: "APFC 2023",
+            q: "Which of the following sets the scope, timing and direction of the audit, and guides the development of the more detailed audit plan?",
+            o: [
+              "Audit program",
+              "Overall audit strategy",
+              "Completion memorandum",
+              "Audit plan",
+            ],
+            a: 1,
+            e: "The <b>overall audit strategy</b> sets the scope, timing and direction of the audit and guides the development of the detailed audit plan (SA-300).",
+          },
+          {
+            t: "Audit",
+            y: "EO/AO 2023",
+            q: "Reporting on fraud is to be made by an auditor to the Central Government when the sums involved in the fraud:",
+            o: [
+              "exceed ₹20 lakh",
+              "exceed ₹50 lakh",
+              "exceed ₹75 lakh",
+              "are ₹1 crore or above",
+            ],
+            a: 3,
+            e: "Under Section 143(12) of the Companies Act, 2013 (with the audit rules), fraud involving <b>₹1 crore or above</b> must be reported to the Central Government.",
+          },
+        ];
+
+        var LIT = ["A", "B", "C", "D"];
+
+        /* ---- state: chosen answers + submitted flag, saved on device ---- */
+        var st = { ans: {}, submitted: false };
+        try {
+          var _s = JSON.parse(localStorage.getItem(LS) || "{}");
+          if (_s && typeof _s === "object") {
+            st.ans = _s.ans || {};
+            st.submitted = !!_s.submitted;
+          }
+        } catch (e) {}
+        function save() {
+          try {
+            localStorage.setItem(LS, JSON.stringify(st));
+          } catch (e) {}
+        }
+
+        var overlay = document.getElementById("pyqOverlay"),
+          body = document.getElementById("pyqBody"),
+          foot = document.getElementById("pyqFoot"),
+          filterWrap = document.getElementById("pyqFilter"),
+          nav = document.getElementById("navigator");
+
+        var curFilter = "All",
+          active = [],
+          cur = 0,
+          mode = st.submitted ? "review" : "attempt";
+        document.getElementById("pyqCount").textContent = Q.length;
+
+        /* topic filter chips */
+        var topics = ["All"];
+        Q.forEach(function (q) {
+          if (topics.indexOf(q.t) < 0) topics.push(q.t);
+        });
+        topics.forEach(function (t) {
+          var b = document.createElement("button");
+          b.textContent = t === "All" ? "All (" + Q.length + ")" : t;
+          if (t === "All") b.classList.add("active");
+          b.addEventListener("click", function () {
+            curFilter = t;
+            filterWrap.querySelectorAll("button").forEach(function (x) {
+              x.classList.remove("active");
+            });
+            b.classList.add("active");
+            buildActive();
+            cur = mode === "review" ? -1 : 0;
+            render();
+          });
+          filterWrap.appendChild(b);
+        });
+
+        function buildActive() {
+          active = [];
+          Q.forEach(function (q, i) {
+            if (curFilter === "All" || q.t === curFilter) active.push(i);
+          });
+        }
+        function answeredCount() {
+          var n = 0;
+          active.forEach(function (gi) {
+            if (st.ans[gi] != null) n++;
+          });
+          return n;
+        }
+        function scoreCount() {
+          var c = 0;
+          active.forEach(function (gi) {
+            if (st.ans[gi] === Q[gi].a) c++;
+          });
+          return c;
+        }
+        function btn(label, fn) {
+          var b = document.createElement("button");
+          b.className = "btn";
+          b.innerHTML = label;
+          b.addEventListener("click", fn);
+          return b;
+        }
+
+        function render() {
+          document.getElementById("qTotal").textContent = active.length;
+          if (mode === "review" && cur === -1) {
+            renderResult();
+            return;
+          }
+          renderQuestion();
+          renderNav();
+          renderFoot();
+        }
+
+        function renderQuestion() {
+          var gi = active[cur],
+            q = Q[gi],
+            chosen = st.ans[gi];
+          document.getElementById("qNow").textContent = cur + 1;
+          document.getElementById("miniFill").style.width =
+            ((cur + 1) / active.length) * 100 + "%";
+          document.getElementById("answeredNote").textContent =
+            mode === "review"
+              ? scoreCount() + " correct"
+              : answeredCount() + " answered";
+
+          var meta =
+            '<div class="quiz-meta"><span class="qn-badge">Q' +
+            (gi + 1) +
+            '</span><span class="qtag topic">' +
+            q.t +
+            '</span><span class="qtag year">' +
+            q.y +
+            "</span></div>";
+          var data = q.d ? '<div class="quiz-data">' + q.d + "</div>" : "";
+          var qtext = '<p class="quiz-qtext">' + q.q + "</p>";
+          var opts = '<div class="quiz-opts">';
+          q.o.forEach(function (opt, j) {
+            var cls = "quiz-opt",
+              mk = "";
+            if (mode === "attempt") {
+              if (chosen === j) cls += " selected";
+            } else {
+              cls += " locked";
+              if (j === q.a) {
+                cls += " correct";
+                mk =
+                  '<span class="mk" style="color:var(--green)">\u2713</span>';
+              } else if (j === chosen) {
+                cls += " wrong";
+                mk = '<span class="mk" style="color:var(--red)">\u2717</span>';
+              }
+            }
+            opts +=
+              '<button class="' +
+              cls +
+              '" data-opt="' +
+              j +
+              '"' +
+              (mode === "review" ? " disabled" : "") +
+              '><span class="lit">' +
+              LIT[j] +
+              '</span><span class="txt">' +
+              opt +
+              "</span>" +
+              mk +
+              "</button>";
+          });
+          opts += "</div>";
+
+          var exp = "";
+          if (mode === "review") {
+            var miss = chosen !== q.a;
+            var lead =
+              chosen == null
+                ? "NOT ATTEMPTED \u2014 CORRECT ANSWER"
+                : miss
+                  ? "NOT QUITE \u2014 HERE'S WHY"
+                  : "CORRECT \u2014 EXPLANATION";
+            exp =
+              '<div class="quiz-explain show' +
+              (miss ? " miss" : "") +
+              '"><span class="lead">' +
+              lead +
+              "</span>" +
+              q.e +
+              "</div>";
+          }
+
+          body.className = "modal-body single";
+          body.innerHTML =
+            '<div class="quiz-q">' +
+            meta +
+            data +
+            qtext +
+            opts +
+            exp +
+            "</div>";
+          body.scrollTop = 0;
+
+          if (mode === "attempt") {
+            body.querySelectorAll(".quiz-opt").forEach(function (b) {
+              b.addEventListener("click", function () {
+                st.ans[gi] = parseInt(b.dataset.opt, 10);
+                save();
+                renderQuestion();
+                renderNav();
+                renderFoot();
+              });
+            });
+          }
+        }
+
+        function renderNav() {
+          nav.innerHTML = "";
+          active.forEach(function (gi, idx) {
+            var c = document.createElement("button");
+            c.className = "nav-chip";
+            c.textContent = idx + 1;
+            if (mode === "review") {
+              if (st.ans[gi] === Q[gi].a) c.classList.add("correct");
+              else if (st.ans[gi] != null) c.classList.add("wrong");
+            } else if (st.ans[gi] != null) c.classList.add("answered");
+            if (idx === cur) c.classList.add("current");
+            c.addEventListener("click", function () {
+              cur = idx;
+              render();
+            });
+            nav.appendChild(c);
+          });
+          var cn = nav.querySelector(".current");
+          if (cn && cn.scrollIntoView)
+            cn.scrollIntoView({ inline: "center", block: "nearest" });
+        }
+
+        function renderFoot() {
+          foot.innerHTML = "";
+          var wrap = document.createElement("div");
+          wrap.className = "foot-nav";
+          var prev = btn("\u25C0 Prev", function () {
+            if (cur > 0) {
+              cur--;
+              render();
+            }
+          });
+          prev.disabled = cur === 0;
+          var next = btn("Next \u25B6", function () {
+            if (cur < active.length - 1) {
+              cur++;
+              render();
+            }
+          });
+          next.disabled = cur === active.length - 1;
+          var mid = document.createElement("div");
+          mid.className = "grow";
+          if (mode === "attempt") {
+            var sub = btn(
+              "Submit (" + answeredCount() + "/" + active.length + ")",
+              submitTest,
+            );
+            sub.className = "btn btn-primary";
+            mid.appendChild(sub);
+          } else {
+            var sc = document.createElement("span");
+            sc.style.cssText = "font-weight:600;font-size:.9rem";
+            sc.innerHTML =
+              'Score <b style="color:var(--green)">' +
+              scoreCount() +
+              "</b> / " +
+              active.length;
+            mid.appendChild(sc);
+          }
+          wrap.appendChild(prev);
+          wrap.appendChild(mid);
+          wrap.appendChild(next);
+          foot.appendChild(wrap);
+          if (mode === "review") {
+            var row2 = document.createElement("div");
+            row2.style.cssText =
+              "display:flex;gap:10px;justify-content:center;margin-top:10px;width:100%";
+            row2.appendChild(
+              btn("\u25A4 Summary", function () {
+                cur = -1;
+                render();
+              }),
+            );
+            row2.appendChild(btn("\u21BA Retake", retake));
+            foot.appendChild(row2);
+          }
+        }
+
+        function renderResult() {
+          var total = active.length,
+            cor = scoreCount(),
+            att = answeredCount(),
+            wrong = att - cor,
+            skip = total - att;
+          var pct = total ? Math.round((cor / total) * 100) : 0;
+          var verdict =
+            pct >= 80
+              ? "Strong \u2014 exam-ready on these."
+              : pct >= 60
+                ? "Solid, but revise the misses."
+                : pct >= 40
+                  ? "Keep drilling these topics."
+                  : "Revisit the note, then retry.";
+          document.getElementById("qNow").textContent = "\u2014";
+          document.getElementById("miniFill").style.width = "100%";
+          document.getElementById("answeredNote").textContent =
+            cor + " correct";
+          body.className = "modal-body";
+          body.innerHTML =
+            '<div class="result"><div class="big">' +
+            pct +
+            "%</div>" +
+            '<div class="lbl">' +
+            cor +
+            " of " +
+            total +
+            " correct</div>" +
+            '<div class="brk">' +
+            '<div class="stat good"><b>' +
+            cor +
+            "</b><span>Correct</span></div>" +
+            '<div class="stat bad"><b>' +
+            wrong +
+            "</b><span>Wrong</span></div>" +
+            '<div class="stat skip"><b>' +
+            skip +
+            "</b><span>Skipped</span></div></div>" +
+            '<div class="msg">' +
+            verdict +
+            "</div></div>";
+          body.scrollTop = 0;
+          nav.innerHTML = "";
+          active.forEach(function (gi, idx) {
+            var c = document.createElement("button");
+            c.className = "nav-chip";
+            c.textContent = idx + 1;
+            if (st.ans[gi] === Q[gi].a) c.classList.add("correct");
+            else if (st.ans[gi] != null) c.classList.add("wrong");
+            c.addEventListener("click", function () {
+              cur = idx;
+              render();
+            });
+            nav.appendChild(c);
+          });
+          foot.innerHTML = "";
+          var wrap = document.createElement("div");
+          wrap.className = "foot-nav";
+          wrap.appendChild(btn("\u21BA Retake", retake));
+          var g = document.createElement("div");
+          g.className = "grow";
+          wrap.appendChild(g);
+          var rev = btn("Review answers \u25B6", function () {
+            cur = 0;
+            render();
+          });
+          rev.className = "btn btn-primary";
+          wrap.appendChild(rev);
+          foot.appendChild(wrap);
+        }
+
+        function submitTest() {
+          var un = active.length - answeredCount();
+          var msg =
+            un > 0
+              ? "You still have " +
+                un +
+                " unanswered question(s). Submit anyway?"
+              : "Submit and see your results?";
+          if (!confirm(msg)) return;
+          st.submitted = true;
+          save();
+          mode = "review";
+          cur = -1;
+          render();
+        }
+        function retake() {
+          if (!confirm("Clear your answers for this set and retake?")) return;
+          active.forEach(function (gi) {
+            delete st.ans[gi];
+          });
+          st.submitted = false;
+          save();
+          mode = "attempt";
+          cur = 0;
+          render();
+        }
+
+        buildActive();
+        if (mode === "review") cur = -1;
+
+        /* open / close */
+        var lastFocus = null;
+        function openM() {
+          lastFocus = document.activeElement;
+          buildActive();
+          if (mode === "review") cur = -1;
+          render();
+          overlay.classList.add("open");
+          document.body.classList.add("modal-open");
+          document.getElementById("pyqClose").focus();
+        }
+        function closeM() {
+          overlay.classList.remove("open");
+          document.body.classList.remove("modal-open");
+          if (lastFocus && lastFocus.focus) lastFocus.focus();
+        }
+        document.getElementById("pyqBtn").addEventListener("click", openM);
+        document.getElementById("pyqClose").addEventListener("click", closeM);
+        overlay.addEventListener("click", function (e) {
+          if (e.target === overlay) closeM();
+        });
+        document.addEventListener("keydown", function (e) {
+          if (!overlay.classList.contains("open")) return;
+          if (e.key === "Escape") {
+            closeM();
+            return;
+          }
+          if (cur === -1) return;
+          if (e.key === "ArrowRight" && cur < active.length - 1) {
+            cur++;
+            render();
+          } else if (e.key === "ArrowLeft" && cur > 0) {
+            cur--;
+            render();
+          }
+        });
+
+        render();
       })();
     </script>
   </body>

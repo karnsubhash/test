@@ -7,6 +7,7 @@ import APFC_PYQ from "./APFC_PYQ";
 import APFC_NOTES from "./APFC_NOTES";
 import APFC_ENGLISH from "./APFC_ENGLISH/intex";
 import RootFlashcards from "./RootWords";
+import CSE_PYQ from "./CSE_PYQ/TestSeries";
 
 const navStyle = {
   padding: 5,
@@ -37,6 +38,8 @@ const Index = () => {
         return <EditPdf />;
       case "ROOT_WORDS":
         return <RootFlashcards />;
+      // case "CSE_PYQ":
+      //   return <CSE_PYQ />;
       default:
     }
   };
@@ -144,6 +147,16 @@ const Index = () => {
           onClick={() => setSelectedMenu("ROOT_WORDS")}
         >
           Root Words
+        </div>
+        <div
+          style={{
+            ...navStyle,
+            backgroundColor:
+              selectedMenu === "CSE_PYQ" ? "lightSkyBlue" : "darkOrange",
+          }}
+          onClick={() => setSelectedMenu("CSE_PYQ")}
+        >
+          CSE PYQ
         </div>
       </div>
       {getItem()}

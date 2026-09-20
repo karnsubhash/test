@@ -1,0 +1,215 @@
+{
+  "meta": {
+    "exam": "Civil Services (Preliminary) Examination",
+    "paper": "General Studies Paper I",
+    "source": "UPSC Previous Year Questions (official papers)",
+    "schemaVersion": "1.0",
+    "note": "Seed set of verified PYQs. Add more questions from the official UPSC PDFs by following the same object shape. Each option index is 0-based; 'answer' is the index of the correct option."
+  },
+  "subjects": [
+    "Polity",
+    "History",
+    "Geography",
+    "Economy",
+    "Environment",
+    "Science & Technology",
+    "Current Affairs"
+  ],
+  "questions": [
+    {
+      "id": "2017-POL-01",
+      "year": 2017,
+      "subject": "Polity",
+      "difficulty": "easy",
+      "question": "The mind of the makers of the Constitution of India is reflected in which of the following?",
+      "options": [
+        "The Preamble",
+        "The Fundamental Rights",
+        "The Directive Principles of State Policy",
+        "The Fundamental Duties"
+      ],
+      "answer": 0,
+      "explanation": "The Preamble is regarded as the key to the Constitution and reflects the ideals, objectives and philosophy the framers intended. It embodies the source of authority (the people), the nature of the state, its objectives and the date of adoption, making it the truest reflection of the makers' mind."
+    },
+    {
+      "id": "2017-POL-02",
+      "year": 2017,
+      "subject": "Polity",
+      "difficulty": "medium",
+      "question": "Right to Privacy is protected as an intrinsic part of Right to Life and Personal Liberty. Which of the following in the Constitution of India correctly and appropriately imply the above statement?",
+      "options": [
+        "Article 14 and the provisions under the 42nd Amendment Act",
+        "Article 17 and the Directive Principles of State Policy in Part IV",
+        "Article 21 and the freedoms guaranteed in Part III",
+        "Article 24 and the provisions under the 44th Amendment Act"
+      ],
+      "answer": 2,
+      "explanation": "In K.S. Puttaswamy v. Union of India (2017), the Supreme Court held that the Right to Privacy is an intrinsic part of the Right to Life and Personal Liberty under Article 21 and is also traceable to the various freedoms guaranteed under Part III of the Constitution."
+    },
+    {
+      "id": "2019-POL-01",
+      "year": 2019,
+      "subject": "Polity",
+      "difficulty": "medium",
+      "question": "In the context of India, which one of the following is the correct relationship between Rights and Duties?",
+      "options": [
+        "Rights are correlative with Duties",
+        "Rights are personal and hence independent of society and duties",
+        "Rights are not personal and hence associated with society",
+        "Duties, not Rights, are important for the stability of the State"
+      ],
+      "answer": 0,
+      "explanation": "Rights and duties are correlative: every right of one person implies a corresponding duty on others (and on the state) to respect it. A right without a corresponding duty is meaningless, which is why the two are treated as two sides of the same coin."
+    },
+    {
+      "id": "2013-POL-01",
+      "year": 2013,
+      "subject": "Polity",
+      "difficulty": "medium",
+      "question": "Which of the following are the discretionary powers given to the Governor of a State?\n1. Sending a report to the President of India for imposing the President's rule\n2. Appointing the Ministers\n3. Reserving certain bills passed by the State Legislature for consideration of the President of India\n4. Making the rules to conduct the business of the State Government",
+      "options": [
+        "1 and 2 only",
+        "1 and 3 only",
+        "2, 3 and 4 only",
+        "1, 2, 3 and 4"
+      ],
+      "answer": 1,
+      "explanation": "Reporting to the President for President's Rule (Art. 356) and reserving bills for the President's consideration (Art. 200) are discretionary powers. Appointing Ministers is done on the CM's advice, and rules of business are made on ministerial advice, so 2 and 4 are not discretionary."
+    },
+    {
+      "id": "2014-POL-01",
+      "year": 2014,
+      "subject": "Polity",
+      "difficulty": "easy",
+      "question": "Which of the following are regarded as the main features of the 'Rule of Law'?\n1. Limitation of powers\n2. Equality before law\n3. People's responsibility to the Government\n4. Liberty and civil rights",
+      "options": [
+        "1 and 3 only",
+        "2 and 4 only",
+        "1, 2 and 4 only",
+        "1, 2, 3 and 4"
+      ],
+      "answer": 2,
+      "explanation": "Rule of Law (Dicey) implies limitation/supremacy of law over arbitrary power, equality before law, and protection of liberty and civil rights. 'People's responsibility to the Government' inverts the relationship — under Rule of Law the Government is responsible to the people and the law."
+    },
+    {
+      "id": "2019-HIS-01",
+      "year": 2019,
+      "subject": "History",
+      "difficulty": "hard",
+      "question": "With reference to the difference between the culture of Rigvedic Aryans and Indus Valley people, which of the following statements is/are correct?\n1. Rigvedic Aryans used the coat of mail and helmet in warfare whereas the people of Indus Valley Civilization did not leave any evidence of using them.\n2. Rigvedic Aryans knew gold, silver and copper whereas Indus Valley people knew only copper and iron.\n3. Rigvedic Aryans had domesticated the horse whereas there is no evidence of Indus Valley people having been aware of this animal.",
+      "options": [
+        "1 only",
+        "2 and 3 only",
+        "1 and 3 only",
+        "1, 2 and 3"
+      ],
+      "answer": 2,
+      "explanation": "Statements 1 and 3 are correct. Statement 2 is wrong: the Indus people knew gold, silver and copper but did NOT know iron — iron came into use only in the later Vedic period, so describing them as knowing 'copper and iron' is incorrect."
+    },
+    {
+      "id": "2020-HIS-01",
+      "year": 2020,
+      "subject": "History",
+      "difficulty": "hard",
+      "question": "With reference to the history of ancient India, Bhavabhuti, Hastimalla and Kshemeshvara were famous",
+      "options": [
+        "Jain monks",
+        "Playwrights",
+        "Temple architects",
+        "Philosophers"
+      ],
+      "answer": 1,
+      "explanation": "All three were noted Sanskrit playwrights/dramatists. Bhavabhuti (8th century) wrote Uttararamacharita and Malatimadhava; Hastimalla and Kshemeshvara were also dramatists of the classical Sanskrit tradition."
+    },
+    {
+      "id": "2015-GEO-01",
+      "year": 2015,
+      "subject": "Geography",
+      "difficulty": "easy",
+      "question": "Which one of the following is the best description of the term 'ecosystem'?",
+      "options": [
+        "A community of organisms interacting with one another",
+        "That part of the Earth which is inhabited by living organisms",
+        "A community of organisms together with the environment in which they live",
+        "The flora and fauna of a geographical area"
+      ],
+      "answer": 2,
+      "explanation": "An ecosystem is a community of interacting organisms (the biotic component) together with the physical environment (the abiotic component) with which they interact. Option (b) describes the biosphere, not an ecosystem."
+    },
+    {
+      "id": "2013-GEO-01",
+      "year": 2013,
+      "subject": "Geography",
+      "difficulty": "medium",
+      "question": "The 2004 Tsunami made people realize that mangroves can serve as a reliable safety hedge against coastal calamities. How do mangroves function as a safety hedge?",
+      "options": [
+        "The mangrove swamps separate the human settlements from the sea by a wide zone in which people neither live nor venture out",
+        "The mangroves provide both food and medicines which people are in need of after any natural disaster",
+        "The mangrove trees are tall with dense canopies and serve as an excellent shelter during a cyclone or tsunami",
+        "The mangrove trees do not get uprooted by storms and tides because of their extensive roots"
+      ],
+      "answer": 3,
+      "explanation": "Mangroves have extensive, dense root systems (including stilt and prop roots) that anchor them firmly and dissipate wave energy. This lets them withstand storm surges and tides without being uprooted, breaking the force of waves before they reach the shore."
+    },
+    {
+      "id": "2021-ECO-01",
+      "year": 2021,
+      "subject": "Economy",
+      "difficulty": "hard",
+      "question": "With reference to the Indian economy, consider the following statements:\n1. 'Commercial Paper' is a short-term unsecured promissory note.\n2. 'Certificate of Deposit' is a long-term instrument issued by the Reserve Bank of India.\n3. 'Call Money' is a short-term finance used for interbank transactions.\n4. 'Zero-Coupon Bonds' are the interest-bearing short-term bonds issued by the Scheduled Commercial Banks to the corporations.\nWhich of the statements given above is/are correct?",
+      "options": [
+        "1 and 2",
+        "4 only",
+        "1 and 3",
+        "2, 3 and 4"
+      ],
+      "answer": 2,
+      "explanation": "1 is correct — commercial paper is a short-term unsecured promissory note. 3 is correct — call money is very short-term interbank borrowing. 2 is wrong — Certificates of Deposit are short-term instruments issued by banks/FIs, not long-term instruments issued by the RBI. 4 is wrong — zero-coupon bonds pay no periodic interest; they are issued at a discount."
+    },
+    {
+      "id": "2020-ECO-01",
+      "year": 2020,
+      "subject": "Economy",
+      "difficulty": "hard",
+      "question": "With reference to the Indian economy, demand-pull inflation can be caused/increased by which of the following?\n1. Expansionary policies\n2. Fiscal stimulus\n3. Inflation-indexing wages\n4. Higher purchasing power\n5. Rising interest rates",
+      "options": [
+        "1, 2 and 4 only",
+        "3, 4 and 5 only",
+        "1, 2, 3 and 5 only",
+        "1, 2, 3, 4 and 5"
+      ],
+      "answer": 0,
+      "explanation": "Demand-pull inflation arises when aggregate demand outpaces supply. Expansionary policies (1), fiscal stimulus (2) and higher purchasing power (4) all raise demand. Inflation-indexing wages (3) is a cost-push factor, and rising interest rates (5) reduce demand — so both dampen demand-pull inflation rather than cause it."
+    },
+    {
+      "id": "2019-ENV-01",
+      "year": 2019,
+      "subject": "Environment",
+      "difficulty": "medium",
+      "question": "With reference to India's Desert National Park, which of the following statements are correct?\n1. It is spread over two districts.\n2. There is no human habitation inside the Park.\n3. It is one of the natural habitats of the Great Indian Bustard.",
+      "options": [
+        "1 only",
+        "2 and 3 only",
+        "1 and 3 only",
+        "1, 2 and 3"
+      ],
+      "answer": 2,
+      "explanation": "Desert National Park spreads across the Jaisalmer and Barmer districts of Rajasthan (statement 1 correct) and is a key habitat of the Great Indian Bustard (statement 3 correct). Statement 2 is wrong — several villages and human habitation exist inside the park."
+    },
+    {
+      "id": "2020-ENV-01",
+      "year": 2020,
+      "subject": "Environment",
+      "difficulty": "hard",
+      "question": "In the context of recent advances in human reproductive technology, 'Pronuclear Transfer' is used for",
+      "options": [
+        "Fertilization of egg in vitro by the donor sperm",
+        "Genetic modification of sperm-producing cells",
+        "Development of stem cells into functional embryos",
+        "Prevention of mitochondrial diseases in offspring"
+      ],
+      "answer": 3,
+      "explanation": "Pronuclear transfer is a mitochondrial replacement technique. The nuclear material from a fertilized egg with faulty mitochondria is transferred into a donor egg with healthy mitochondria, preventing the transmission of mitochondrial diseases to the child."
+    }
+  ]
+}
