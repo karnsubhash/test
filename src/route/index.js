@@ -7,7 +7,7 @@ import APFC_PYQ from "./APFC_PYQ";
 import APFC_NOTES from "./APFC_NOTES";
 import APFC_ENGLISH from "./APFC_ENGLISH/intex";
 import RootFlashcards from "./RootWords";
-import CSE_PYQ from "./CSE_PYQ/TestSeries";
+// import CSE_PYQ from "./CSE_PYQ/TestSeries";
 
 const navStyle = {
   padding: 5,

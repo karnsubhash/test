@@ -82,9 +82,9 @@ export default function RevisionViewer() {
   const activeIndex = tabs.findIndex((t) => t.id === activeId);
   const Active = tabs[activeIndex]?.Component;
 
-  const goTo = (i) => {
-    if (i >= 0 && i < tabs.length) setActiveId(tabs[i].id);
-  };
+  // const goTo = (i) => {
+  //   if (i >= 0 && i < tabs.length) setActiveId(tabs[i].id);
+  // };
 
   return (
     <div className="rv-shell">
