@@ -4,9 +4,11 @@ import { useState } from "react";
 // Import note components directly — no file loading, no glob, no fetch.
 // Add more notes by importing them and adding a row to `tabs`.
 import AccountingNote from "./AccountingNote";
+import CodeOnWagesNote from "./CodeOnWagesNote";
 
 const tabs = [
   { id: "accounting", title: "Accounting", Component: AccountingNote },
+  { id: "wages", title: "Code on Wages", Component: CodeOnWagesNote },
   // { id: "economics", title: "Economics", Component: EconomicsNote },
 ];
 
@@ -54,26 +56,6 @@ const styles = `
   min-height: 0;
 }
 .rv-frame { flex: 1; width: 100%; border: none; }
-
-.rv-nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 14px 40px;
-  background: #fff;
-  border-top: 1px solid #e6e7f0;
-  flex-shrink: 0;
-}
-.rv-nav button {
-  padding: 8px 18px;
-  border: 1px solid #d6d7e8;
-  border-radius: 8px;
-  background: #fff;
-  cursor: pointer;
-  font-size: 14px;
-}
-.rv-nav button:hover:not(:disabled) { background: #f0f0fa; }
-.rv-nav button:disabled { opacity: 0.4; cursor: not-allowed; }
 `;
 
 export default function RevisionViewer() {
@@ -81,10 +63,6 @@ export default function RevisionViewer() {
 
   const activeIndex = tabs.findIndex((t) => t.id === activeId);
   const Active = tabs[activeIndex]?.Component;
-
-  // const goTo = (i) => {
-  //   if (i >= 0 && i < tabs.length) setActiveId(tabs[i].id);
-  // };
 
   return (
     <div className="rv-shell">
@@ -105,7 +83,6 @@ export default function RevisionViewer() {
       <div className="rv-body">
         {Active && (
           // key={activeId} remounts the note (fresh iframe) when you switch tabs.
-          // Each note handles its own state via localStorage, so nothing is lost.
           <Active
             key={activeId}
             className="rv-frame"
