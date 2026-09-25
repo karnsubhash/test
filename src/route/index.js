@@ -1,6 +1,6 @@
 import React from "react";
 import EditPdf from "./EditPdf";
-import Home from "./Home";
+import BpscCurrentAffairs from "./Home";
 import ImportantPoints from "./ImportantPoints";
 import Map from "./Map";
 import APFC_PYQ from "./APFC_PYQ";
@@ -26,8 +26,8 @@ const Index = () => {
         return <APFC_NOTES />;
       case "APFC_PYQ":
         return <APFC_PYQ />;
-      case "HOME":
-        return <Home />;
+      case "BPSC_CURRENT_AFFAIRS":
+        return <BpscCurrentAffairs />;
       case "MAP":
         return <Map />;
       case "IMPORTANT_POINTS":
@@ -74,9 +74,19 @@ const Index = () => {
           }}
           onClick={() => setSelectedMenu("APFC_NOTES")}
         >
-          APFC NOTES
+          APFC Notes
         </div>
         <div
+          style={{
+            ...navStyle,
+            backgroundColor:
+              selectedMenu === "ROOT_WORDS" ? "lightSkyBlue" : "darkOrange",
+          }}
+          onClick={() => setSelectedMenu("ROOT_WORDS")}
+        >
+          Root Words
+        </div>
+        {/* <div
           style={{
             ...navStyle,
             backgroundColor:
@@ -85,16 +95,18 @@ const Index = () => {
           onClick={() => setSelectedMenu("APFC_PYQ")}
         >
           APFC PYQ
-        </div>
+        </div> */}
         <div
           style={{
             ...navStyle,
             backgroundColor:
-              selectedMenu === "HOME" ? "lightSkyBlue" : "darkOrange",
+              selectedMenu === "BPSC_CURRENT_AFFAIRS"
+                ? "lightSkyBlue"
+                : "darkOrange",
           }}
-          onClick={() => setSelectedMenu("HOME")}
+          onClick={() => setSelectedMenu("BPSC_CURRENT_AFFAIRS")}
         >
-          Home
+          BPSC Current Affairs
         </div>
         <div
           style={{
@@ -118,7 +130,7 @@ const Index = () => {
         >
           Important Points
         </div>
-        <div
+        {/* <div
           style={{
             ...navStyle,
             backgroundColor:
@@ -127,8 +139,8 @@ const Index = () => {
           onClick={() => setSelectedMenu("APFC_ENGLISH")}
         >
           APFC English
-        </div>
-        <div
+        </div> */}
+        {/* <div
           style={{
             ...navStyle,
             backgroundColor:
@@ -137,18 +149,8 @@ const Index = () => {
           onClick={() => setSelectedMenu("EDIT_PDF")}
         >
           Edit Pdf
-        </div>
-        <div
-          style={{
-            ...navStyle,
-            backgroundColor:
-              selectedMenu === "ROOT_WORDS" ? "lightSkyBlue" : "darkOrange",
-          }}
-          onClick={() => setSelectedMenu("ROOT_WORDS")}
-        >
-          Root Words
-        </div>
-        <div
+        </div> */}
+        {/* <div
           style={{
             ...navStyle,
             backgroundColor:
@@ -157,7 +159,7 @@ const Index = () => {
           onClick={() => setSelectedMenu("CSE_PYQ")}
         >
           CSE PYQ
-        </div>
+        </div> */}
       </div>
       {getItem()}
 
